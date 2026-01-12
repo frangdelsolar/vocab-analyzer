@@ -8,12 +8,11 @@ const DialogueViewer = ({ dialogues, vocabData }) => {
         [selectedId, dialogues]
     );
 
-    // Analyze the dialogue against your vocabulary list
     const analysis = useMemo(() => {
         if (!activeDialogue || !vocabData) return null;
 
         const allChars = activeDialogue.content
-            .map((line) => line.text)
+            .map((item) => item.text)
             .join('');
         const uniqueChars = [
             ...new Set(allChars.replace(/[，。？！、：]/g, '')),
@@ -39,7 +38,7 @@ const DialogueViewer = ({ dialogues, vocabData }) => {
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Sidebar: List of Dialogues */}
+            {/* Sidebar */}
             <div className="lg:col-span-1 space-y-3">
                 <h3 className="text-slate-500 text-xs font-bold uppercase tracking-widest px-2">
                     Available Texts
@@ -56,10 +55,10 @@ const DialogueViewer = ({ dialogues, vocabData }) => {
                     >
                         <div className="flex justify-between items-start">
                             <span className="text-[10px] opacity-80 font-mono">
-                                ID: {d.dialogue_id}
+                                {d.dialogue_id}
                             </span>
                             <span className="text-[10px] bg-black/10 px-1.5 py-0.5 rounded">
-                                L{d.lesson}
+                                {d.participants ? 'Dialogue' : 'Reading'}
                             </span>
                         </div>
                         <div className="font-bold mt-1 truncate">{d.title}</div>
@@ -67,11 +66,10 @@ const DialogueViewer = ({ dialogues, vocabData }) => {
                 ))}
             </div>
 
-            {/* Main View: Dialogue Reader */}
+            {/* Main Content */}
             <div className="lg:col-span-2">
                 {activeDialogue ? (
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                        {/* Analysis Header */}
                         <div className="bg-slate-800 p-6 text-white">
                             <h2 className="text-2xl font-black">
                                 {activeDialogue.title}
@@ -88,44 +86,72 @@ const DialogueViewer = ({ dialogues, vocabData }) => {
                                 <div className="h-10 w-[1px] bg-white/10"></div>
                                 <div>
                                     <div className="text-[10px] uppercase opacity-60 mb-1">
-                                        New Characters to Study:
+                                        New Characters:
                                     </div>
                                     <div className="flex flex-wrap gap-1">
-                                        {analysis.missing.map((c) => (
-                                            <span
-                                                key={c}
-                                                className="bg-orange-500/20 text-orange-300 px-1 rounded text-xs"
-                                            >
-                                                {c}
+                                        {analysis.missing.length > 0 ? (
+                                            analysis.missing.map((c) => (
+                                                <span
+                                                    key={c}
+                                                    className="bg-orange-500/20 text-orange-300 px-1 rounded text-xs"
+                                                >
+                                                    {c}
+                                                </span>
+                                            ))
+                                        ) : (
+                                            <span className="text-green-400 text-xs">
+                                                All characters known!
                                             </span>
-                                        ))}
+                                        )}
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Script Body */}
-                        <div className="p-6 space-y-8 max-h-[600px] overflow-y-auto bg-slate-50/50">
-                            {activeDialogue.content.map((line, idx) => (
-                                <div key={idx} className="flex flex-col gap-1">
-                                    <span className="text-[10px] font-black text-blue-600 uppercase tracking-tighter">
-                                        {line.speaker}
-                                    </span>
-                                    <div className="group">
-                                        <p className="text-slate-400 text-sm font-serif italic mb-1 group-hover:text-slate-600 transition-colors">
-                                            {line.pinyin}
-                                        </p>
-                                        <p className="text-3xl font-medium text-slate-900 leading-relaxed">
-                                            {line.text}
-                                        </p>
+                        <div className="p-6 space-y-6 max-h-[600px] overflow-y-auto bg-slate-50/50">
+                            {activeDialogue.content.map((item, idx) => {
+                                const isDialogue = !!item.speaker;
+
+                                return (
+                                    <div
+                                        key={idx}
+                                        className={`flex flex-col ${
+                                            isDialogue ? 'gap-1' : 'gap-3'
+                                        }`}
+                                    >
+                                        {isDialogue && (
+                                            <span className="text-[10px] font-black text-blue-600 uppercase">
+                                                {item.speaker}
+                                            </span>
+                                        )}
+                                        <div className="group">
+                                            {item.pinyin && (
+                                                <p className="text-slate-400 text-sm font-serif italic mb-1 group-hover:text-slate-600 transition-colors">
+                                                    {item.pinyin}
+                                                </p>
+                                            )}
+                                            <p
+                                                className={`${
+                                                    isDialogue
+                                                        ? 'text-3xl'
+                                                        : 'text-xl leading-relaxed text-justify'
+                                                } font-medium text-slate-900`}
+                                            >
+                                                {isDialogue
+                                                    ? item.text
+                                                    : `　　${item.text}`}
+                                            </p>
+                                        </div>
+                                        {!isDialogue && <div className="h-2" />}{' '}
+                                        {/* Extra space between paragraphs */}
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 ) : (
                     <div className="h-full min-h-[400px] flex items-center justify-center border-2 border-dashed border-slate-200 rounded-2xl text-slate-400 italic">
-                        Select a dialogue from the list to start reading
+                        Select a dialogue or reading from the list to start
                     </div>
                 )}
             </div>

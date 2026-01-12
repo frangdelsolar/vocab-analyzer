@@ -7,9 +7,17 @@ import DialogueViewer from './components/DialogueViewer';
 const dialogueFiles = import.meta.glob('../data/dialogues/*.json', {
     eager: true,
 });
+
 const dialoguesData = Object.values(dialogueFiles)
     .map((file) => file.default || file)
-    .sort((a, b) => a.dialogue_id.localeCompare(b.dialogue_id));
+    // Filter out any files that don't have the required ID property
+    .filter((d) => d && d.dialogue_id)
+    .sort((a, b) => {
+        // Robust sort that handles potential missing IDs
+        const idA = a.dialogue_id || '';
+        const idB = b.dialogue_id || '';
+        return idA.localeCompare(idB);
+    });
 
 function App() {
     const [search, setSearch] = useState('');
