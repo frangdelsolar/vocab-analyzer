@@ -1,1 +1,15 @@
-Please transcribe the Chinese dialogue from this image into a JSON format. Ensure you include the lesson number, a dialogue_id (in XX-YY format), a title, and a list of participants. For the content array, provide each line with the following keys: speaker, text (Hanzi). Do not include English translations in the JSON unless they are part of the original text.
+Please transcribe the Chinese text from this image into a JSON format. Use the following structure based on the content type:
+
+For Dialogues: Include lesson_number, dialogue_id (XX-YY), title, participants (list), and a content array where each object has the keys speaker and text (Hanzi).
+
+For Readings/Short Stories: Include lesson_number, dialogue_id (XX-YY), title, and a content array where each object has the keys paragraph (number) and text (Hanzi).
+
+Strict Requirements:
+
+Do not include English translations in the JSON unless they are part of the original printed text (e.g., bracketed actions or headers).
+
+Ensure all Hanzi characters accurately reflect the image.
+
+Maintain the XX-YY ID format for consistency across your records.
+
+dialogue_id is either reading or dialogue
