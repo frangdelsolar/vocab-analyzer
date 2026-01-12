@@ -1,0 +1,1 @@
+Please transcribe the Chinese dialogue from this image into a JSON format. Ensure you include the lesson number, a dialogue_id (in XX-YY format), a title, and a list of participants. For the content array, provide each line with the following keys: speaker, text (Hanzi). Do not include English translations in the JSON unless they are part of the original text.

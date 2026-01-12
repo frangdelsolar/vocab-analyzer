@@ -1,0 +1,43 @@
+{
+    "lesson": 4,
+    "dialogue_id": "04-01",
+    "title": "買東西",
+    "participants": ["老闆", "明華"],
+    "content": [
+        {
+            "speaker": "老闆",
+            "text": "請問你要買什麼？",
+            "pinyin": "Qǐngwèn nǐ yào mǎi shénme?"
+        },
+        {
+            "speaker": "明華",
+            "text": "一杯熱咖啡。兩個包子。",
+            "pinyin": "Yì bēi rè kāfēi. Liǎng ge bāozi."
+        },
+        {
+            "speaker": "老闆",
+            "text": "你要大杯、中杯還是小杯？",
+            "pinyin": "Nǐ yào dà bēi, zhōng bēi háishì xiǎo bēi?"
+        },
+        {
+            "speaker": "明華",
+            "text": "大杯。包子請幫我微波。",
+            "pinyin": "Dà bēi. Bāozi qǐng bāng wǒ wéibō."
+        },
+        {
+            "speaker": "老闆",
+            "text": "好的。請問外帶還是內用？",
+            "pinyin": "Hǎode. Qǐngwèn wàidài háishì nèiyòng?"
+        },
+        {
+            "speaker": "明華",
+            "text": "外帶，一共多少錢？",
+            "pinyin": "Wàidài, yígòng duōshǎo qián?"
+        },
+        {
+            "speaker": "老闆",
+            "text": "咖啡八十，包子四十，一共一百二十塊。",
+            "pinyin": "Kāfēi bāshí, bāozi sìshí, yígòng yìbǎi èrshí kuài."
+        }
+    ]
+}

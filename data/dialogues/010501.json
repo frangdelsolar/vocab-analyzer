@@ -1,0 +1,48 @@
+{
+    "lesson_number": 5,
+    "title": "請問一共多少錢？",
+    "dialogue_id": "05-01",
+    "participants": ["月美 (Yuèměi)", "明華 (Mínghuá)"],
+    "content": [
+        {
+            "speaker": "月美",
+            "text": "很多人都說臺灣有不少有名的小吃。",
+            "pinyin": "Hěn duō rén dōu shuō Táiwān yǒu bù shǎo yǒumíng de xiǎochī."
+        },
+        {
+            "speaker": "明華",
+            "text": "是啊！牛肉麵、小籠包、臭豆腐…都很好吃。",
+            "pinyin": "Shì a! Niúròu miàn, xiǎolóngbāo, chòu dòufǔ... dōu hěn hǎochī."
+        },
+        {
+            "speaker": "月美",
+            "text": "你最喜歡吃什麼？",
+            "pinyin": "Nǐ zuì xǐhuān chī shénme?"
+        },
+        {
+            "speaker": "明華",
+            "text": "牛肉麵。牛肉好吃，湯也好喝。",
+            "pinyin": "Niúròu miàn. Niúròu hǎochī, tāng yě hǎohē."
+        },
+        {
+            "speaker": "月美",
+            "text": "這麼好吃，我很想吃。",
+            "pinyin": "Zhème hǎochī, wǒ hěn xiǎng chī."
+        },
+        {
+            "speaker": "明華",
+            "text": "我知道一家有名的牛肉麵店，我們一起去吃，怎麼樣？",
+            "pinyin": "Wǒ zhīdào yì jiā yǒumíng de niúròu miàn diàn. Wǒmen yìqǐ qù chī, zěnmeyàng?"
+        },
+        {
+            "speaker": "月美",
+            "text": "太好了！",
+            "pinyin": "Tài hǎo le!"
+        },
+        {
+            "speaker": "明華",
+            "text": "我們明天去。一定要點大碗的。",
+            "pinyin": "Wǒmen mingtian qù. Yídìng yào diǎn dà wǎn de."
+        }
+    ]
+}
