@@ -1,0 +1,1142 @@
+[
+  {
+    "id": "01-01-01-0",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "陳月美",
+    "pinyin": "Yuèměi",
+    "pos": "N",
+    "translation": "Vietnam)"
+  },
+  {
+    "id": "01-01-01-1",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "李明華",
+    "pinyin": "Mínghuá",
+    "pos": "N",
+    "translation": "Taiwan)"
+  },
+  {
+    "id": "01-01-01-2",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "王開文",
+    "pinyin": "Kāiwén",
+    "pos": "N",
+    "translation": "US)"
+  },
+  {
+    "id": "01-01-01-3",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "你",
+    "pinyin": "nǐ",
+    "pos": "N",
+    "translation": "you"
+  },
+  {
+    "id": "01-01-01-4",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "來",
+    "pinyin": "lái",
+    "pos": "V",
+    "translation": "come"
+  },
+  {
+    "id": "01-01-01-5",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "是",
+    "pinyin": "shì",
+    "pos": "Vst",
+    "translation": "be"
+  },
+  {
+    "id": "01-01-01-6",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "小姐",
+    "pinyin": "xiǎojiě",
+    "pos": "N",
+    "translation": "Miss/Ms."
+  },
+  {
+    "id": "01-01-01-7",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "嗎",
+    "pinyin": "ma",
+    "pos": "Ptc",
+    "translation": "question)"
+  },
+  {
+    "id": "01-01-01-8",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "接",
+    "pinyin": "jiē",
+    "pos": "V",
+    "translation": "up"
+  },
+  {
+    "id": "01-01-01-9",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "我們",
+    "pinyin": "wǒmen",
+    "pos": "N",
+    "translation": "we/us"
+  },
+  {
+    "id": "01-01-01-10",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "pos": "N",
+    "translation": "I/me"
+  },
+  {
+    "id": "01-01-01-11",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "這",
+    "pinyin": "zhè/zhèi",
+    "pos": "Det",
+    "translation": "this"
+  },
+  {
+    "id": "01-01-01-12",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "先生",
+    "pinyin": "xiānshēng",
+    "pos": "N",
+    "translation": "Mr./sir/gentleman/husband"
+  },
+  {
+    "id": "01-01-01-13",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "好",
+    "pinyin": "hǎo",
+    "pos": "Vs",
+    "translation": "fine/well/good"
+  },
+  {
+    "id": "01-01-01-14",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "姓",
+    "pinyin": "xìng",
+    "pos": "Vst",
+    "translation": "surnamed"
+  },
+  {
+    "id": "01-01-01-15",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "叫",
+    "pinyin": "jiào",
+    "pos": "Vst",
+    "translation": "name)"
+  },
+  {
+    "id": "01-01-01-16",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "你們",
+    "pinyin": "nǐmen",
+    "pos": "N",
+    "translation": "(plural)"
+  },
+  {
+    "id": "01-01-01-17",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "臺灣/台灣",
+    "pinyin": "Táiwān",
+    "pos": "N",
+    "translation": "Taiwan"
+  },
+  {
+    "id": "01-01-01-18",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "歡迎",
+    "pinyin": "huānyíng",
+    "pos": "V",
+    "translation": "welcome"
+  },
+  {
+    "id": "01-01-01-19",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "請問",
+    "pinyin": "qǐngwèn",
+    "pos": "Phrase",
+    "translation": "me..."
+  },
+  {
+    "id": "01-01-01-20",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "是的",
+    "pinyin": "shìde",
+    "pos": "Phrase",
+    "translation": "(formal)"
+  },
+  {
+    "id": "01-01-01-21",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "謝謝",
+    "pinyin": "xièxie",
+    "pos": "V",
+    "translation": "you"
+  },
+  {
+    "id": "01-01-01-22",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "不客氣",
+    "pinyin": "kèqì",
+    "pos": "Phrase",
+    "translation": "welcome"
+  },
+  {
+    "id": "01-01-01-23",
+    "book": 1,
+    "lesson": 1,
+    "list": 1,
+    "hanzi": "你好",
+    "pinyin": "hǎo",
+    "pos": "Phrase",
+    "translation": "you"
+  },
+  {
+    "id": "01-01-02-0",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "請",
+    "pinyin": "qǐng",
+    "pos": "V",
+    "translation": "please"
+  },
+  {
+    "id": "01-01-02-1",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "喝",
+    "pinyin": "hē",
+    "pos": "V",
+    "translation": "drink"
+  },
+  {
+    "id": "01-01-02-2",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "茶",
+    "pinyin": "chá",
+    "pos": "N",
+    "translation": "tea"
+  },
+  {
+    "id": "01-01-02-3",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "很",
+    "pinyin": "hěn",
+    "pos": "Adv",
+    "translation": "very"
+  },
+  {
+    "id": "01-01-02-4",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "好喝",
+    "pinyin": "hǎohē",
+    "pos": "Vs",
+    "translation": "(tasty)"
+  },
+  {
+    "id": "01-01-02-5",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "什麼",
+    "pinyin": "shénme",
+    "pos": "N",
+    "translation": "what"
+  },
+  {
+    "id": "01-01-02-6",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "人",
+    "pinyin": "rén",
+    "pos": "N",
+    "translation": "person/people"
+  },
+  {
+    "id": "01-01-02-7",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "喜歡",
+    "pinyin": "xǐhuān",
+    "pos": "Vst",
+    "translation": "like"
+  },
+  {
+    "id": "01-01-02-8",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "呢",
+    "pinyin": "ne",
+    "pos": "Ptc",
+    "translation": "questions)"
+  },
+  {
+    "id": "01-01-02-9",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "他",
+    "pinyin": "tā",
+    "pos": "N",
+    "translation": "he/him"
+  },
+  {
+    "id": "01-01-02-10",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "不",
+    "pinyin": "bù",
+    "pos": "Adv",
+    "translation": "not"
+  },
+  {
+    "id": "01-01-02-11",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "哪",
+    "pinyin": "nǎ/něi",
+    "pos": "Det",
+    "translation": "which"
+  },
+  {
+    "id": "01-01-02-12",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "要",
+    "pinyin": "yào",
+    "pos": "Vaux",
+    "translation": "to"
+  },
+  {
+    "id": "01-01-02-13",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "咖啡",
+    "pinyin": "kāfēi",
+    "pos": "N",
+    "translation": "coffee"
+  },
+  {
+    "id": "01-01-02-14",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "烏龍茶",
+    "pinyin": "chá",
+    "pos": "N",
+    "translation": "tea"
+  },
+  {
+    "id": "01-01-02-15",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "日本",
+    "pinyin": "Rìběn",
+    "pos": "N",
+    "translation": "Japan"
+  },
+  {
+    "id": "01-01-02-16",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "美國",
+    "pinyin": "Měiguó",
+    "pos": "N",
+    "translation": "States"
+  },
+  {
+    "id": "01-01-02-17",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "對不起",
+    "pinyin": "duìbùqǐ",
+    "pos": "Phrase",
+    "translation": "sorry"
+  },
+  {
+    "id": "01-01-02-18",
+    "book": 1,
+    "lesson": 1,
+    "list": 2,
+    "hanzi": "哪國",
+    "pinyin": "guó",
+    "pos": "Phrase",
+    "translation": "country"
+  },
+  {
+    "id": "01-02-01-2",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "的",
+    "pinyin": "de",
+    "pos": "Ptc",
+    "translation": "marker"
+  },
+  {
+    "id": "01-02-01-3",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "家人",
+    "pinyin": "jiārén",
+    "pos": "N",
+    "translation": "(members)"
+  },
+  {
+    "id": "01-02-01-4",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "家",
+    "pinyin": "jiā",
+    "pos": "N",
+    "translation": "house"
+  },
+  {
+    "id": "01-02-01-5",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "漂亮",
+    "pinyin": "piàoliang",
+    "pos": "Vs",
+    "translation": "pretty"
+  },
+  {
+    "id": "01-02-01-6",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "房子",
+    "pinyin": "fángzi",
+    "pos": "N",
+    "translation": "house"
+  },
+  {
+    "id": "01-02-01-7",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "坐",
+    "pinyin": "zuò",
+    "pos": "Vi",
+    "translation": "sit"
+  },
+  {
+    "id": "01-02-01-8",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "好",
+    "pinyin": "hǎo",
+    "pos": "Ptc",
+    "translation": "OK"
+  },
+  {
+    "id": "01-02-01-9",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "有",
+    "pinyin": "yǒu",
+    "pos": "Vst",
+    "translation": "have"
+  },
+  {
+    "id": "01-02-01-10",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "多",
+    "pinyin": "duō",
+    "pos": "Vs-pred",
+    "translation": "many"
+  },
+  {
+    "id": "01-02-01-11",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "照片",
+    "pinyin": "zhàopiàn",
+    "pos": "N",
+    "translation": "photo"
+  },
+  {
+    "id": "01-02-01-12",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "都",
+    "pinyin": "dōu",
+    "pos": "Adv",
+    "translation": "both"
+  },
+  {
+    "id": "01-02-01-13",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "照相",
+    "pinyin": "zhàoxiàng",
+    "pos": "V-sep",
+    "translation": "photo"
+  },
+  {
+    "id": "01-02-01-14",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "張",
+    "pinyin": "zhāng",
+    "pos": "M",
+    "translation": "(e.g."
+  },
+  {
+    "id": "01-02-01-15",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "好看",
+    "pinyin": "hǎokàn",
+    "pos": "Vs",
+    "translation": "good-looking"
+  },
+  {
+    "id": "01-02-01-16",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "誰",
+    "pinyin": "shéi",
+    "pos": "N",
+    "translation": "who"
+  },
+  {
+    "id": "01-02-01-17",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "姐姐",
+    "pinyin": "jiějie",
+    "pos": "N",
+    "translation": "sister"
+  },
+  {
+    "id": "01-02-01-18",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "妹妹",
+    "pinyin": "mèimei",
+    "pos": "N",
+    "translation": "sister"
+  },
+  {
+    "id": "01-02-01-19",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "爸爸",
+    "pinyin": "bàba",
+    "pos": "N",
+    "translation": "dad"
+  },
+  {
+    "id": "01-02-01-20",
+    "book": 1,
+    "lesson": 2,
+    "list": 1,
+    "hanzi": "媽媽",
+    "pinyin": "māma",
+    "pos": "N",
+    "translation": "mom"
+  },
+  {
+    "id": "01-02-02-1",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "伯母",
+    "pinyin": "bómǔ",
+    "pos": "N",
+    "translation": "age"
+  },
+  {
+    "id": "01-02-02-2",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "您",
+    "pinyin": "nín",
+    "pos": "N",
+    "translation": "(honorific)"
+  },
+  {
+    "id": "01-02-02-3",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "名字",
+    "pinyin": "míngzi",
+    "pos": "N",
+    "translation": "name"
+  },
+  {
+    "id": "01-02-02-4",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "書",
+    "pinyin": "shū",
+    "pos": "N",
+    "translation": "book"
+  },
+  {
+    "id": "01-02-02-5",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "哥哥",
+    "pinyin": "gēge",
+    "pos": "N",
+    "translation": "brother"
+  },
+  {
+    "id": "01-02-02-6",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "老師",
+    "pinyin": "lǎoshī",
+    "pos": "N",
+    "translation": "teacher"
+  },
+  {
+    "id": "01-02-02-7",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "看書",
+    "pinyin": "kànshū",
+    "pos": "V-sep",
+    "translation": "read"
+  },
+  {
+    "id": "01-02-02-8",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "幾",
+    "pinyin": "jǐ",
+    "pos": "N",
+    "translation": "many"
+  },
+  {
+    "id": "01-02-02-9",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "個",
+    "pinyin": "ge",
+    "pos": "M",
+    "translation": "word"
+  },
+  {
+    "id": "01-02-02-10",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "沒",
+    "pinyin": "méi",
+    "pos": "Adv",
+    "translation": "not"
+  },
+  {
+    "id": "01-02-02-11",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "兄弟",
+    "pinyin": "xiōngdì",
+    "pos": "N",
+    "translation": "brothers"
+  },
+  {
+    "id": "01-02-02-12",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "姐妹",
+    "pinyin": "jiěmèi",
+    "pos": "N",
+    "translation": "sisters"
+  },
+  {
+    "id": "01-02-02-13",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "五",
+    "pinyin": "wǔ",
+    "pos": "N",
+    "translation": "five"
+  },
+  {
+    "id": "01-02-02-14",
+    "book": 1,
+    "lesson": 2,
+    "list": 2,
+    "hanzi": "兩",
+    "pinyin": "liǎng",
+    "pos": "N",
+    "translation": "two"
+  },
+  {
+    "id": "01-03-01-0",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "週末",
+    "pinyin": "zhōumò",
+    "pos": "(N)",
+    "translation": "weekend"
+  },
+  {
+    "id": "01-03-01-1",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "聽",
+    "pinyin": "tīng",
+    "pos": "(V)",
+    "translation": "listen"
+  },
+  {
+    "id": "01-03-01-2",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "音樂",
+    "pinyin": "yīnyuè",
+    "pos": "(N)",
+    "translation": "music"
+  },
+  {
+    "id": "01-03-01-3",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "運動",
+    "pinyin": "yùndòng",
+    "pos": "(Vi)",
+    "translation": "exercise"
+  },
+  {
+    "id": "01-03-01-4",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "打",
+    "pinyin": "dǎ",
+    "pos": "(V)",
+    "translation": "games)"
+  },
+  {
+    "id": "01-03-01-5",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "網球",
+    "pinyin": "wǎngqiú",
+    "pos": "(N)",
+    "translation": "tennis"
+  },
+  {
+    "id": "01-03-01-6",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "棒球",
+    "pinyin": "bàngqiú",
+    "pos": "(N)",
+    "translation": "baseball"
+  },
+  {
+    "id": "01-03-01-7",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "和",
+    "pinyin": "hàn",
+    "pos": "(Conj)",
+    "translation": "and, as well as"
+  },
+  {
+    "id": "01-03-01-8",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "游泳",
+    "pinyin": "yóuyǒng",
+    "pos": "(V-sep)",
+    "translation": "swim"
+  },
+  {
+    "id": "01-03-01-9",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "常",
+    "pinyin": "cháng",
+    "pos": "(Adv)",
+    "translation": "often"
+  },
+  {
+    "id": "01-03-01-10",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "籃球",
+    "pinyin": "lánqiú",
+    "pos": "(N)",
+    "translation": "basketball"
+  },
+  {
+    "id": "01-03-01-11",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "也",
+    "pinyin": "yě",
+    "pos": "(Adv)",
+    "translation": "also"
+  },
+  {
+    "id": "01-03-01-12",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "踢",
+    "pinyin": "tī",
+    "pos": "(V)",
+    "translation": "kick"
+  },
+  {
+    "id": "01-03-01-13",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "足球",
+    "pinyin": "zúqiú",
+    "pos": "(N)",
+    "translation": "soccer"
+  },
+  {
+    "id": "01-03-01-14",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "覺得",
+    "pinyin": "juéde",
+    "pos": "(Vst)",
+    "translation": "to feel, to think"
+  },
+  {
+    "id": "01-03-01-15",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "好玩",
+    "pinyin": "hǎowán",
+    "pos": "(Vs)",
+    "translation": "interesting, fun"
+  },
+  {
+    "id": "01-03-01-16",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "明天",
+    "pinyin": "míngtiān",
+    "pos": "(N)",
+    "translation": "tomorrow"
+  },
+  {
+    "id": "01-03-01-17",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "早上",
+    "pinyin": "zǎoshàng",
+    "pos": "(N)",
+    "translation": "morning"
+  },
+  {
+    "id": "01-03-01-18",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "去",
+    "pinyin": "qù",
+    "pos": "(V)",
+    "translation": "go"
+  },
+  {
+    "id": "01-03-01-19",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "怎麼樣",
+    "pinyin": "zěnmeyàng",
+    "pos": "(Vs)",
+    "translation": "How about it? How does that sound? What do you think?"
+  },
+  {
+    "id": "01-03-01-20",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "啊",
+    "pinyin": "a",
+    "pos": "(Ptc)",
+    "translation": "particle"
+  },
+  {
+    "id": "01-03-01-21",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "做什麼",
+    "pinyin": "shénme",
+    "pos": "Phrase",
+    "translation": "what"
+  },
+  {
+    "id": "01-03-01-22",
+    "book": 1,
+    "lesson": 3,
+    "list": 1,
+    "hanzi": "好啊",
+    "pinyin": "a",
+    "pos": "Phrase",
+    "translation": "OK"
+  },
+  {
+    "id": "01-03-02-1",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "今天",
+    "pinyin": "jīntiān",
+    "pos": "(N)",
+    "translation": "today"
+  },
+  {
+    "id": "01-03-02-2",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "晚上",
+    "pinyin": "wǎnshàng",
+    "pos": "(N)",
+    "translation": "evening, night"
+  },
+  {
+    "id": "01-03-02-3",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "看",
+    "pinyin": "kàn",
+    "pos": "(V)",
+    "translation": "to see, to watch"
+  },
+  {
+    "id": "01-03-02-4",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "電影",
+    "pinyin": "diànyǐng",
+    "pos": "(N)",
+    "translation": "movie"
+  },
+  {
+    "id": "01-03-02-5",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "妳",
+    "pinyin": "nǐ",
+    "pos": "(N)",
+    "translation": "(female)"
+  },
+  {
+    "id": "01-03-02-6",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "想",
+    "pinyin": "xiǎng",
+    "pos": "(Vaux)",
+    "translation": "to want, to think"
+  },
+  {
+    "id": "01-03-02-7",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "還是",
+    "pinyin": "háishì",
+    "pos": "(Conj)",
+    "translation": "question)"
+  },
+  {
+    "id": "01-03-02-8",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "吧",
+    "pinyin": "ba",
+    "pos": "(Ptc)",
+    "translation": "suggestion"
+  },
+  {
+    "id": "01-03-02-9",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "可以",
+    "pinyin": "kěyǐ",
+    "pos": "(Vaux)",
+    "translation": "(possibility)"
+  },
+  {
+    "id": "01-03-02-10",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "學",
+    "pinyin": "xué",
+    "pos": "(V)",
+    "translation": "to learn, to study"
+  },
+  {
+    "id": "01-03-02-11",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "中文",
+    "pinyin": "Zhōngwén",
+    "pos": "(N)",
+    "translation": "language"
+  },
+  {
+    "id": "01-03-02-12",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "一起",
+    "pinyin": "yìqǐ",
+    "pos": "(Adv)",
+    "translation": "together"
+  },
+  {
+    "id": "01-03-02-13",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "吃",
+    "pinyin": "chī",
+    "pos": "(V)",
+    "translation": "eat"
+  },
+  {
+    "id": "01-03-02-14",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "晚飯",
+    "pinyin": "wǎnfàn",
+    "pos": "(N)",
+    "translation": "dinner"
+  },
+  {
+    "id": "01-03-02-15",
+    "book": 1,
+    "lesson": 3,
+    "list": 2,
+    "hanzi": "菜",
+    "pinyin": "cài",
+    "pos": "(N)",
+    "translation": "cuisine"
+  }
+]

@@ -1,0 +1,58 @@
+{
+    "lesson": 3,
+    "dialogue_id": "03-01",
+    "title": "週末做什麼？",
+    "participants": ["安同 (Āntóng)", "田中 (Tiánzhōng)"],
+    "content": [
+        {
+            "speaker": "安同",
+            "text": "田中，你喜歡聽音樂嗎？",
+            "pinyin": "Tiánzhōng, nǐ xǐhuān tīng yīnyuè ma?"
+        },
+        {
+            "speaker": "田中",
+            "text": "我不喜歡聽音樂。我喜歡運動。",
+            "pinyin": "Wǒ bù xǐhuān tīng yīnyuè. Wǒ xǐhuān yùndòng."
+        },
+        {
+            "speaker": "安同",
+            "text": "你喜歡打網球嗎？",
+            "pinyin": "Nǐ xǐhuān dǎ wǎngqiú ma?"
+        },
+        {
+            "speaker": "田中",
+            "text": "我不喜歡打網球。",
+            "pinyin": "Wǒ bù xǐhuān dǎ wǎngqiú."
+        },
+        {
+            "speaker": "安同",
+            "text": "你喜歡做什麼？",
+            "pinyin": "Nǐ xǐhuān zuò shénme?"
+        },
+        {
+            "speaker": "田中",
+            "text": "打棒球和游泳，你呢？",
+            "pinyin": "Dǎ bàngqiú hàn yóuyǒng, nǐ ne?"
+        },
+        {
+            "speaker": "安同",
+            "text": "我常打籃球，也常踢足球。",
+            "pinyin": "Wǒ cháng dǎ lánqiú, yě cháng tī zúqiú."
+        },
+        {
+            "speaker": "田中",
+            "text": "我覺得踢足球很好玩。",
+            "pinyin": "Wǒ juéde tī zúqiú hěn hǎowán."
+        },
+        {
+            "speaker": "安同",
+            "text": "明天是週末，我們早上去踢足球，怎麼樣？",
+            "pinyin": "Míngtiān shì zhōumò. Wǒmen zǎoshàng qù tī zúqiú, zěnmeyàng?"
+        },
+        {
+            "speaker": "田中",
+            "text": "好啊！",
+            "pinyin": "Hǎo a!"
+        }
+    ]
+}

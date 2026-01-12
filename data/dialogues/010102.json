@@ -1,0 +1,48 @@
+{
+    "lesson": 1,
+    "dialogue_id": "01-02",
+    "title": "請問這是什麼茶？",
+    "participants": ["明華 (Mínghuá)", "開文 (Kāiwén)", "月美 (Yuèměi)"],
+    "content": [
+        {
+            "speaker": "明華",
+            "text": "請喝茶。",
+            "pinyin": "Qǐng hē chá."
+        },
+        {
+            "speaker": "開文",
+            "text": "謝謝。很好喝。請問這是什麼茶？",
+            "pinyin": "Xièxie. Hěn hǎohē. Qǐngwèn zhè shì shénme chá?"
+        },
+        {
+            "speaker": "明華",
+            "text": "這是烏龍茶。臺灣人喜歡喝茶。開文，你們日本人呢？",
+            "pinyin": "Zhè shì Wūlóng chá. Táiwān rén xǐhuān hē chá. Kāiwén, nǐmen Rìběn rén ne?"
+        },
+        {
+            "speaker": "月美",
+            "text": "他不是日本人。",
+            "pinyin": "Tā bú shì Rìběn rén."
+        },
+        {
+            "speaker": "明華",
+            "text": "對不起，你是哪國人？",
+            "pinyin": "Duìbùqǐ, nǐ shì nǎ guó rén?"
+        },
+        {
+            "speaker": "開文",
+            "text": "我是美國人。",
+            "pinyin": "Wǒ shì Měiguó rén."
+        },
+        {
+            "speaker": "明華",
+            "text": "開文，你要不要喝咖啡？",
+            "pinyin": "Kāiwén, nǐ yào bú yào hē kāfēi?"
+        },
+        {
+            "speaker": "開文",
+            "text": "謝謝！我不喝咖啡，我喜歡喝茶。",
+            "pinyin": "Xièxie! Wǒ bù hē kāfēi, wǒ xǐhuān hē chá."
+        }
+    ]
+}

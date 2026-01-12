@@ -1,0 +1,48 @@
+{
+    "lesson": 3,
+    "dialogue_id": "03-02",
+    "title": "去看電影",
+    "participants": ["如玉 (Rúyù)", "月美 (Yuèměi)"],
+    "content": [
+        {
+            "speaker": "如玉",
+            "text": "今天晚上我們去看電影，好不好？",
+            "pinyin": "Jīntiān wǎnshàng wǒmen qù kàn diànyǐng, hǎo bù hǎo?"
+        },
+        {
+            "speaker": "月美",
+            "text": "好啊！",
+            "pinyin": "Hǎo a!"
+        },
+        {
+            "speaker": "如玉",
+            "text": "妳想看美國電影還是臺灣電影？",
+            "pinyin": "Nǐ xiǎng kàn Měiguó diànyǐng háishì Táiwān diànyǐng?"
+        },
+        {
+            "speaker": "月美",
+            "text": "美國電影、臺灣電影，我都想看。",
+            "pinyin": "Měiguó diànyǐng, Táiwān diànyǐng, wǒ dōu xiǎng kàn."
+        },
+        {
+            "speaker": "如玉",
+            "text": "我們看臺灣電影吧！",
+            "pinyin": "Wǒmen kàn Táiwān diànyǐng ba!"
+        },
+        {
+            "speaker": "月美",
+            "text": "好啊！看電影可以學中文。",
+            "pinyin": "Hǎo a! Kàn diànyǐng kěyǐ xué Zhōngwén."
+        },
+        {
+            "speaker": "如玉",
+            "text": "晚上要不要一起吃晚飯？",
+            "pinyin": "Wǎnshàng yào bú yào yìqǐ chī wǎnfàn?"
+        },
+        {
+            "speaker": "月美",
+            "text": "好，我們去吃越南菜。",
+            "pinyin": "Hǎo, wǒmen qù chī Yuènán cài."
+        }
+    ]
+}

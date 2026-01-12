@@ -1,0 +1,48 @@
+{
+    "lesson": 2,
+    "dialogue_id": "02-01",
+    "title": "這是我家",
+    "participants": ["怡君 (Yíjūn)", "安同 (Āntóng)"],
+    "content": [
+        {
+            "speaker": "怡君",
+            "text": "這是我家。請進！",
+            "pinyin": "Zhè shì wǒ jiā. Qǐng jìn!"
+        },
+        {
+            "speaker": "安同",
+            "text": "很漂亮的房子！",
+            "pinyin": "Hěn piàoliàng de fángzi!"
+        },
+        {
+            "speaker": "怡君",
+            "text": "請坐！要不要喝茶？",
+            "pinyin": "Qǐng zuò! Yào bú yào hē chá?"
+        },
+        {
+            "speaker": "安同",
+            "text": "好，謝謝你。你家有很多照片。",
+            "pinyin": "Hǎo, xièxie nǐ. Nǐ jiā yǒu hěn duō zhàopiàn."
+        },
+        {
+            "speaker": "怡君",
+            "text": "我家人都很喜歡照相。",
+            "pinyin": "Wǒ jiārén dōu hěn xǐhuān zhàoxiàng."
+        },
+        {
+            "speaker": "安同",
+            "text": "這張照片很好看。這是誰？你姐姐嗎？",
+            "pinyin": "Zhè zhāng zhàopiàn hěn hǎokàn. Zhè shì shéi? Nǐ jiějie ma?"
+        },
+        {
+            "speaker": "怡君",
+            "text": "不是，是我妹妹。這是我爸爸、媽媽。",
+            "pinyin": "Bú shì, shì wǒ mèimei. Zhè shì wǒ bàba, māma."
+        },
+        {
+            "speaker": "安同",
+            "text": "你家人都很好看。",
+            "pinyin": "Nǐ jiārén dōu hěn hǎokàn."
+        }
+    ]
+}

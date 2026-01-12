@@ -1,0 +1,38 @@
+{
+    "lesson": 1,
+    "dialogue_id": "01-01",
+    "title": "歡迎你們來臺灣 (Welcome to Taiwan)",
+    "participants": ["明華 (Mínghuá)", "月美 (Yuèměi)", "開文 (Kāiwén)"],
+    "content": [
+        {
+            "speaker": "明華",
+            "text": "請問你是陳月美小姐嗎？",
+            "pinyin": "Qǐngwèn nǐ shì Chén Yuèměi xiǎojiě ma?"
+        },
+        {
+            "speaker": "月美",
+            "text": "是的。謝謝你來接我們。",
+            "pinyin": "Shìde. Xièxie nǐ lái jiē wǒmen."
+        },
+        {
+            "speaker": "明華",
+            "text": "不客氣。我是李明華。",
+            "pinyin": "Búkèqì. Wǒ shì Lǐ Mínghuá."
+        },
+        {
+            "speaker": "月美",
+            "text": "這是王先生。",
+            "pinyin": "Zhè shì Wáng Xiānshēng."
+        },
+        {
+            "speaker": "開文",
+            "text": "你好。我姓王，叫開文。",
+            "pinyin": "Nǐ hǎo. Wǒ xìng Wáng, jiào Kāiwén."
+        },
+        {
+            "speaker": "明華",
+            "text": "你們好。歡迎你們來臺灣。",
+            "pinyin": "Nǐmen hǎo. Huānyíng nǐmen lái Táiwān."
+        }
+    ]
+}
