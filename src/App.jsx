@@ -1,178 +1,162 @@
 import React, { useState, useMemo } from 'react';
 import vocabData from './vocabData.json';
 import VocabTable from './components/VocabTable';
-import Analytics from './components/Analytics';
+import CharacterLibrary from './components/CharacterLibrary'; // Renamed Analytics
 import DialogueViewer from './components/DialogueViewer';
 
 const dialogueFiles = import.meta.glob('../data/dialogues/*.json', {
     eager: true,
 });
-
-const dialoguesData = Object.values(dialogueFiles).map(
-    (file) => file.default || file
-);
+const dialoguesData = Object.values(dialogueFiles)
+    .map((file) => file.default || file)
+    .sort((a, b) => a.dialogue_id.localeCompare(b.dialogue_id));
 
 function App() {
     const [search, setSearch] = useState('');
     const [selectedLesson, setSelectedLesson] = useState('all');
-    const [studyMode, setStudyMode] = useState(false);
-    const [view, setView] = useState('list'); // 'list' | 'stats' | 'dialogues'
+    const [view, setView] = useState('dialogues'); // Default to Dialogues
+    const [sortConfig, setSortConfig] = useState({
+        key: 'lesson',
+        direction: 'asc',
+    });
 
-    // Use useMemo for performance as the list grows
-    const filteredData = useMemo(() => {
-        return vocabData.filter((item) => {
+    // --- LOGIC: Filtering & Sorting for "Words" View ---
+    const sortedWords = useMemo(() => {
+        let items = vocabData.filter((item) => {
             const matchesSearch =
                 item.hanzi.includes(search) ||
                 item.pinyin.toLowerCase().includes(search.toLowerCase()) ||
                 item.translation.toLowerCase().includes(search.toLowerCase());
-
             const matchesLesson =
                 selectedLesson === 'all' ||
                 item.lesson === parseInt(selectedLesson);
-
             return matchesSearch && matchesLesson;
         });
-    }, [search, selectedLesson]);
 
+        if (sortConfig.key) {
+            items.sort((a, b) => {
+                let aVal = a[sortConfig.key],
+                    bVal = b[sortConfig.key];
+                if (typeof aVal === 'number')
+                    return sortConfig.direction === 'asc'
+                        ? aVal - bVal
+                        : bVal - aVal;
+                return sortConfig.direction === 'asc'
+                    ? String(aVal).localeCompare(String(bVal))
+                    : String(bVal).localeCompare(String(aVal));
+            });
+        }
+        return items;
+    }, [search, selectedLesson, sortConfig]);
+
+    // --- LOGIC: Character Stats for "Characters" View ---
     const dialogueStats = useMemo(() => {
-        const wordFreq = {};
         const charFreq = {};
-
         dialoguesData.forEach((d) => {
             d.content.forEach((line) => {
-                // 1. Character Frequency in Dialogues
-                const chars = line.text.split('');
-                chars.forEach((c) => {
-                    if (/\p{P}/u.test(c)) return; // Skip punctuation
+                line.text.split('').forEach((c) => {
+                    if (/\p{P}/u.test(c)) return;
                     charFreq[c] = (charFreq[c] || 0) + 1;
-                });
-
-                // 2. Simple Word Segmentation (fallback for browser)
-                // Note: For advanced segmentation in Vite, we usually use a regex-based
-                // scanner or a dictionary-based match since require('hanzi-tools') fails in browser.
-                vocabData.forEach((v) => {
-                    if (line.text.includes(v.hanzi)) {
-                        wordFreq[v.hanzi] = (wordFreq[v.hanzi] || 0) + 1;
-                    }
                 });
             });
         });
-
-        return { wordFreq, charFreq };
-    }, [dialoguesData, vocabData]);
+        return { charFreq };
+    }, [dialoguesData]);
 
     const charStats = useMemo(() => {
         const stats = {};
-
         vocabData.forEach((item) => {
-            // Split the Hanzi string into individual characters
-            const chars = item.hanzi.split('');
-            chars.forEach((char) => {
-                // Ignore punctuation if any
+            item.hanzi.split('').forEach((char) => {
                 if (/\p{P}/u.test(char)) return;
-
-                if (!stats[char]) {
-                    stats[char] = { count: 0, appearances: [] };
-                }
+                if (!stats[char]) stats[char] = { count: 0, appearances: [] };
                 stats[char].count += 1;
-                // Track which words contain this character
-                if (!stats[char].appearances.includes(item.hanzi)) {
+                if (!stats[char].appearances.includes(item.hanzi))
                     stats[char].appearances.push(item.hanzi);
-                }
             });
         });
-
-        // Convert to sorted array (most frequent first)
-        return Object.entries(stats)
-            .map(([char, info]) => ({ char, ...info }))
-            .sort((a, b) => b.count - a.count);
+        return Object.entries(stats).map(([char, info]) => ({ char, ...info }));
     }, [vocabData]);
 
-    const totalUniqueChars = charStats.length;
-    const totalWords = vocabData.length;
-
     return (
-        <div className="min-h-screen bg-slate-50 p-8">
-            {/* Navigation Tabs */}
-            <div className="flex gap-4 mb-8 bg-white p-2 rounded-xl border border-slate-200 w-fit">
-                <button
-                    onClick={() => setView('list')}
-                    className={`px-6 py-2 rounded-lg font-bold transition-all ${
-                        view === 'list'
-                            ? 'bg-slate-800 text-white shadow-md'
-                            : 'text-slate-400 hover:bg-slate-50'
-                    }`}
-                >
-                    Vocabulary
-                </button>
-                <button
-                    onClick={() => setView('stats')}
-                    className={`px-6 py-2 rounded-lg font-bold transition-all ${
-                        view === 'stats'
-                            ? 'bg-slate-800 text-white shadow-md'
-                            : 'text-slate-400 hover:bg-slate-50'
-                    }`}
-                >
-                    Analytics
-                </button>
-                <button
-                    onClick={() => setView('dialogues')}
-                    className={`px-6 py-2 rounded-lg font-bold transition-all ${
-                        view === 'dialogues'
-                            ? 'bg-slate-800 text-white shadow-md'
-                            : 'text-slate-400 hover:bg-slate-50'
-                    }`}
-                >
-                    Dialogues
-                </button>
+        <div className="min-h-screen bg-slate-50 p-4 md:p-8">
+            {/* Top Navigation */}
+            <div className="flex gap-2 mb-8 bg-white p-1.5 rounded-2xl border border-slate-200 w-fit shadow-sm">
+                {[
+                    { id: 'dialogues', label: '📖 Dialogues' },
+                    { id: 'words', label: '🔤 Words' },
+                    { id: 'chars', label: '🎨 Characters' },
+                ].map((tab) => (
+                    <button
+                        key={tab.id}
+                        onClick={() => setView(tab.id)}
+                        className={`px-6 py-2.5 rounded-xl font-bold transition-all ${
+                            view === tab.id
+                                ? 'bg-slate-800 text-white shadow-lg'
+                                : 'text-slate-500 hover:bg-slate-50'
+                        }`}
+                    >
+                        {tab.label}
+                    </button>
+                ))}
             </div>
 
-            {/* Main Content Areas */}
-            {view === 'list' && (
-                <>
-                    {/* Search & Filter Bar - Make sure this exists so filteredData works! */}
-                    <div className="flex flex-col md:flex-row gap-4 mb-6">
-                        <input
-                            className="flex-grow p-3 rounded-xl border border-slate-200 bg-white shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Search Hanzi, Pinyin, or English..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-                        <select
-                            className="p-3 rounded-xl border border-slate-200 bg-white shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
-                            value={selectedLesson}
-                            onChange={(e) => setSelectedLesson(e.target.value)}
-                        >
-                            <option value="all">All Lessons</option>
-                            {[...new Set(vocabData.map((d) => d.lesson))]
-                                .sort((a, b) => a - b)
-                                .map((l) => (
-                                    <option key={l} value={l}>
-                                        Lesson {l}
-                                    </option>
-                                ))}
-                        </select>
-                    </div>
+            {/* Views */}
+            <main>
+                {view === 'dialogues' && (
+                    <DialogueViewer
+                        dialogues={dialoguesData}
+                        vocabData={vocabData}
+                    />
+                )}
 
-                    {/* PASS FILTERED DATA HERE */}
-                    <VocabTable data={filteredData} studyMode={studyMode} />
-                </>
-            )}
-            {view === 'stats' && (
-                <Analytics
-                    vocabData={vocabData}
-                    charStats={charStats}
-                    totalWords={totalWords}
-                    totalUniqueChars={totalUniqueChars}
-                    dialogueStats={dialogueStats}
-                />
-            )}
-            {view === 'dialogues' && (
-                <DialogueViewer
-                    dialogues={dialoguesData}
-                    vocabData={vocabData}
-                />
-            )}
+                {view === 'words' && (
+                    <div className="space-y-6">
+                        <div className="flex flex-col md:flex-row gap-4">
+                            <input
+                                className="flex-grow p-4 rounded-2xl border border-slate-200 bg-white shadow-sm outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                                placeholder="Search vocabulary..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                            <select
+                                className="p-4 rounded-2xl border border-slate-200 bg-white shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
+                                value={selectedLesson}
+                                onChange={(e) =>
+                                    setSelectedLesson(e.target.value)
+                                }
+                            >
+                                <option value="all">All Lessons</option>
+                                {[...new Set(vocabData.map((d) => d.lesson))]
+                                    .sort((a, b) => a - b)
+                                    .map((l) => (
+                                        <option key={l} value={l}>
+                                            Lesson {l}
+                                        </option>
+                                    ))}
+                            </select>
+                        </div>
+                        <VocabTable
+                            data={sortedWords}
+                            onSort={(key) => {
+                                const direction =
+                                    sortConfig.key === key &&
+                                    sortConfig.direction === 'asc'
+                                        ? 'desc'
+                                        : 'asc';
+                                setSortConfig({ key, direction });
+                            }}
+                            sortConfig={sortConfig}
+                        />
+                    </div>
+                )}
+
+                {view === 'chars' && (
+                    <CharacterLibrary
+                        charStats={charStats}
+                        dialogueStats={dialogueStats}
+                    />
+                )}
+            </main>
         </div>
     );
 }
