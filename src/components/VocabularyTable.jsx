@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useVocabulary } from '../contexts/VocabularyContext';
 import Pagination from './Pagination';
 
@@ -16,6 +16,12 @@ const VocabularyTable = () => {
     const [blurSimplified, setBlurSimplified] = useState(false);
     const [showControls, setShowControls] = useState(false);
 
+    // Sorting state
+    const [sortConfig, setSortConfig] = useState({
+        key: 'lessonId',
+        direction: 'asc',
+    });
+
     if (isLoading) {
         return (
             <div className="text-center py-8 text-gray-600">
@@ -30,11 +36,57 @@ const VocabularyTable = () => {
         );
     }
 
+    // Sort vocabulary
+    const sortedVocabulary = useMemo(() => {
+        const sortableItems = [...vocabulary];
+
+        if (sortConfig.key) {
+            sortableItems.sort((a, b) => {
+                // Get values for comparison
+                let aValue = a[sortConfig.key];
+                let bValue = b[sortConfig.key];
+
+                // Handle nested properties
+                if (sortConfig.key === 'lesson') {
+                    aValue = a.location?.lessonNumber;
+                    bValue = b.location?.lessonNumber;
+                } else if (sortConfig.key === 'book') {
+                    aValue = a.location?.book;
+                    bValue = b.location?.book;
+                } else if (sortConfig.key === 'order') {
+                    aValue = a.location?.order;
+                    bValue = b.location?.order;
+                }
+
+                // Handle null/undefined values
+                if (aValue == null) aValue = '';
+                if (bValue == null) bValue = '';
+
+                // String comparison
+                if (typeof aValue === 'string' && typeof bValue === 'string') {
+                    aValue = aValue.toLowerCase();
+                    bValue = bValue.toLowerCase();
+                }
+
+                // Compare
+                if (aValue < bValue) {
+                    return sortConfig.direction === 'asc' ? -1 : 1;
+                }
+                if (aValue > bValue) {
+                    return sortConfig.direction === 'asc' ? 1 : -1;
+                }
+                return 0;
+            });
+        }
+
+        return sortableItems;
+    }, [vocabulary, sortConfig]);
+
     // Calculate pagination
-    const totalPages = Math.ceil(vocabulary.length / itemsPerPage);
+    const totalPages = Math.ceil(sortedVocabulary.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const currentItems = vocabulary.slice(startIndex, endIndex);
+    const currentItems = sortedVocabulary.slice(startIndex, endIndex);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -43,6 +95,23 @@ const VocabularyTable = () => {
     const handleItemsPerPageChange = (newItemsPerPage) => {
         setItemsPerPage(newItemsPerPage);
         setCurrentPage(1);
+    };
+
+    // Handle sorting
+    const handleSort = (key) => {
+        setSortConfig((prevConfig) => ({
+            key,
+            direction:
+                prevConfig.key === key && prevConfig.direction === 'asc'
+                    ? 'desc'
+                    : 'asc',
+        }));
+    };
+
+    // Get sort indicator
+    const getSortIndicator = (key) => {
+        if (sortConfig.key !== key) return null;
+        return sortConfig.direction === 'asc' ? '↑' : '↓';
     };
 
     return (
@@ -193,30 +262,92 @@ const VocabularyTable = () => {
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                         <tr>
-                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-12">
-                                #
+                            <th
+                                className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-12 cursor-pointer hover:bg-gray-100"
+                                onClick={() => handleSort('order')}
+                            >
+                                <div className="flex items-center gap-1">
+                                    #
+                                    <span className="text-gray-400">
+                                        {getSortIndicator('order')}
+                                    </span>
+                                </div>
                             </th>
+
                             {showSimplified && (
-                                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Simplified
+                                <th
+                                    className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                    onClick={() => handleSort('simplified')}
+                                >
+                                    <div className="flex items-center gap-1">
+                                        Simplified
+                                        <span className="text-gray-400">
+                                            {getSortIndicator('simplified')}
+                                        </span>
+                                    </div>
                                 </th>
                             )}
-                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Traditional
+
+                            <th
+                                className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                onClick={() => handleSort('traditional')}
+                            >
+                                <div className="flex items-center gap-1">
+                                    Traditional
+                                    <span className="text-gray-400">
+                                        {getSortIndicator('traditional')}
+                                    </span>
+                                </div>
                             </th>
-                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Pinyin
+
+                            <th
+                                className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                onClick={() => handleSort('pinyin')}
+                            >
+                                <div className="flex items-center gap-1">
+                                    Pinyin
+                                    <span className="text-gray-400">
+                                        {getSortIndicator('pinyin')}
+                                    </span>
+                                </div>
                             </th>
-                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Meaning
+
+                            <th
+                                className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                onClick={() => handleSort('meaning')}
+                            >
+                                <div className="flex items-center gap-1">
+                                    Meaning
+                                    <span className="text-gray-400">
+                                        {getSortIndicator('meaning')}
+                                    </span>
+                                </div>
                             </th>
+
                             {showDeck && (
-                                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Deck
+                                <th
+                                    className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                    onClick={() => handleSort('deck')}
+                                >
+                                    <div className="flex items-center gap-1">
+                                        Deck
+                                        <span className="text-gray-400">
+                                            {getSortIndicator('deck')}
+                                        </span>
+                                    </div>
                                 </th>
                             )}
-                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Lesson
+
+                            <th
+                                className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                onClick={() => handleSort('lesson')}
+                            >
+                                <div className="flex items-center gap-1">
+                                    Lesson
+                                    <span className="text-gray-400">
+                                        {getSortIndicator('lesson')}
+                                    </span>
+                                </div>
                             </th>
                         </tr>
                     </thead>
@@ -306,8 +437,12 @@ const VocabularyTable = () => {
                                 )}
 
                                 <td className="px-4 py-4 whitespace-nowrap">
-                                    <td className="px-4 py-4 whitespace-nowrap">
-                                        <div className="flex flex-col space-y-1">
+                                    <div className="flex flex-col space-y-1">
+                                        {/* Check if location data exists */}
+                                        {item.location?.book &&
+                                        item.location?.lesson &&
+                                        item.location?.vocabulary &&
+                                        item.location?.order ? (
                                             <div className="flex items-center space-x-3 text-xs text-gray-600">
                                                 <div className="flex items-center">
                                                     <svg
@@ -324,7 +459,7 @@ const VocabularyTable = () => {
                                                         />
                                                     </svg>
                                                     <span>
-                                                        B{item.location?.book}
+                                                        B{item.location.book}
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center">
@@ -342,7 +477,7 @@ const VocabularyTable = () => {
                                                         />
                                                     </svg>
                                                     <span>
-                                                        L{item.location?.lesson}
+                                                        L{item.location.lesson}
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center">
@@ -362,7 +497,7 @@ const VocabularyTable = () => {
                                                     <span>
                                                         {
                                                             item.location
-                                                                ?.vocabulary
+                                                                .vocabulary
                                                         }
                                                     </span>
                                                 </div>
@@ -381,12 +516,18 @@ const VocabularyTable = () => {
                                                         />
                                                     </svg>
                                                     <span>
-                                                        #{item.location?.order}
+                                                        #{item.location.order}
                                                     </span>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
+                                        ) : (
+                                            /* Fallback to lessonId if location data is incomplete */
+                                            <div className="text-sm text-gray-700 font-medium">
+                                                {item.lessonId ||
+                                                    'No lesson info'}
+                                            </div>
+                                        )}
+                                    </div>
                                 </td>
                             </tr>
                         ))}
@@ -400,7 +541,7 @@ const VocabularyTable = () => {
                 onPageChange={handlePageChange}
                 itemsPerPage={itemsPerPage}
                 onItemsPerPageChange={handleItemsPerPageChange}
-                totalItems={vocabulary.length}
+                totalItems={sortedVocabulary.length}
             />
         </div>
     );
