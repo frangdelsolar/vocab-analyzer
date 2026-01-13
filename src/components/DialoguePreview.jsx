@@ -44,119 +44,133 @@ const DialoguePreview = ({ dialogue, content, isLoading }) => {
             return <span>{text}</span>;
         }
 
-        // Sort vocabulary by length (longer first) to avoid partial matches
-        const sortedVocabulary = [...matchingVocabulary].sort(
-            (a, b) => b.simplified.length - a.simplified.length
+        // Create a map for quick lookup with normalized text
+        const vocabMap = new Map();
+        matchingVocabulary.forEach((vocab) => {
+            // Store both simplified and traditional if different
+            vocabMap.set(vocab.simplified, vocab);
+            if (vocab.traditional && vocab.traditional !== vocab.simplified) {
+                vocabMap.set(vocab.traditional, vocab);
+            }
+        });
+
+        // Get all vocabulary strings sorted by length (longest first)
+        const vocabStrings = Array.from(vocabMap.keys()).sort(
+            (a, b) => b.length - a.length
         );
 
         let result = [];
-        let remainingText = text;
+        let i = 0;
         let occurrenceIndex = 0;
 
-        while (remainingText.length > 0) {
+        while (i < text.length) {
             let matched = false;
+            let matchedVocab = null;
+            let matchedLength = 0;
 
-            for (const vocab of sortedVocabulary) {
-                if (remainingText.startsWith(vocab.simplified)) {
-                    // Create a unique ID for this specific occurrence
-                    const occurrenceId = `${contextId}-${vocab.guid}-${occurrenceIndex}`;
-                    occurrenceIndex++;
-
-                    result.push(
-                        <span
-                            key={occurrenceId}
-                            className="relative inline-block group cursor-pointer"
-                            onMouseEnter={() => {
-                                setHoveredWord(vocab);
-                                setHoveredOccurrenceId(occurrenceId);
-                            }}
-                            onMouseLeave={() => {
-                                setHoveredWord(null);
-                                setHoveredOccurrenceId(null);
-                            }}
-                        >
-                            <span className="bg-yellow-100 text-yellow-800 px-1 rounded border border-yellow-200 hover:bg-yellow-200 transition-colors">
-                                {vocab.simplified}
-                            </span>
-
-                            {/* Tooltip - only show for this specific occurrence */}
-                            {hoveredWord?.guid === vocab.guid &&
-                                hoveredOccurrenceId === occurrenceId && (
-                                    <div className="absolute z-50 left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-80 p-4 bg-white rounded-lg shadow-xl border border-gray-200">
-                                        <div className="space-y-3">
-                                            {/* Header with Chinese characters */}
-                                            <div className="flex items-start justify-between">
-                                                <div className="flex items-center gap-2">
-                                                    <div className="font-chinese text-2xl font-bold">
-                                                        {vocab.simplified}
-                                                    </div>
-                                                    {vocab.traditional &&
-                                                        vocab.traditional !==
-                                                            vocab.simplified && (
-                                                            <div className="font-chinese text-xl text-gray-600">
-                                                                (
-                                                                {
-                                                                    vocab.traditional
-                                                                }
-                                                                )
-                                                            </div>
-                                                        )}
-                                                </div>
-                                                <span className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded">
-                                                    B{vocab.location.book} L
-                                                    {vocab.location.lesson}
-                                                </span>
-                                            </div>
-
-                                            {/* Pinyin */}
-                                            <div className="text-lg font-medium text-blue-700">
-                                                {vocab.pinyin}
-                                            </div>
-
-                                            {/* Meaning */}
-                                            <div className="text-gray-800 leading-relaxed">
-                                                {vocab.meaning}
-                                            </div>
-
-                                            {/* Part of speech and other details */}
-                                            <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
-                                                {vocab.partOfSpeech && (
-                                                    <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded">
-                                                        {vocab.partOfSpeech}
-                                                    </span>
-                                                )}
-                                                {vocab.notes && (
-                                                    <span className="text-xs px-2 py-1 bg-yellow-50 text-yellow-700 rounded">
-                                                        Note: {vocab.notes}
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        {/* Tooltip arrow */}
-                                        <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-1">
-                                            <div className="w-3 h-3 bg-white border-r border-b border-gray-200 transform rotate-45"></div>
-                                        </div>
-                                    </div>
-                                )}
-                        </span>
-                    );
-                    remainingText = remainingText.substring(
-                        vocab.simplified.length
-                    );
+            // Try to find the longest match starting at position i
+            for (const vocabStr of vocabStrings) {
+                if (text.substring(i, i + vocabStr.length) === vocabStr) {
+                    matchedVocab = vocabMap.get(vocabStr);
+                    matchedLength = vocabStr.length;
                     matched = true;
                     break;
                 }
             }
 
-            if (!matched) {
-                // No match found, add the character as plain text
+            if (matched && matchedVocab) {
+                // Create a unique ID for this specific occurrence
+                const occurrenceId = `${contextId}-${matchedVocab.guid}-${occurrenceIndex}`;
+                occurrenceIndex++;
+
                 result.push(
-                    <span key={`plain-${contextId}-${result.length}`}>
-                        {remainingText.charAt(0)}
+                    <span
+                        key={occurrenceId}
+                        className="relative inline-block group cursor-pointer"
+                        onMouseEnter={() => {
+                            setHoveredWord(matchedVocab);
+                            setHoveredOccurrenceId(occurrenceId);
+                        }}
+                        onMouseLeave={() => {
+                            setHoveredWord(null);
+                            setHoveredOccurrenceId(null);
+                        }}
+                    >
+                        <span className="bg-yellow-100 text-yellow-800 px-1 rounded border border-yellow-200 hover:bg-yellow-200 transition-colors">
+                            {text.substring(i, i + matchedLength)}
+                        </span>
+
+                        {/* Tooltip - only show for this specific occurrence */}
+                        {hoveredWord?.guid === matchedVocab.guid &&
+                            hoveredOccurrenceId === occurrenceId && (
+                                <div className="absolute z-50 left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-80 p-4 bg-white rounded-lg shadow-xl border border-gray-200">
+                                    <div className="space-y-3">
+                                        {/* Header with Chinese characters */}
+                                        <div className="flex items-start justify-between">
+                                            <div className="flex items-center gap-2">
+                                                <div className="font-chinese text-2xl font-bold">
+                                                    {matchedVocab.simplified}
+                                                </div>
+                                                {matchedVocab.traditional &&
+                                                    matchedVocab.traditional !==
+                                                        matchedVocab.simplified && (
+                                                        <div className="font-chinese text-xl text-gray-600">
+                                                            (
+                                                            {
+                                                                matchedVocab.traditional
+                                                            }
+                                                            )
+                                                        </div>
+                                                    )}
+                                            </div>
+                                            <span className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded">
+                                                B{matchedVocab.location.book} L
+                                                {matchedVocab.location.lesson}
+                                            </span>
+                                        </div>
+
+                                        {/* Pinyin */}
+                                        <div className="text-lg font-medium text-blue-700">
+                                            {matchedVocab.pinyin}
+                                        </div>
+
+                                        {/* Meaning */}
+                                        <div className="text-gray-800 leading-relaxed">
+                                            {matchedVocab.meaning}
+                                        </div>
+
+                                        {/* Part of speech and other details */}
+                                        <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
+                                            {matchedVocab.partOfSpeech && (
+                                                <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded">
+                                                    {matchedVocab.partOfSpeech}
+                                                </span>
+                                            )}
+                                            {matchedVocab.notes && (
+                                                <span className="text-xs px-2 py-1 bg-yellow-50 text-yellow-700 rounded">
+                                                    Note: {matchedVocab.notes}
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Tooltip arrow */}
+                                    <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-1">
+                                        <div className="w-3 h-3 bg-white border-r border-b border-gray-200 transform rotate-45"></div>
+                                    </div>
+                                </div>
+                            )}
                     </span>
                 );
-                remainingText = remainingText.substring(1);
+                i += matchedLength;
+            } else {
+                // No match found, add the character as plain text
+                result.push(
+                    <span key={`plain-${contextId}-${i}`}>
+                        {text.charAt(i)}
+                    </span>
+                );
+                i++;
             }
         }
 
@@ -403,15 +417,18 @@ const DialoguePreview = ({ dialogue, content, isLoading }) => {
                                             <td className="py-2">
                                                 <div className="flex flex-col">
                                                     <span className="font-chinese text-lg">
-                                                        {vocab.simplified}
+                                                        {vocab.traditional ||
+                                                            vocab.simplified}
                                                     </span>
                                                     {vocab.traditional &&
                                                         vocab.traditional !==
                                                             vocab.simplified && (
                                                             <span className="font-chinese text-sm text-gray-500">
+                                                                (
                                                                 {
-                                                                    vocab.traditional
+                                                                    vocab.simplified
                                                                 }
+                                                                )
                                                             </span>
                                                         )}
                                                 </div>
