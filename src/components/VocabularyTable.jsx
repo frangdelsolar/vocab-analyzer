@@ -3,7 +3,7 @@ import { useVocabulary } from '../contexts/VocabularyContext';
 import Pagination from './Pagination';
 
 const VocabularyTable = () => {
-    const { vocabulary, isLoading, error } = useVocabulary();
+    const { filteredVocabulary, isLoading, error } = useVocabulary();
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
 
@@ -22,27 +22,16 @@ const VocabularyTable = () => {
         direction: 'asc',
     });
 
-    if (isLoading) {
-        return (
-            <div className="text-center py-8 text-gray-600">
-                Loading vocabulary...
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="text-center py-8 text-red-600">Error: {error}</div>
-        );
-    }
-
-    // Sort vocabulary
+    // Sort vocabulary - ALWAYS called (no conditional)
     const sortedVocabulary = useMemo(() => {
-        const sortableItems = [...vocabulary];
+        if (!filteredVocabulary || filteredVocabulary.length === 0) {
+            return [];
+        }
+
+        const sortableItems = [...filteredVocabulary];
 
         if (sortConfig.key) {
             sortableItems.sort((a, b) => {
-                // Get values for comparison
                 let aValue = a[sortConfig.key];
                 let bValue = b[sortConfig.key];
 
@@ -80,22 +69,24 @@ const VocabularyTable = () => {
         }
 
         return sortableItems;
-    }, [vocabulary, sortConfig]);
+    }, [filteredVocabulary, sortConfig]);
 
-    // Calculate pagination
-    const totalPages = Math.ceil(sortedVocabulary.length / itemsPerPage);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentItems = sortedVocabulary.slice(startIndex, endIndex);
+    // Pagination calculations - ALWAYS called (no conditional)
+    const totalPages = useMemo(() => {
+        return Math.ceil(sortedVocabulary.length / itemsPerPage);
+    }, [sortedVocabulary, itemsPerPage]);
 
-    const handlePageChange = (page) => {
-        setCurrentPage(page);
-    };
+    const startIndex = useMemo(() => {
+        return (currentPage - 1) * itemsPerPage;
+    }, [currentPage, itemsPerPage]);
 
-    const handleItemsPerPageChange = (newItemsPerPage) => {
-        setItemsPerPage(newItemsPerPage);
-        setCurrentPage(1);
-    };
+    const endIndex = useMemo(() => {
+        return startIndex + itemsPerPage;
+    }, [startIndex, itemsPerPage]);
+
+    const currentItems = useMemo(() => {
+        return sortedVocabulary.slice(startIndex, endIndex);
+    }, [sortedVocabulary, startIndex, endIndex]);
 
     // Handle sorting
     const handleSort = (key) => {
@@ -113,6 +104,31 @@ const VocabularyTable = () => {
         if (sortConfig.key !== key) return null;
         return sortConfig.direction === 'asc' ? '↑' : '↓';
     };
+
+    // Page change handlers
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const handleItemsPerPageChange = (newItemsPerPage) => {
+        setItemsPerPage(newItemsPerPage);
+        setCurrentPage(1);
+    };
+
+    // Early returns MUST be after all hooks
+    if (isLoading) {
+        return (
+            <div className="text-center py-8 text-gray-600">
+                Loading vocabulary...
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="text-center py-8 text-red-600">Error: {error}</div>
+        );
+    }
 
     return (
         <div className="p-4">
@@ -140,7 +156,7 @@ const VocabularyTable = () => {
                         </svg>
                         <div className="text-left">
                             <h2 className="text-lg font-semibold text-gray-800">
-                                Vocabulary ({vocabulary.length} items)
+                                Vocabulary ({filteredVocabulary.length} items)
                             </h2>
                             <p className="text-sm text-gray-600">
                                 {showControls
@@ -352,97 +368,112 @@ const VocabularyTable = () => {
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                        {currentItems.map((item, index) => (
-                            <tr key={item.guid} className="hover:bg-gray-50">
-                                <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                    {startIndex + index + 1}
+                        {currentItems.length === 0 ? (
+                            <tr>
+                                <td
+                                    colSpan={
+                                        showSimplified && showDeck
+                                            ? 8
+                                            : showSimplified || showDeck
+                                            ? 7
+                                            : 6
+                                    }
+                                    className="px-4 py-8 text-center text-gray-500"
+                                >
+                                    No vocabulary items found. Try adjusting
+                                    your selection.
                                 </td>
+                            </tr>
+                        ) : (
+                            currentItems.map((item, index) => (
+                                <tr
+                                    key={item.guid}
+                                    className="hover:bg-gray-50"
+                                >
+                                    <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                        {startIndex + index + 1}
+                                    </td>
 
-                                {showSimplified && (
+                                    {showSimplified && (
+                                        <td className="px-4 py-4 whitespace-nowrap">
+                                            <div
+                                                className={`font-chinese text-lg font-medium ${
+                                                    blurSimplified
+                                                        ? 'blur-sm hover:blur-none transition-all'
+                                                        : 'text-gray-900'
+                                                }`}
+                                            >
+                                                {item.simplified}
+                                                {blurSimplified && (
+                                                    <div className="text-xs text-gray-400 mt-1">
+                                                        Hover to reveal
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </td>
+                                    )}
+
                                     <td className="px-4 py-4 whitespace-nowrap">
                                         <div
-                                            className={`font-chinese text-lg font-medium ${
-                                                blurSimplified
+                                            className={`font-chinese text-lg ${
+                                                blurTraditional
                                                     ? 'blur-sm hover:blur-none transition-all'
                                                     : 'text-gray-900'
                                             }`}
                                         >
-                                            {item.simplified}
-                                            {blurSimplified && (
+                                            {item.traditional}
+                                            {blurTraditional && (
                                                 <div className="text-xs text-gray-400 mt-1">
                                                     Hover to reveal
                                                 </div>
                                             )}
                                         </div>
                                     </td>
-                                )}
 
-                                <td className="px-4 py-4 whitespace-nowrap">
-                                    <div
-                                        className={`font-chinese text-lg ${
-                                            blurTraditional
-                                                ? 'blur-sm hover:blur-none transition-all'
-                                                : 'text-gray-900'
-                                        }`}
-                                    >
-                                        {item.traditional}
-                                        {blurTraditional && (
-                                            <div className="text-xs text-gray-400 mt-1">
-                                                Hover to reveal
-                                            </div>
-                                        )}
-                                    </div>
-                                </td>
-
-                                <td className="px-4 py-4 whitespace-nowrap">
-                                    <div
-                                        className={`text-gray-900 ${
-                                            blurPinyin
-                                                ? 'blur-sm hover:blur-none transition-all'
-                                                : ''
-                                        }`}
-                                    >
-                                        {item.pinyin}
-                                        {blurPinyin && (
-                                            <div className="text-xs text-gray-400 mt-1">
-                                                Hover to reveal
-                                            </div>
-                                        )}
-                                    </div>
-                                </td>
-
-                                <td className="px-4 py-4">
-                                    <div
-                                        className={`text-gray-700 ${
-                                            blurMeaning
-                                                ? 'blur-sm hover:blur-none transition-all'
-                                                : ''
-                                        }`}
-                                    >
-                                        {item.meaning}
-                                        {blurMeaning && (
-                                            <div className="text-xs text-gray-400 mt-1">
-                                                Hover to reveal
-                                            </div>
-                                        )}
-                                    </div>
-                                </td>
-
-                                {showDeck && (
                                     <td className="px-4 py-4 whitespace-nowrap">
-                                        <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
-                                            {item.deck}
-                                        </span>
+                                        <div
+                                            className={`text-gray-900 ${
+                                                blurPinyin
+                                                    ? 'blur-sm hover:blur-none transition-all'
+                                                    : ''
+                                            }`}
+                                        >
+                                            {item.pinyin}
+                                            {blurPinyin && (
+                                                <div className="text-xs text-gray-400 mt-1">
+                                                    Hover to reveal
+                                                </div>
+                                            )}
+                                        </div>
                                     </td>
-                                )}
 
-                                <td className="px-4 py-4 whitespace-nowrap">
-                                    <div className="flex flex-col space-y-1">
-                                        {/* Check if location data exists */}
-                                        {item.location?.book &&
-                                        item.location?.lesson &&
-                                        item.location?.vocabulary &&
-                                        item.location?.order ? (
+                                    <td className="px-4 py-4">
+                                        <div
+                                            className={`text-gray-700 ${
+                                                blurMeaning
+                                                    ? 'blur-sm hover:blur-none transition-all'
+                                                    : ''
+                                            }`}
+                                        >
+                                            {item.meaning}
+                                            {blurMeaning && (
+                                                <div className="text-xs text-gray-400 mt-1">
+                                                    Hover to reveal
+                                                </div>
+                                            )}
+                                        </div>
+                                    </td>
+
+                                    {showDeck && (
+                                        <td className="px-4 py-4 whitespace-nowrap">
+                                            <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+                                                {item.deck}
+                                            </span>
+                                        </td>
+                                    )}
+
+                                    <td className="px-4 py-4 whitespace-nowrap">
+                                        <div className="flex flex-col space-y-1">
                                             <div className="flex items-center space-x-3 text-xs text-gray-600">
                                                 <div className="flex items-center">
                                                     <svg
@@ -459,7 +490,7 @@ const VocabularyTable = () => {
                                                         />
                                                     </svg>
                                                     <span>
-                                                        B{item.location.book}
+                                                        B{item.location?.book}
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center">
@@ -477,7 +508,7 @@ const VocabularyTable = () => {
                                                         />
                                                     </svg>
                                                     <span>
-                                                        L{item.location.lesson}
+                                                        L{item.location?.lesson}
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center">
@@ -497,7 +528,7 @@ const VocabularyTable = () => {
                                                     <span>
                                                         {
                                                             item.location
-                                                                .vocabulary
+                                                                ?.vocabulary
                                                         }
                                                     </span>
                                                 </div>
@@ -516,21 +547,15 @@ const VocabularyTable = () => {
                                                         />
                                                     </svg>
                                                     <span>
-                                                        #{item.location.order}
+                                                        #{item.location?.order}
                                                     </span>
                                                 </div>
                                             </div>
-                                        ) : (
-                                            /* Fallback to lessonId if location data is incomplete */
-                                            <div className="text-sm text-gray-700 font-medium">
-                                                {item.lessonId ||
-                                                    'No lesson info'}
-                                            </div>
-                                        )}
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))
+                        )}
                     </tbody>
                 </table>
             </div>
