@@ -124,8 +124,8 @@ const DialoguePreview = ({ dialogue, content, isLoading }) => {
                                                     )}
                                             </div>
                                             <span className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded">
-                                                B{matchedVocab.location.book} L
-                                                {matchedVocab.location.lesson}
+                                                B{matchedVocab.location?.book} L
+                                                {matchedVocab.location?.lesson}
                                             </span>
                                         </div>
 
@@ -190,11 +190,7 @@ const DialoguePreview = ({ dialogue, content, isLoading }) => {
         return colors[index % colors.length];
     };
 
-    // Extract all unique speakers
-    const speakers =
-        dialogue.type === 'dialogue' && content.content
-            ? [...new Set(content.content.map((item) => item.speaker))]
-            : [];
+    // Extract all unique speakers - MOVED INSIDE RENDER AFTER NULL CHECKS
 
     if (isLoading) {
         return (
@@ -225,6 +221,12 @@ const DialoguePreview = ({ dialogue, content, isLoading }) => {
             </div>
         );
     }
+
+    // Extract all unique speakers - NOW SAFE TO DO AFTER NULL CHECKS
+    const speakers =
+        dialogue.type === 'dialogue' && content.content
+            ? [...new Set(content.content.map((item) => item.speaker))]
+            : [];
 
     return (
         <div className="space-y-4">
