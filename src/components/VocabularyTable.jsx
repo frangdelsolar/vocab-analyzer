@@ -156,7 +156,7 @@ const VocabularyTable = () => {
                         </svg>
                         <div className="text-left">
                             <h2 className="text-lg font-semibold text-gray-800">
-                                Vocabulary ({filteredVocabulary.length} items)
+                                Table settings
                             </h2>
                             <p className="text-sm text-gray-600">
                                 {showControls
