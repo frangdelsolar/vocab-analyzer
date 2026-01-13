@@ -8,7 +8,7 @@
         "build": "vite build",
         "lint": "eslint .",
         "preview": "vite preview",
-        "process": "node process-vocab.js"
+        "parse-cards": "node scripts/parse-cards.js"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.18",

@@ -1,2 +1,0 @@
-Return csv from the image with columns Hanzi,Pinyin,Part of Speech,Translation Include every numbered element in the list. If the last element in the list of the image is 22, your list should also include 22 items.
-If there's data missing, just leave the empty column in the csv corresponding row
