@@ -8,11 +8,17 @@ const VocabularyTable = () => {
     const [itemsPerPage, setItemsPerPage] = useState(10);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="text-center py-8 text-gray-600">
+                Loading vocabulary...
+            </div>
+        );
     }
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return (
+            <div className="text-center py-8 text-red-600">Error: {error}</div>
+        );
     }
 
     // Calculate pagination
@@ -27,50 +33,71 @@ const VocabularyTable = () => {
 
     const handleItemsPerPageChange = (newItemsPerPage) => {
         setItemsPerPage(newItemsPerPage);
-        setCurrentPage(1); // Reset to first page when changing items per page
+        setCurrentPage(1);
     };
 
     return (
-        <div>
-            <table
-                border="1"
-                cellPadding="8"
-                style={{ width: '100%', borderCollapse: 'collapse' }}
-            >
-                <thead>
-                    <tr>
-                        <th>Simplified</th>
-                        <th>Traditional</th>
-                        <th>Pinyin</th>
-                        <th>Meaning</th>
-                        <th>Deck</th>
-                        <th>Lesson</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentItems.map((item) => (
-                        <tr key={item.guid}>
-                            <td style={{ padding: '8px' }}>
-                                {item.simplified}
-                            </td>
-                            <td style={{ padding: '8px' }}>
-                                {item.traditional}
-                            </td>
-                            <td style={{ padding: '8px' }}>{item.pinyin}</td>
-                            <td style={{ padding: '8px' }}>{item.meaning}</td>
-                            <td style={{ padding: '8px' }}>{item.deck}</td>
-                            <td style={{ padding: '8px' }}>
-                                {item.location?.lessonNumber}
-                            </td>
+        <div className="p-4">
+            <div className="mb-4">
+                <h2 className="text-xl font-semibold text-gray-800">
+                    Vocabulary
+                </h2>
+                <p className="text-gray-600">{vocabulary.length} items total</p>
+            </div>
+
+            <div className="overflow-x-auto rounded-lg border border-gray-200">
+                <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                        <tr>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Simplified
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Traditional
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Pinyin
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Meaning
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Deck
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Lesson
+                            </th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                        {currentItems.map((item) => (
+                            <tr key={item.guid} className="hover:bg-gray-50">
+                                <td className="px-6 py-4 whitespace-nowrap font-chinese text-lg font-medium text-gray-900">
+                                    {item.simplified}
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap font-chinese text-lg text-gray-700">
+                                    {item.traditional}
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap text-gray-900">
+                                    {item.pinyin}
+                                </td>
+                                <td className="px-6 py-4 text-gray-700">
+                                    {item.meaning}
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap">
+                                    <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+                                        {item.deck}
+                                    </span>
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap text-gray-500">
+                                    {item.location?.lessonNumber}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
-            {/* Log vocabulary */}
-            {console.log('Vocabulary loaded:', vocabulary)}
-
-            {/* Pagination component */}
             <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}

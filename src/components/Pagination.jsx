@@ -11,23 +11,16 @@ const Pagination = ({
     const pageOptions = [5, 10, 20, 50];
 
     return (
-        <div
-            style={{
-                marginTop: '20px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '15px',
-            }}
-        >
+        <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             {/* Items per page selector */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <label>Show:</label>
+            <div className="flex items-center space-x-2">
+                <span className="text-sm text-gray-700">Show</span>
                 <select
                     value={itemsPerPage}
                     onChange={(e) =>
                         onItemsPerPageChange(Number(e.target.value))
                     }
-                    style={{ padding: '4px 8px' }}
+                    className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                     {pageOptions.map((option) => (
                         <option key={option} value={option}>
@@ -35,20 +28,26 @@ const Pagination = ({
                         </option>
                     ))}
                 </select>
-                <span>per page</span>
+                <span className="text-sm text-gray-700">per page</span>
             </div>
 
             {/* Page info */}
-            <div>
-                Page {currentPage} of {totalPages} ({totalItems} total items)
+            <div className="text-sm text-gray-700">
+                Page <span className="font-medium">{currentPage}</span> of{' '}
+                <span className="font-medium">{totalPages}</span> (
+                <span className="font-medium">{totalItems}</span> total items)
             </div>
 
             {/* Navigation buttons */}
-            <div style={{ display: 'flex', gap: '5px' }}>
+            <div className="flex items-center space-x-2">
                 <button
                     onClick={() => onPageChange(1)}
                     disabled={currentPage === 1}
-                    style={{ padding: '4px 8px' }}
+                    className={`px-3 py-1 rounded-md text-sm ${
+                        currentPage === 1
+                            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                            : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                    }`}
                 >
                     First
                 </button>
@@ -56,13 +55,17 @@ const Pagination = ({
                 <button
                     onClick={() => onPageChange(currentPage - 1)}
                     disabled={currentPage === 1}
-                    style={{ padding: '4px 8px' }}
+                    className={`px-3 py-1 rounded-md text-sm ${
+                        currentPage === 1
+                            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                            : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                    }`}
                 >
                     Previous
                 </button>
 
                 {/* Page numbers */}
-                <div style={{ display: 'flex', gap: '2px' }}>
+                <div className="flex space-x-1">
                     {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
                         let pageNum;
                         if (totalPages <= 5) {
@@ -79,22 +82,11 @@ const Pagination = ({
                             <button
                                 key={pageNum}
                                 onClick={() => onPageChange(pageNum)}
-                                style={{
-                                    padding: '4px 8px',
-                                    fontWeight:
-                                        currentPage === pageNum
-                                            ? 'bold'
-                                            : 'normal',
-                                    backgroundColor:
-                                        currentPage === pageNum
-                                            ? '#007bff'
-                                            : 'white',
-                                    color:
-                                        currentPage === pageNum
-                                            ? 'white'
-                                            : 'black',
-                                    border: '1px solid #ccc',
-                                }}
+                                className={`w-8 h-8 rounded-md text-sm ${
+                                    currentPage === pageNum
+                                        ? 'bg-blue-600 text-white'
+                                        : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                                }`}
                             >
                                 {pageNum}
                             </button>
@@ -105,7 +97,11 @@ const Pagination = ({
                 <button
                     onClick={() => onPageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
-                    style={{ padding: '4px 8px' }}
+                    className={`px-3 py-1 rounded-md text-sm ${
+                        currentPage === totalPages
+                            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                            : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                    }`}
                 >
                     Next
                 </button>
@@ -113,15 +109,19 @@ const Pagination = ({
                 <button
                     onClick={() => onPageChange(totalPages)}
                     disabled={currentPage === totalPages}
-                    style={{ padding: '4px 8px' }}
+                    className={`px-3 py-1 rounded-md text-sm ${
+                        currentPage === totalPages
+                            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                            : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                    }`}
                 >
                     Last
                 </button>
             </div>
 
             {/* Page input */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <label>Go to page:</label>
+            <div className="flex items-center space-x-2">
+                <span className="text-sm text-gray-700">Go to page:</span>
                 <input
                     type="number"
                     min="1"
@@ -134,7 +134,7 @@ const Pagination = ({
                         );
                         onPageChange(page);
                     }}
-                    style={{ width: '60px', padding: '4px' }}
+                    className="w-16 border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
             </div>
         </div>
