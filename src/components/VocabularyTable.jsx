@@ -7,6 +7,15 @@ const VocabularyTable = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
 
+    // Visibility states for study mode
+    const [showSimplified, setShowSimplified] = useState(false);
+    const [showDeck, setShowDeck] = useState(false);
+    const [blurMeaning, setBlurMeaning] = useState(false);
+    const [blurPinyin, setBlurPinyin] = useState(false);
+    const [blurTraditional, setBlurTraditional] = useState(false);
+    const [blurSimplified, setBlurSimplified] = useState(false);
+    const [showControls, setShowControls] = useState(false);
+
     if (isLoading) {
         return (
             <div className="text-center py-8 text-gray-600">
@@ -38,59 +47,346 @@ const VocabularyTable = () => {
 
     return (
         <div className="p-4">
-            <div className="mb-4">
-                <h2 className="text-xl font-semibold text-gray-800">
-                    Vocabulary
-                </h2>
-                <p className="text-gray-600">{vocabulary.length} items total</p>
+            {/* Controls */}
+            <div className="mb-6 bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button
+                    onClick={() => setShowControls(!showControls)}
+                    className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
+                >
+                    <div className="flex items-center gap-3">
+                        <svg
+                            className={`w-5 h-5 text-gray-500 transition-transform ${
+                                showControls ? 'rotate-90' : ''
+                            }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                            />
+                        </svg>
+                        <div className="text-left">
+                            <h2 className="text-lg font-semibold text-gray-800">
+                                Vocabulary ({vocabulary.length} items)
+                            </h2>
+                            <p className="text-sm text-gray-600">
+                                {showControls
+                                    ? 'Hide settings'
+                                    : 'Show settings'}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="text-sm text-gray-500">
+                        {showControls ? '▲' : '▼'}
+                    </div>
+                </button>
+
+                {showControls && (
+                    <div className="px-6 pb-6 pt-2 border-t border-gray-200">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* Column visibility */}
+                            <div>
+                                <h3 className="text-sm font-medium text-gray-700 mb-3 border-b pb-2">
+                                    Show/Hide Columns
+                                </h3>
+                                <div className="space-y-2">
+                                    <label className="flex items-center gap-2 text-sm">
+                                        <input
+                                            type="checkbox"
+                                            checked={showSimplified}
+                                            onChange={(e) =>
+                                                setShowSimplified(
+                                                    e.target.checked
+                                                )
+                                            }
+                                            className="rounded"
+                                        />
+                                        Simplified column
+                                    </label>
+
+                                    <label className="flex items-center gap-2 text-sm">
+                                        <input
+                                            type="checkbox"
+                                            checked={showDeck}
+                                            onChange={(e) =>
+                                                setShowDeck(e.target.checked)
+                                            }
+                                            className="rounded"
+                                        />
+                                        Deck column
+                                    </label>
+                                </div>
+                            </div>
+
+                            {/* Blur controls */}
+                            <div>
+                                <h3 className="text-sm font-medium text-gray-700 mb-3 border-b pb-2">
+                                    Blur for Study
+                                </h3>
+                                <div className="space-y-2">
+                                    <label className="flex items-center gap-2 text-sm">
+                                        <input
+                                            type="checkbox"
+                                            checked={blurMeaning}
+                                            onChange={(e) =>
+                                                setBlurMeaning(e.target.checked)
+                                            }
+                                            className="rounded"
+                                        />
+                                        Meaning
+                                    </label>
+
+                                    <label className="flex items-center gap-2 text-sm">
+                                        <input
+                                            type="checkbox"
+                                            checked={blurPinyin}
+                                            onChange={(e) =>
+                                                setBlurPinyin(e.target.checked)
+                                            }
+                                            className="rounded"
+                                        />
+                                        Pinyin
+                                    </label>
+
+                                    <label className="flex items-center gap-2 text-sm">
+                                        <input
+                                            type="checkbox"
+                                            checked={blurTraditional}
+                                            onChange={(e) =>
+                                                setBlurTraditional(
+                                                    e.target.checked
+                                                )
+                                            }
+                                            className="rounded"
+                                        />
+                                        Traditional
+                                    </label>
+
+                                    {showSimplified && (
+                                        <label className="flex items-center gap-2 text-sm">
+                                            <input
+                                                type="checkbox"
+                                                checked={blurSimplified}
+                                                onChange={(e) =>
+                                                    setBlurSimplified(
+                                                        e.target.checked
+                                                    )
+                                                }
+                                                className="rounded"
+                                            />
+                                            Simplified
+                                        </label>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
 
-            <div className="overflow-x-auto rounded-lg border border-gray-200">
+            {/* Table */}
+            <div className="overflow-x-auto rounded-lg border border-gray-200 mb-6">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                         <tr>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Simplified
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-12">
+                                #
                             </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            {showSimplified && (
+                                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Simplified
+                                </th>
+                            )}
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Traditional
                             </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Pinyin
                             </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Meaning
                             </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Deck
-                            </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            {showDeck && (
+                                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Deck
+                                </th>
+                            )}
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Lesson
                             </th>
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                        {currentItems.map((item) => (
+                        {currentItems.map((item, index) => (
                             <tr key={item.guid} className="hover:bg-gray-50">
-                                <td className="px-6 py-4 whitespace-nowrap font-chinese text-lg font-medium text-gray-900">
-                                    {item.simplified}
+                                <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                    {startIndex + index + 1}
                                 </td>
-                                <td className="px-6 py-4 whitespace-nowrap font-chinese text-lg text-gray-700">
-                                    {item.traditional}
+
+                                {showSimplified && (
+                                    <td className="px-4 py-4 whitespace-nowrap">
+                                        <div
+                                            className={`font-chinese text-lg font-medium ${
+                                                blurSimplified
+                                                    ? 'blur-sm hover:blur-none transition-all'
+                                                    : 'text-gray-900'
+                                            }`}
+                                        >
+                                            {item.simplified}
+                                            {blurSimplified && (
+                                                <div className="text-xs text-gray-400 mt-1">
+                                                    Hover to reveal
+                                                </div>
+                                            )}
+                                        </div>
+                                    </td>
+                                )}
+
+                                <td className="px-4 py-4 whitespace-nowrap">
+                                    <div
+                                        className={`font-chinese text-lg ${
+                                            blurTraditional
+                                                ? 'blur-sm hover:blur-none transition-all'
+                                                : 'text-gray-900'
+                                        }`}
+                                    >
+                                        {item.traditional}
+                                        {blurTraditional && (
+                                            <div className="text-xs text-gray-400 mt-1">
+                                                Hover to reveal
+                                            </div>
+                                        )}
+                                    </div>
                                 </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-gray-900">
-                                    {item.pinyin}
+
+                                <td className="px-4 py-4 whitespace-nowrap">
+                                    <div
+                                        className={`text-gray-900 ${
+                                            blurPinyin
+                                                ? 'blur-sm hover:blur-none transition-all'
+                                                : ''
+                                        }`}
+                                    >
+                                        {item.pinyin}
+                                        {blurPinyin && (
+                                            <div className="text-xs text-gray-400 mt-1">
+                                                Hover to reveal
+                                            </div>
+                                        )}
+                                    </div>
                                 </td>
-                                <td className="px-6 py-4 text-gray-700">
-                                    {item.meaning}
+
+                                <td className="px-4 py-4">
+                                    <div
+                                        className={`text-gray-700 ${
+                                            blurMeaning
+                                                ? 'blur-sm hover:blur-none transition-all'
+                                                : ''
+                                        }`}
+                                    >
+                                        {item.meaning}
+                                        {blurMeaning && (
+                                            <div className="text-xs text-gray-400 mt-1">
+                                                Hover to reveal
+                                            </div>
+                                        )}
+                                    </div>
                                 </td>
-                                <td className="px-6 py-4 whitespace-nowrap">
-                                    <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
-                                        {item.deck}
-                                    </span>
-                                </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-gray-500">
-                                    {item.location?.lessonNumber}
+
+                                {showDeck && (
+                                    <td className="px-4 py-4 whitespace-nowrap">
+                                        <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+                                            {item.deck}
+                                        </span>
+                                    </td>
+                                )}
+
+                                <td className="px-4 py-4 whitespace-nowrap">
+                                    <td className="px-4 py-4 whitespace-nowrap">
+                                        <div className="flex flex-col space-y-1">
+                                            <div className="flex items-center space-x-3 text-xs text-gray-600">
+                                                <div className="flex items-center">
+                                                    <svg
+                                                        className="w-3 h-3 mr-1"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={2}
+                                                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                                                        />
+                                                    </svg>
+                                                    <span>
+                                                        B{item.location?.book}
+                                                    </span>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <svg
+                                                        className="w-3 h-3 mr-1"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={2}
+                                                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                                                        />
+                                                    </svg>
+                                                    <span>
+                                                        L{item.location?.lesson}
+                                                    </span>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <svg
+                                                        className="w-3 h-3 mr-1"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={2}
+                                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                                        />
+                                                    </svg>
+                                                    <span>
+                                                        {
+                                                            item.location
+                                                                ?.vocabulary
+                                                        }
+                                                    </span>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <svg
+                                                        className="w-3 h-3 mr-1"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={2}
+                                                            d="M9 5l7 7-7 7"
+                                                        />
+                                                    </svg>
+                                                    <span>
+                                                        #{item.location?.order}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </td>
                             </tr>
                         ))}
