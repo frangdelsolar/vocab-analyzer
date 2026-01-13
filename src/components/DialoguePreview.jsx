@@ -1,6 +1,64 @@
-import React from 'react';
+import React, { useMemo, useEffect } from 'react';
+import { useVocabulary } from '../contexts/VocabularyContext';
 
 const DialoguePreview = ({ dialogue, content, isLoading }) => {
+    const { vocabulary } = useVocabulary();
+
+    // Helper to map Dialogue index (Arabic) to Vocabulary section (Roman)
+    // Part 1 -> "I", Part 2 -> "II"
+    const dialogueToRoman = (num) => {
+        const map = {
+            1: 'I',
+            2: 'II',
+            3: 'III',
+            4: 'IV',
+            5: 'V',
+        };
+        return map[num] || num.toString();
+    };
+
+    // Filter vocabulary that matches the current dialogue's Book, Lesson, and Part
+    const matchingVocabulary = useMemo(() => {
+        if (!dialogue || !vocabulary.length) return [];
+
+        const targetRomanPart = dialogueToRoman(dialogue.dialogue);
+
+        return vocabulary.filter((item) => {
+            const { location } = item;
+            if (!location) return false;
+
+            return (
+                location.book === dialogue.book &&
+                location.lesson === dialogue.lesson &&
+                location.vocabulary === targetRomanPart
+            );
+        });
+    }, [dialogue, vocabulary]);
+
+    // Log the results whenever the matching vocabulary changes
+    useEffect(() => {
+        if (dialogue && matchingVocabulary.length > 0) {
+            console.log(
+                `✨ Found ${matchingVocabulary.length} vocab words for Book ${
+                    dialogue.book
+                }, Lesson ${dialogue.lesson}, Part ${
+                    dialogue.dialogue
+                } (${dialogueToRoman(dialogue.dialogue)})`
+            );
+            console.table(
+                matchingVocabulary.map((v) => ({
+                    traditional: v.traditional,
+                    pinyin: v.pinyin,
+                    meaning: v.meaning,
+                }))
+            );
+        } else if (dialogue) {
+            console.warn(
+                `No matching vocabulary found for B${dialogue.book} L${dialogue.lesson} Part ${dialogue.dialogue}`
+            );
+        }
+    }, [matchingVocabulary, dialogue]);
+
     if (isLoading) {
         return (
             <div className="text-center py-8">
