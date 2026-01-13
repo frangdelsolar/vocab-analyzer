@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useVocabulary } from '../contexts/VocabularyContext';
+import Pagination from './Pagination';
 
 const VocabularyTable = () => {
     const { vocabulary, isLoading, error } = useVocabulary();
-    const [currentPage, setCurrentPage] = React.useState(1);
-    const itemsPerPage = 10;
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -20,9 +21,22 @@ const VocabularyTable = () => {
     const endIndex = startIndex + itemsPerPage;
     const currentItems = vocabulary.slice(startIndex, endIndex);
 
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const handleItemsPerPageChange = (newItemsPerPage) => {
+        setItemsPerPage(newItemsPerPage);
+        setCurrentPage(1); // Reset to first page when changing items per page
+    };
+
     return (
         <div>
-            <table border="1" cellPadding="8">
+            <table
+                border="1"
+                cellPadding="8"
+                style={{ width: '100%', borderCollapse: 'collapse' }}
+            >
                 <thead>
                     <tr>
                         <th>Simplified</th>
@@ -36,44 +50,35 @@ const VocabularyTable = () => {
                 <tbody>
                     {currentItems.map((item) => (
                         <tr key={item.guid}>
-                            <td>{item.simplified}</td>
-                            <td>{item.traditional}</td>
-                            <td>{item.pinyin}</td>
-                            <td>{item.meaning}</td>
-                            <td>{item.deck}</td>
-                            <td>{item.location?.lessonNumber}</td>
+                            <td style={{ padding: '8px' }}>
+                                {item.simplified}
+                            </td>
+                            <td style={{ padding: '8px' }}>
+                                {item.traditional}
+                            </td>
+                            <td style={{ padding: '8px' }}>{item.pinyin}</td>
+                            <td style={{ padding: '8px' }}>{item.meaning}</td>
+                            <td style={{ padding: '8px' }}>{item.deck}</td>
+                            <td style={{ padding: '8px' }}>
+                                {item.location?.lessonNumber}
+                            </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
 
-            {/* Simple pagination */}
-            <div style={{ marginTop: '20px' }}>
-                <button
-                    onClick={() =>
-                        setCurrentPage((prev) => Math.max(1, prev - 1))
-                    }
-                    disabled={currentPage === 1}
-                >
-                    Previous
-                </button>
-
-                <span style={{ margin: '0 10px' }}>
-                    Page {currentPage} of {totalPages}
-                </span>
-
-                <button
-                    onClick={() =>
-                        setCurrentPage((prev) => Math.min(totalPages, prev + 1))
-                    }
-                    disabled={currentPage === totalPages}
-                >
-                    Next
-                </button>
-            </div>
-
             {/* Log vocabulary */}
             {console.log('Vocabulary loaded:', vocabulary)}
+
+            {/* Pagination component */}
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                itemsPerPage={itemsPerPage}
+                onItemsPerPageChange={handleItemsPerPageChange}
+                totalItems={vocabulary.length}
+            />
         </div>
     );
 };
