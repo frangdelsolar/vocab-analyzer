@@ -3,22 +3,20 @@ import { VocabularyProvider } from './contexts/VocabularyContext';
 import { DialoguesProvider } from './contexts/DialoguesContext';
 import VocabularyTable from './components/VocabularyTable';
 import VocabularySettings from './components/VocabularySettings';
-import VocabularyInsights from './components/VocabularyInsights'; // Add this import
+import VocabularyInsights from './components/VocabularyInsights';
 import DialoguesList from './components/DialoguesList';
-import Layout from './components/Layout';
+import StackedLayout from './components/StackedLayout';
 
 function App() {
     return (
         <VocabularyProvider>
             <DialoguesProvider>
-                <Layout>
+                <StackedLayout>
                     <DialoguesList />
-                </Layout>
-                <Layout>
                     <VocabularySettings />
                     <VocabularyInsights />
                     <VocabularyTable />
-                </Layout>
+                </StackedLayout>
             </DialoguesProvider>
         </VocabularyProvider>
     );
