@@ -136,7 +136,7 @@ const DialoguesList = () => {
                 <div className="p-6">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Left column - Tree */}
-                        <div className="lg:col-span-2">
+                        <div className="lg:col-span-1">
                             <div className="space-y-4">
                                 {books.map((bookData) => {
                                     const isBookExpanded =
@@ -313,7 +313,7 @@ const DialoguesList = () => {
                         </div>
 
                         {/* Right column - Preview */}
-                        <div className="lg:col-span-1">
+                        <div className="lg:col-span-2">
                             <div className="sticky top-6">
                                 <div className="border border-gray-200 rounded-lg overflow-hidden">
                                     <div className="bg-gray-50 px-4 py-3 border-b border-gray-200">

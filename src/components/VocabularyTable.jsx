@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+
 import { useVocabulary } from '../contexts/VocabularyContext';
 import Pagination from './Pagination';
 
@@ -6,6 +7,7 @@ const VocabularyTable = () => {
     const { filteredVocabulary, isLoading, error } = useVocabulary();
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [searchQuery, setSearchQuery] = useState('');
 
     // Visibility states for study mode
     const [showSimplified, setShowSimplified] = useState(false);
@@ -22,13 +24,30 @@ const VocabularyTable = () => {
         direction: 'asc',
     });
 
-    // Sort vocabulary - ALWAYS called (no conditional)
+    // 1. Filter by Search Query (Correct)
+    const searchedVocabulary = useMemo(() => {
+        if (!searchQuery.trim()) return filteredVocabulary;
+
+        const query = searchQuery.toLowerCase().trim();
+
+        return filteredVocabulary.filter((item) => {
+            return (
+                item.traditional?.toLowerCase().includes(query) ||
+                item.simplified?.toLowerCase().includes(query) ||
+                item.pinyin?.toLowerCase().includes(query) ||
+                item.meaning?.toLowerCase().includes(query)
+            );
+        });
+    }, [filteredVocabulary, searchQuery]);
+
+    // 2. Sort results (FIXED dependencies and base array)
     const sortedVocabulary = useMemo(() => {
-        if (!filteredVocabulary || filteredVocabulary.length === 0) {
+        // If we have no search results, return empty (don't use filteredVocabulary here)
+        if (!searchedVocabulary || searchedVocabulary.length === 0) {
             return [];
         }
 
-        const sortableItems = [...filteredVocabulary];
+        const sortableItems = [...searchedVocabulary]; // Base this on search results
 
         if (sortConfig.key) {
             sortableItems.sort((a, b) => {
@@ -47,34 +66,34 @@ const VocabularyTable = () => {
                     bValue = b.location?.order;
                 }
 
-                // Handle null/undefined values
                 if (aValue == null) aValue = '';
                 if (bValue == null) bValue = '';
 
-                // String comparison
                 if (typeof aValue === 'string' && typeof bValue === 'string') {
                     aValue = aValue.toLowerCase();
                     bValue = bValue.toLowerCase();
                 }
 
-                // Compare
-                if (aValue < bValue) {
+                if (aValue < bValue)
                     return sortConfig.direction === 'asc' ? -1 : 1;
-                }
-                if (aValue > bValue) {
+                if (aValue > bValue)
                     return sortConfig.direction === 'asc' ? 1 : -1;
-                }
                 return 0;
             });
         }
 
         return sortableItems;
-    }, [filteredVocabulary, sortConfig]);
+    }, [searchedVocabulary, sortConfig]); // UPDATED: Depends on searchedVocabulary
 
-    // Pagination calculations - ALWAYS called (no conditional)
+    // 3. Pagination (Correct)
     const totalPages = useMemo(() => {
         return Math.ceil(sortedVocabulary.length / itemsPerPage);
     }, [sortedVocabulary, itemsPerPage]);
+
+    const currentItems = useMemo(() => {
+        const start = (currentPage - 1) * itemsPerPage;
+        return sortedVocabulary.slice(start, start + itemsPerPage);
+    }, [sortedVocabulary, currentPage, itemsPerPage]);
 
     const startIndex = useMemo(() => {
         return (currentPage - 1) * itemsPerPage;
@@ -84,9 +103,11 @@ const VocabularyTable = () => {
         return startIndex + itemsPerPage;
     }, [startIndex, itemsPerPage]);
 
-    const currentItems = useMemo(() => {
-        return sortedVocabulary.slice(startIndex, endIndex);
-    }, [sortedVocabulary, startIndex, endIndex]);
+    // Reset to page 1 when searching
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value);
+        setCurrentPage(1);
+    };
 
     // Handle sorting
     const handleSort = (key) => {
@@ -132,6 +153,47 @@ const VocabularyTable = () => {
 
     return (
         <div className="p-4">
+            {/* Search Input Bar */}
+            <div className="mb-6">
+                <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg
+                            className="h-5 w-5 text-gray-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                            />
+                        </svg>
+                    </div>
+                    <input
+                        type="text"
+                        placeholder="Search Hanzi, Pinyin, or Meaning..."
+                        value={searchQuery}
+                        onChange={handleSearch}
+                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-all"
+                    />
+                    {searchQuery && (
+                        <button
+                            onClick={() => setSearchQuery('')}
+                            className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600"
+                        >
+                            ✕
+                        </button>
+                    )}
+                </div>
+                {searchQuery && (
+                    <p className="mt-2 text-xs text-gray-500">
+                        Found {searchedVocabulary.length} results for "
+                        {searchQuery}"
+                    </p>
+                )}
+            </div>
             {/* Controls */}
             <div className="mb-6 bg-white rounded-lg border border-gray-200 overflow-hidden">
                 <button

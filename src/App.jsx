@@ -16,7 +16,7 @@ function App() {
                 </Layout>
                 <Layout>
                     <VocabularySettings />
-                    <VocabularyInsights /> {/* Add this component */}
+                    <VocabularyInsights />
                     <VocabularyTable />
                 </Layout>
             </DialoguesProvider>
