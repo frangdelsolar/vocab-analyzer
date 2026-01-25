@@ -1,11 +1,12 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {
+    createContext,
+    useContext,
+    useState,
+    useEffect,
+    useCallback,
+} from 'react';
 
-export const DialoguesContext = createContext({
-    dialogues: [],
-    isLoading: true,
-    error: null,
-    loadDialogueContent: () => Promise.resolve(null),
-});
+export const DialoguesContext = createContext(null);
 
 export const useDialogues = () => {
     const context = useContext(DialoguesContext);
@@ -20,190 +21,93 @@ export const DialoguesProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // FIXED: Variable name 'response' now matches throughout the function
+    const loadDialogueContent = useCallback(async (filename) => {
+        try {
+            const baseUrl = import.meta.env.BASE_URL || '/';
+            const response = await fetch(
+                `${baseUrl}data/dialogues/${filename}`
+            );
+
+            if (response.ok) {
+                return await response.json();
+            }
+
+            console.error(
+                `Failed to load ${filename}: ${response.status} ${response.statusText}`
+            );
+            return null;
+        } catch (err) {
+            console.error(`Error fetching dialogue content:`, err);
+            return null;
+        }
+    }, []);
+
     useEffect(() => {
-        const loadDialogues = async () => {
+        const initDialogues = async () => {
+            setIsLoading(true);
+            const baseUrl = import.meta.env.BASE_URL || '/';
+
             try {
-                // Define the pattern of dialogue files
-                // Assuming files are named: B1L01-D1.json, B1L01-D2.json, etc.
-                // Or: 010101.json, 010102.json, etc.
+                // 1. Load the manifest
+                const manifestRes = await fetch(
+                    `${baseUrl}data/dialogues/manifest.json`
+                );
+                if (!manifestRes.ok)
+                    throw new Error('Failed to load dialogue manifest');
 
-                // Generate all possible dialogue file names for books 1-2
-                // Format: XXYYZZ.json where:
-                // XX = book (01-02)
-                // YY = lesson (01-06)
-                // ZZ = dialogue (01-02) - each lesson has 2 dialogues
+                const { files } = await manifestRes.json();
 
-                const dialogueFiles = [
-                    '010101.json', // Book 1, Lesson 1, Dialogue 1
-                    '010102.json', // Book 1, Lesson 1, Dialogue 2
-                    '010201.json', // Book 1, Lesson 2, Dialogue 1
-                    '010202.json', // Book 1, Lesson 2, Dialogue 2
-                    '010301.json', // Book 1, Lesson 3, Dialogue 1
-                    '010302.json', // Book 1, Lesson 3, Dialogue 2
-                    '010401.json', // Book 1, Lesson 4, Dialogue 1
-                    '010402.json', // Book 1, Lesson 4, Dialogue 2
-                    '010501.json', // Book 1, Lesson 5, Dialogue 1
-                    '010502.json', // Book 1, Lesson 5, Dialogue 2
-                    '010601.json', // Book 1, Lesson 6, Dialogue 1
-                    '010602.json', // Book 1, Lesson 6, Dialogue 2
-                    '010701.json', // Book 1, Lesson 7, Dialogue 1
-                    '010702.json', // Book 1, Lesson 7, Dialogue 2
-                    '010801.json', // Book 1, Lesson 8, Dialogue 1
-                    '010802.json', // Book 1, Lesson 8, Dialogue 2
-                    '010901.json', // Book 1, Lesson 9, Dialogue 1
-                    '010902.json', // Book 1, Lesson 9, Dialogue 2
-                    '011001.json', // Book 1, Lesson 10, Dialogue 1
-                    '011002.json', // Book 1, Lesson 10, Dialogue 2
-                    '011101.json', // Book 1, Lesson 11, Dialogue 1
-                    '011102.json', // Book 1, Lesson 11, Dialogue 2
-                    '011201.json', // Book 1, Lesson 12, Dialogue 1
-                    '011202.json', // Book 1, Lesson 12, Dialogue 2
-                    '011301.json', // Book 1, Lesson 13, Dialogue 1
-                    '011302.json', // Book 1, Lesson 13, Dialogue 2
-                    '011401.json', // Book 1, Lesson 14, Dialogue 1
-                    '011402.json', // Book 1, Lesson 14, Dialogue 2
-                    '011501.json', // Book 1, Lesson 15, Dialogue 1
-                    '011502.json', // Book 1, Lesson 15, Dialogue 2
-                    '020101.json', // Book 2, Lesson 1, Dialogue 1
-                    '020102.json', // Book 2, Lesson 1, Dialogue 2
-                    '020201.json', // Book 2, Lesson 2, Dialogue 1
-                    '020202.json', // Book 2, Lesson 2, Dialogue 2
-                    '020301.json', // Book 2, Lesson 3, Dialogue 1
-                    '020302.json', // Book 2, Lesson 3, Dialogue 2
-                    '020401.json', // Book 2, Lesson 4, Dialogue 1
-                    '020402.json', // Book 2, Lesson 4, Dialogue 2
-                    '020501.json', // Book 2, Lesson 5, Dialogue 1
-                    '020502.json', // Book 2, Lesson 5, Dialogue 2
-                    '020601.json', // Book 2, Lesson 6, Dialogue 1
-                    '020602.json', // Book 2, Lesson 6, Dialogue 2
-                ];
+                // 2. Fetch basic metadata for each file in parallel
+                const loadedData = await Promise.all(
+                    files.map(async (filename) => {
+                        try {
+                            const res = await fetch(
+                                `${baseUrl}data/dialogues/${filename}`
+                            );
+                            if (!res.ok) return null;
+                            const data = await res.json();
 
-                // Now try to load each file
-                const loadedDialogues = [];
-
-                // Try to load each file
-                for (const filename of dialogueFiles) {
-                    try {
-                        const response = await fetch(
-                            `/data/dialogues/${filename}`
-                        );
-                        if (response.ok) {
-                            const data = await response.json();
-
-                            // Extract metadata from filename (e.g., 010101.json)
                             const match = filename.match(
                                 /^(\d{2})(\d{2})(\d{2})\.json$/
                             );
-                            let book, lesson, dialogue;
+                            const book = match ? parseInt(match[1], 10) : 1;
+                            const lesson = match ? parseInt(match[2], 10) : 1;
+                            const dialNum = match ? parseInt(match[3], 10) : 1;
 
-                            if (match) {
-                                book = parseInt(match[1], 10);
-                                lesson = parseInt(match[2], 10);
-                                dialogue = parseInt(match[3], 10);
-                            } else {
-                                // Try alternative pattern like B1L01-D1.json
-                                const altMatch = filename.match(
-                                    /^B(\d+)L(\d+)-D(\d+)\.json$/i
-                                );
-                                if (altMatch) {
-                                    book = parseInt(altMatch[1], 10);
-                                    lesson = parseInt(altMatch[2], 10);
-                                    dialogue = parseInt(altMatch[3], 10);
-                                } else {
-                                    // Default values if pattern doesn't match
-                                    book = 1;
-                                    lesson = 1;
-                                    dialogue = 1;
-                                }
-                            }
-
-                            loadedDialogues.push({
+                            return {
                                 id: filename.replace('.json', ''),
                                 book,
                                 lesson,
-                                dialogue,
+                                dialogue: dialNum,
                                 filename,
                                 title:
                                     data.title ||
                                     data.dialogue_title ||
-                                    `Dialogue ${dialogue}`,
+                                    `Dialogue ${dialNum}`,
                                 participants: data.participants || [],
                                 type: data.content?.[0]?.speaker
                                     ? 'dialogue'
                                     : 'reading',
                                 metadata: data,
-                            });
+                            };
+                        } catch (e) {
+                            return null;
                         }
-                    } catch (fileErr) {
-                        // File doesn't exist or has error - skip it
-                        console.warn(
-                            `Could not load dialogue file: ${filename}`,
-                            fileErr
-                        );
-                    }
-                }
+                    })
+                );
 
-                // If no files loaded, use sample data as fallback
-                if (loadedDialogues.length === 0) {
-                    console.warn('No dialogue files found, using sample data');
-                    loadedDialogues.push(
-                        {
-                            id: '010101',
-                            book: 1,
-                            lesson: 1,
-                            dialogue: 1,
-                            filename: '010101.json',
-                            title: '歡迎你們來臺灣 (Welcome to Taiwan)',
-                            participants: [
-                                '明華 (Mínghuá)',
-                                '月美 (Yuèměi)',
-                                '開文 (Kāiwén)',
-                            ],
-                            type: 'dialogue',
-                            metadata: null,
-                        },
-                        {
-                            id: '060102',
-                            book: 6,
-                            lesson: 1,
-                            dialogue: 2,
-                            filename: '060102.json',
-                            title: '短文 Reading',
-                            participants: [],
-                            type: 'reading',
-                            metadata: null,
-                        }
-                    );
-                }
-
-                setDialogues(loadedDialogues);
+                setDialogues(loadedData.filter((d) => d !== null));
             } catch (err) {
                 setError(err.message);
-                console.error('Error loading dialogues:', err);
+                console.error('Dialogue Init Error:', err);
             } finally {
                 setIsLoading(false);
             }
         };
 
-        loadDialogues();
+        initDialogues();
     }, []);
-
-    // Function to load full dialogue content
-    const loadDialogueContent = async (filename) => {
-        try {
-            const response = await fetch(`/data/dialogues/${filename}`);
-            if (response.ok) {
-                return await response.json();
-            }
-            return null;
-        } catch (err) {
-            console.error(
-                `Error loading dialogue content for ${filename}:`,
-                err
-            );
-            return null;
-        }
-    };
 
     const value = {
         dialogues,

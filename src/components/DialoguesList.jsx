@@ -1,338 +1,256 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useDialogues } from '../contexts/DialoguesContext';
 import DialoguePreview from './DialoguePreview';
 
+// --- Sub-component: Dialogue Item ---
+const DialogueItem = ({ dialogue, isSelected, onClick }) => (
+    <button
+        onClick={() => onClick(dialogue)}
+        className={`flex items-center justify-between w-full p-3 rounded-lg text-left transition-all ${
+            isSelected
+                ? 'bg-blue-50 border-blue-300 shadow-sm ring-1 ring-blue-200'
+                : 'border border-gray-100 hover:bg-gray-50'
+        }`}
+    >
+        <div>
+            <div
+                className={`font-medium ${isSelected ? 'text-blue-900' : 'text-gray-800'}`}
+            >
+                {dialogue.title}
+            </div>
+            <div className="text-xs text-gray-500 mt-1 uppercase tracking-wider">
+                {dialogue.type} • Part {dialogue.dialogue}
+            </div>
+        </div>
+        <div
+            className={`text-xs ${isSelected ? 'text-blue-500' : 'text-gray-400'}`}
+        >
+            {isSelected ? '●' : '○'}
+        </div>
+    </button>
+);
+
+// --- Sub-component: Lesson Group ---
+const LessonGroup = ({
+    book,
+    lesson,
+    dialogues,
+    expanded,
+    onToggle,
+    selectedId,
+    onSelect,
+}) => {
+    const key = `${book}-${lesson}`;
+    return (
+        <div className="border-t border-gray-100">
+            <button
+                onClick={() => onToggle(key)}
+                className="px-8 py-3 w-full flex items-center justify-between bg-gray-50/50 hover:bg-gray-100 transition-colors"
+            >
+                <div className="flex items-center gap-2">
+                    <span
+                        className={`text-xs transition-transform ${expanded ? 'rotate-90' : ''}`}
+                    >
+                        ▶
+                    </span>
+                    <span className="text-sm font-semibold text-gray-700">
+                        Lesson {lesson}
+                    </span>
+                </div>
+                <span className="text-xs text-gray-500">
+                    {dialogues.length} parts
+                </span>
+            </button>
+            {expanded && (
+                <div className="px-10 py-3 space-y-2 bg-white">
+                    {dialogues.map((d) => (
+                        <DialogueItem
+                            key={d.id}
+                            dialogue={d}
+                            isSelected={selectedId === d.id}
+                            onClick={onSelect}
+                        />
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
+
+// --- Main Component ---
 const DialoguesList = () => {
     const { dialogues, isLoading, error, loadDialogueContent } = useDialogues();
     const [expandedBooks, setExpandedBooks] = useState({});
     const [expandedLessons, setExpandedLessons] = useState({});
     const [selectedDialogue, setSelectedDialogue] = useState(null);
     const [dialogueContent, setDialogueContent] = useState(null);
-    const [isExpanded, setIsExpanded] = useState(true);
+    const [isMainExpanded, setIsMainExpanded] = useState(true);
     const [loadingContent, setLoadingContent] = useState(false);
 
-    // Load dialogue content when selected
+    // Grouping Logic (Memoized for performance)
+    const books = useMemo(() => {
+        const grouped = {};
+        dialogues.forEach((d) => {
+            if (!grouped[d.book]) grouped[d.book] = { id: d.book, lessons: {} };
+            if (!grouped[d.book].lessons[d.lesson])
+                grouped[d.book].lessons[d.lesson] = [];
+            grouped[d.book].lessons[d.lesson].push(d);
+        });
+        return Object.values(grouped).sort((a, b) => a.id - b.id);
+    }, [dialogues]);
+
     useEffect(() => {
         const loadContent = async () => {
             if (selectedDialogue) {
                 setLoadingContent(true);
-                const content = await loadDialogueContent(
-                    selectedDialogue.filename
-                );
-                setDialogueContent(content);
-                setLoadingContent(false);
-            } else {
-                setDialogueContent(null);
+                try {
+                    const content = await loadDialogueContent(
+                        selectedDialogue.filename,
+                    );
+                    setDialogueContent(content);
+                } catch (e) {
+                    console.error('Failed to load dialogue', e);
+                } finally {
+                    setLoadingContent(false);
+                }
             }
         };
-
         loadContent();
     }, [selectedDialogue, loadDialogueContent]);
 
-    if (isLoading) {
+    if (isLoading)
         return (
-            <div className="mb-6 bg-white rounded-lg border border-gray-200 p-6">
-                <div className="text-center py-8 text-gray-600">
-                    Loading dialogues...
-                </div>
+            <div className="p-10 text-center animate-pulse text-gray-400">
+                Loading curriculum...
             </div>
         );
-    }
-
-    if (error) {
+    if (error)
         return (
-            <div className="mb-6 bg-white rounded-lg border border-gray-200 p-6">
-                <div className="text-center py-8 text-red-600">
-                    Error: {error}
-                </div>
-            </div>
+            <div className="p-10 text-center text-red-500">Error: {error}</div>
         );
-    }
-
-    // Group dialogues by book and lesson
-    const groupedDialogues = {};
-    dialogues.forEach((dialogue) => {
-        const { book, lesson } = dialogue;
-
-        if (!groupedDialogues[book]) {
-            groupedDialogues[book] = {
-                book,
-                lessons: {},
-            };
-        }
-
-        if (!groupedDialogues[book].lessons[lesson]) {
-            groupedDialogues[book].lessons[lesson] = {
-                book,
-                lesson,
-                dialogues: [],
-            };
-        }
-
-        groupedDialogues[book].lessons[lesson].dialogues.push(dialogue);
-    });
-
-    const toggleBookExpansion = (book) => {
-        setExpandedBooks((prev) => ({
-            ...prev,
-            [book]: !prev[book],
-        }));
-    };
-
-    const toggleLessonExpansion = (book, lesson) => {
-        const key = `${book}-${lesson}`;
-        setExpandedLessons((prev) => ({
-            ...prev,
-            [key]: !prev[key],
-        }));
-    };
-
-    const handleDialogueClick = (dialogue) => {
-        setSelectedDialogue(dialogue);
-    };
-
-    const books = Object.values(groupedDialogues).sort(
-        (a, b) => a.book - b.book
-    );
 
     return (
-        <div className="mb-6 bg-white rounded-lg border border-gray-200">
-            {/* Header */}
+        <div className="mb-6 bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+            {/* Main Accordion Header */}
             <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors border-b border-gray-200"
+                onClick={() => setIsMainExpanded(!isMainExpanded)}
+                className="w-full px-6 py-4 flex items-center justify-between bg-white border-b border-gray-100 hover:bg-gray-50 transition-colors"
             >
-                <div className="flex items-center gap-3">
-                    <svg
-                        className={`w-5 h-5 text-gray-500 transition-transform ${
-                            isExpanded ? 'rotate-90' : ''
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                        />
-                    </svg>
+                <div className="flex items-center gap-4">
+                    <div className="bg-blue-600 p-2 rounded-lg">
+                        <svg
+                            className="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                            />
+                        </svg>
+                    </div>
                     <div className="text-left">
-                        <h2 className="text-lg font-semibold text-gray-800">
-                            Dialogues & Readings
+                        <h2 className="text-lg font-bold text-gray-900">
+                            Curriculum Explorer
                         </h2>
-                        <p className="text-sm text-gray-600">
-                            {dialogues.length} dialogues available
+                        <p className="text-xs text-gray-500 uppercase font-semibold">
+                            Contemporary Chinese Series
                         </p>
                     </div>
                 </div>
-                <div className="text-sm text-gray-700">
-                    {isExpanded ? '▲ Collapse' : '▼ Expand'}
-                </div>
+                <span
+                    className={`transform transition-transform ${isMainExpanded ? 'rotate-180' : ''}`}
+                >
+                    ▼
+                </span>
             </button>
 
-            {isExpanded && (
-                <div className="p-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        {/* Left column - Tree */}
-                        <div className="lg:col-span-1">
-                            <div className="space-y-4">
-                                {books.map((bookData) => {
-                                    const isBookExpanded =
-                                        expandedBooks[bookData.book];
-                                    const lessons = Object.values(
-                                        bookData.lessons
-                                    ).sort((a, b) => a.lesson - b.lesson);
+            {isMainExpanded && (
+                <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+                    {/* Left Navigation Tree */}
+                    <div className="lg:col-span-4 border-r border-gray-100 bg-gray-50/30 overflow-y-auto max-h-[800px]">
+                        <div className="p-4 space-y-4">
+                            {books.map((book) => (
+                                <div
+                                    key={book.id}
+                                    className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm"
+                                >
+                                    <button
+                                        onClick={() =>
+                                            setExpandedBooks((prev) => ({
+                                                ...prev,
+                                                [book.id]: !prev[book.id],
+                                            }))
+                                        }
+                                        className="w-full px-4 py-3 flex items-center justify-between bg-white border-b border-gray-100"
+                                    >
+                                        <span className="font-bold text-gray-800 italic">
+                                            Book {book.id}
+                                        </span>
+                                        <span className="bg-gray-100 text-gray-600 text-[10px] px-2 py-0.5 rounded-full uppercase">
+                                            {Object.keys(book.lessons).length}{' '}
+                                            Lessons
+                                        </span>
+                                    </button>
 
-                                    return (
-                                        <div
-                                            key={`book-${bookData.book}`}
-                                            className="border border-gray-200 rounded-lg overflow-hidden"
-                                        >
-                                            {/* Book Header */}
-                                            <div className="bg-gray-50 px-4 py-3 border-b border-gray-200">
-                                                <button
-                                                    onClick={() =>
-                                                        toggleBookExpansion(
-                                                            bookData.book
-                                                        )
-                                                    }
-                                                    className="flex items-center gap-3 w-full text-left"
-                                                >
-                                                    <div className="w-6 h-6 flex items-center justify-center text-gray-400">
-                                                        {isBookExpanded
-                                                            ? '▼'
-                                                            : '▶'}
-                                                    </div>
-                                                    <span className="font-medium text-gray-800">
-                                                        Book {bookData.book}
-                                                    </span>
-                                                    <span className="text-sm text-gray-600 ml-auto">
-                                                        {lessons.length} lesson
-                                                        {lessons.length !== 1
-                                                            ? 's'
-                                                            : ''}
-                                                    </span>
-                                                </button>
-                                            </div>
-
-                                            {/* Lessons */}
-                                            {isBookExpanded && (
-                                                <div className="bg-white">
-                                                    {lessons.map(
-                                                        (lessonData) => {
-                                                            const lessonKey = `${bookData.book}-${lessonData.lesson}`;
-                                                            const isLessonExpanded =
+                                    {expandedBooks[book.id] && (
+                                        <div className="divide-y divide-gray-50">
+                                            {Object.entries(book.lessons)
+                                                .sort(([a], [b]) => a - b)
+                                                .map(
+                                                    ([
+                                                        lessonNum,
+                                                        dialogues,
+                                                    ]) => (
+                                                        <LessonGroup
+                                                            key={lessonNum}
+                                                            book={book.id}
+                                                            lesson={lessonNum}
+                                                            dialogues={
+                                                                dialogues
+                                                            }
+                                                            expanded={
                                                                 expandedLessons[
-                                                                    lessonKey
-                                                                ];
-
-                                                            return (
-                                                                <div
-                                                                    key={
-                                                                        lessonKey
-                                                                    }
-                                                                    className="border-t border-gray-100"
-                                                                >
-                                                                    {/* Lesson Header */}
-                                                                    <div className="px-8 py-2 border-b border-gray-100 bg-gray-50">
-                                                                        <button
-                                                                            onClick={() =>
-                                                                                toggleLessonExpansion(
-                                                                                    bookData.book,
-                                                                                    lessonData.lesson
-                                                                                )
-                                                                            }
-                                                                            className="flex items-center gap-3 w-full text-left"
-                                                                        >
-                                                                            <div className="w-6 h-6 flex items-center justify-center text-gray-400">
-                                                                                {isLessonExpanded
-                                                                                    ? '▼'
-                                                                                    : '▶'}
-                                                                            </div>
-                                                                            <span className="text-sm text-gray-700">
-                                                                                Lesson{' '}
-                                                                                {
-                                                                                    lessonData.lesson
-                                                                                }
-                                                                            </span>
-                                                                            <span className="text-xs text-gray-600 ml-auto">
-                                                                                {
-                                                                                    lessonData
-                                                                                        .dialogues
-                                                                                        .length
-                                                                                }{' '}
-                                                                                dialogue
-                                                                                {lessonData
-                                                                                    .dialogues
-                                                                                    .length !==
-                                                                                1
-                                                                                    ? 's'
-                                                                                    : ''}
-                                                                            </span>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    {/* Dialogues */}
-                                                                    {isLessonExpanded && (
-                                                                        <div className="px-12 py-3 space-y-2">
-                                                                            {lessonData.dialogues.map(
-                                                                                (
-                                                                                    dialogue
-                                                                                ) => (
-                                                                                    <button
-                                                                                        key={
-                                                                                            dialogue.id
-                                                                                        }
-                                                                                        onClick={() =>
-                                                                                            handleDialogueClick(
-                                                                                                dialogue
-                                                                                            )
-                                                                                        }
-                                                                                        className={`flex items-center justify-between w-full p-3 rounded-lg text-left hover:bg-gray-50 ${
-                                                                                            selectedDialogue?.id ===
-                                                                                            dialogue.id
-                                                                                                ? 'bg-blue-50 border border-blue-200'
-                                                                                                : 'border border-gray-100'
-                                                                                        }`}
-                                                                                    >
-                                                                                        <div>
-                                                                                            <div className="font-medium text-gray-800">
-                                                                                                {
-                                                                                                    dialogue.title
-                                                                                                }
-                                                                                            </div>
-                                                                                            <div className="text-sm text-gray-600 mt-1">
-                                                                                                {dialogue.type ===
-                                                                                                'dialogue'
-                                                                                                    ? 'Dialogue'
-                                                                                                    : 'Reading'}
-                                                                                                {dialogue
-                                                                                                    .participants
-                                                                                                    .length >
-                                                                                                    0 && (
-                                                                                                    <span className="ml-2">
-                                                                                                        •{' '}
-                                                                                                        {
-                                                                                                            dialogue
-                                                                                                                .participants
-                                                                                                                .length
-                                                                                                        }{' '}
-                                                                                                        participant
-                                                                                                        {dialogue
-                                                                                                            .participants
-                                                                                                            .length !==
-                                                                                                        1
-                                                                                                            ? 's'
-                                                                                                            : ''}
-                                                                                                    </span>
-                                                                                                )}
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div className="text-xs text-gray-500">
-                                                                                            {
-                                                                                                dialogue.dialogue
-                                                                                            }
-                                                                                        </div>
-                                                                                    </button>
-                                                                                )
-                                                                            )}
-                                                                        </div>
-                                                                    )}
-                                                                </div>
-                                                            );
-                                                        }
-                                                    )}
-                                                </div>
-                                            )}
+                                                                    `${book.id}-${lessonNum}`
+                                                                ]
+                                                            }
+                                                            onToggle={(key) =>
+                                                                setExpandedLessons(
+                                                                    (prev) => ({
+                                                                        ...prev,
+                                                                        [key]: !prev[
+                                                                            key
+                                                                        ],
+                                                                    }),
+                                                                )
+                                                            }
+                                                            selectedId={
+                                                                selectedDialogue?.id
+                                                            }
+                                                            onSelect={
+                                                                setSelectedDialogue
+                                                            }
+                                                        />
+                                                    ),
+                                                )}
                                         </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-
-                        {/* Right column - Preview */}
-                        <div className="lg:col-span-2">
-                            <div className="sticky top-6">
-                                <div className="border border-gray-200 rounded-lg overflow-hidden">
-                                    <div className="bg-gray-50 px-4 py-3 border-b border-gray-200">
-                                        <h3 className="font-medium text-gray-800">
-                                            {selectedDialogue
-                                                ? 'Preview'
-                                                : 'Select a Dialogue'}
-                                        </h3>
-                                    </div>
-
-                                    <div className="p-4">
-                                        <DialoguePreview
-                                            dialogue={selectedDialogue}
-                                            content={dialogueContent}
-                                            isLoading={loadingContent}
-                                        />
-                                    </div>
+                                    )}
                                 </div>
-                            </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right Preview Pane */}
+                    <div className="lg:col-span-8 p-6 bg-white">
+                        <div className="h-full border-2 border-dashed border-gray-100 rounded-2xl p-4">
+                            <DialoguePreview
+                                dialogue={selectedDialogue}
+                                content={dialogueContent}
+                                isLoading={loadingContent}
+                            />
                         </div>
                     </div>
                 </div>

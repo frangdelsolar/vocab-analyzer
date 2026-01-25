@@ -7,88 +7,60 @@ const DialoguePreview = ({ dialogue, content, isLoading }) => {
     const [hoveredOccurrenceId, setHoveredOccurrenceId] = useState(null);
     const [highlightVocabulary, setHighlightVocabulary] = useState(true);
     const [showVocabularyList, setShowVocabularyList] = useState(false);
+    const [showPinyin, setShowPinyin] = useState(false); // New state for Pinyin visibility
 
-    // Helper to map Dialogue index (Arabic) to Vocabulary section (Roman)
     const dialogueToRoman = (num) => {
-        const map = {
-            1: 'I',
-            2: 'II',
-            3: 'III',
-            4: 'IV',
-            5: 'V',
-        };
+        const map = { 1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V' };
         return map[num] || num.toString();
     };
 
-    // Filter vocabulary that matches the current dialogue's Book, Lesson, and Part
     const matchingVocabulary = useMemo(() => {
-        if (!dialogue || !vocabulary.length) return [];
-
-        const targetRomanPart = dialogueToRoman(dialogue.dialogue);
+        if (!content || !vocabulary.length) return [];
+        const part = content.part || dialogue?.dialogue;
+        const targetRomanPart = dialogueToRoman(part);
 
         return vocabulary.filter((item) => {
             const { location } = item;
-            if (!location) return false;
-
             return (
-                location.book === dialogue.book &&
-                location.lesson === dialogue.lesson &&
-                location.vocabulary === targetRomanPart
+                location?.book === (content.book_number || dialogue?.book) &&
+                location?.lesson ===
+                    (content.lesson_number || dialogue?.lesson) &&
+                location?.vocabulary === targetRomanPart
             );
         });
-    }, [dialogue, vocabulary]);
+    }, [dialogue, content, vocabulary]);
 
-    // Function to highlight vocabulary in text
     const highlightText = (text, contextId = '') => {
-        if (!highlightVocabulary || matchingVocabulary.length === 0) {
+        if (!highlightVocabulary || matchingVocabulary.length === 0)
             return <span>{text}</span>;
-        }
 
-        // Create a map for quick lookup with normalized text
         const vocabMap = new Map();
-        matchingVocabulary.forEach((vocab) => {
-            // Store both simplified and traditional if different
-            vocabMap.set(vocab.simplified, vocab);
-            if (vocab.traditional && vocab.traditional !== vocab.simplified) {
-                vocabMap.set(vocab.traditional, vocab);
-            }
+        matchingVocabulary.forEach((v) => {
+            vocabMap.set(v.traditional, v);
+            vocabMap.set(v.simplified, v);
         });
 
-        // Get all vocabulary strings sorted by length (longest first)
         const vocabStrings = Array.from(vocabMap.keys()).sort(
-            (a, b) => b.length - a.length
+            (a, b) => b.length - a.length,
         );
-
         let result = [];
         let i = 0;
         let occurrenceIndex = 0;
 
         while (i < text.length) {
-            let matched = false;
-            let matchedVocab = null;
-            let matchedLength = 0;
+            let matchedStr = vocabStrings.find(
+                (s) => text.substring(i, i + s.length) === s,
+            );
 
-            // Try to find the longest match starting at position i
-            for (const vocabStr of vocabStrings) {
-                if (text.substring(i, i + vocabStr.length) === vocabStr) {
-                    matchedVocab = vocabMap.get(vocabStr);
-                    matchedLength = vocabStr.length;
-                    matched = true;
-                    break;
-                }
-            }
-
-            if (matched && matchedVocab) {
-                // Create a unique ID for this specific occurrence
-                const occurrenceId = `${contextId}-${matchedVocab.guid}-${occurrenceIndex}`;
-                occurrenceIndex++;
-
+            if (matchedStr) {
+                const vocab = vocabMap.get(matchedStr);
+                const occurrenceId = `${contextId}-${vocab.guid}-${occurrenceIndex++}`;
                 result.push(
                     <span
                         key={occurrenceId}
                         className="relative inline-block group cursor-pointer"
                         onMouseEnter={() => {
-                            setHoveredWord(matchedVocab);
+                            setHoveredWord(vocab);
                             setHoveredOccurrenceId(occurrenceId);
                         }}
                         onMouseLeave={() => {
@@ -96,366 +68,197 @@ const DialoguePreview = ({ dialogue, content, isLoading }) => {
                             setHoveredOccurrenceId(null);
                         }}
                     >
-                        <span className="bg-yellow-100 text-yellow-800 px-1 rounded border border-yellow-200 hover:bg-yellow-200 transition-colors">
-                            {text.substring(i, i + matchedLength)}
+                        <span className="bg-yellow-100 text-yellow-800 px-1 rounded border border-yellow-200 hover:bg-yellow-200">
+                            {matchedStr}
                         </span>
-
-                        {/* Tooltip - only show for this specific occurrence */}
-                        {hoveredWord?.guid === matchedVocab.guid &&
+                        {hoveredWord?.guid === vocab.guid &&
                             hoveredOccurrenceId === occurrenceId && (
-                                <div className="absolute z-50 left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-80 p-4 bg-white rounded-lg shadow-xl border border-gray-200">
-                                    <div className="space-y-3">
-                                        {/* Header with Chinese characters */}
-                                        <div className="flex items-start justify-between">
-                                            <div className="flex items-center gap-2">
-                                                <div className="font-chinese text-2xl font-bold">
-                                                    {matchedVocab.simplified}
-                                                </div>
-                                                {matchedVocab.traditional &&
-                                                    matchedVocab.traditional !==
-                                                        matchedVocab.simplified && (
-                                                        <div className="font-chinese text-xl text-gray-600">
-                                                            (
-                                                            {
-                                                                matchedVocab.traditional
-                                                            }
-                                                            )
-                                                        </div>
-                                                    )}
-                                            </div>
-                                            <span className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded">
-                                                B{matchedVocab.location?.book} L
-                                                {matchedVocab.location?.lesson}
-                                            </span>
-                                        </div>
-
-                                        {/* Pinyin */}
-                                        <div className="text-lg font-medium text-blue-700">
-                                            {matchedVocab.pinyin}
-                                        </div>
-
-                                        {/* Meaning */}
-                                        <div className="text-gray-800 leading-relaxed">
-                                            {matchedVocab.meaning}
-                                        </div>
-
-                                        {/* Part of speech and other details */}
-                                        <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
-                                            {matchedVocab.partOfSpeech && (
-                                                <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded">
-                                                    {matchedVocab.partOfSpeech}
-                                                </span>
-                                            )}
-                                            {matchedVocab.notes && (
-                                                <span className="text-xs px-2 py-1 bg-yellow-50 text-yellow-700 rounded">
-                                                    Note: {matchedVocab.notes}
-                                                </span>
-                                            )}
-                                        </div>
+                                <div className="absolute z-50 left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-72 p-4 bg-white rounded-lg shadow-xl border border-gray-200 text-left">
+                                    <div className="font-chinese text-2xl font-bold">
+                                        {vocab.traditional}
                                     </div>
-
-                                    {/* Tooltip arrow */}
-                                    <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-1">
-                                        <div className="w-3 h-3 bg-white border-r border-b border-gray-200 transform rotate-45"></div>
+                                    <div className="text-blue-700 font-medium">
+                                        {vocab.pinyin}
                                     </div>
+                                    <div className="text-gray-800 text-sm mt-1">
+                                        {vocab.meaning}
+                                    </div>
+                                    <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-1 w-3 h-3 bg-white border-r border-b border-gray-200 rotate-45"></div>
                                 </div>
                             )}
-                    </span>
+                    </span>,
                 );
-                i += matchedLength;
+                i += matchedStr.length;
             } else {
-                // No match found, add the character as plain text
-                result.push(
-                    <span key={`plain-${contextId}-${i}`}>
-                        {text.charAt(i)}
-                    </span>
-                );
+                result.push(<span key={i}>{text[i]}</span>);
                 i++;
             }
         }
-
         return result;
     };
 
-    // Get unique speakers for color coding
     const getSpeakerColor = (speaker, index) => {
         const colors = [
             'bg-blue-50 text-blue-800 border-blue-200',
             'bg-green-50 text-green-800 border-green-200',
             'bg-purple-50 text-purple-800 border-purple-200',
-            'bg-yellow-50 text-yellow-800 border-yellow-200',
-            'bg-pink-50 text-pink-800 border-pink-200',
-            'bg-indigo-50 text-indigo-800 border-indigo-200',
         ];
         return colors[index % colors.length];
     };
 
-    // Extract all unique speakers - MOVED INSIDE RENDER AFTER NULL CHECKS
+    const getEmbedUrl = (url) => {
+        if (!url) return null;
+        const regExp =
+            /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        return match && match[2].length === 11
+            ? `https://www.youtube.com/embed/${match[2]}`
+            : null;
+    };
 
-    if (isLoading) {
+    if (isLoading)
         return (
-            <div className="text-center py-8">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-                <p className="mt-2 text-sm text-gray-600">
-                    Loading dialogue...
-                </p>
+            <div className="text-center py-8 italic text-gray-500">
+                Loading content...
             </div>
         );
-    }
-
-    if (!dialogue) {
+    if (!dialogue || !content)
         return (
-            <div className="text-center py-8 text-gray-500">
-                <div className="mb-2">👈</div>
-                <p>Select a dialogue from the list to preview it here</p>
+            <div className="text-center py-8 text-gray-500 italic">
+                Select a lesson to preview
             </div>
         );
-    }
 
-    if (!content) {
-        return (
-            <div className="text-center py-8 text-gray-500">
-                <div className="mb-2">⚠️</div>
-                <p>Could not load dialogue content</p>
-                <p className="text-sm mt-2">File: {dialogue.filename}</p>
-            </div>
-        );
-    }
-
-    // Extract all unique speakers - NOW SAFE TO DO AFTER NULL CHECKS
-    const speakers =
-        dialogue.type === 'dialogue' && content.content
-            ? [...new Set(content.content.map((item) => item.speaker))]
-            : [];
+    const isDialogue = content.dialogue_id === 'dialogue';
+    const speakers = isDialogue ? content.participants || [] : [];
+    const videoEmbed = getEmbedUrl(content.youtube_url);
 
     return (
-        <div className="space-y-4">
+        <div className="space-y-6">
             {/* Header */}
-            <div className="pb-3 border-b border-gray-200">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">
-                    {content.title || dialogue.title}
-                </h4>
-                <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
-                    <span className="px-2 py-0.5 bg-gray-100 text-gray-700 rounded">
-                        Book {dialogue.book}
-                    </span>
-                    <span className="px-2 py-0.5 bg-gray-100 text-gray-700 rounded">
-                        Lesson {dialogue.lesson}
-                    </span>
-                    <span className="px-2 py-0.5 bg-gray-100 text-gray-700 rounded">
-                        Part {dialogue.dialogue}
-                    </span>
-
-                    {/* Participants/Speakers */}
-                    {speakers.length > 0 && (
-                        <div className="ml-2">
-                            <span className="text-gray-500">•</span>
-                            <span className="ml-2">
-                                {speakers.map((speaker, index) => (
-                                    <span
-                                        key={speaker}
-                                        className="inline-flex items-center"
-                                    >
-                                        {index > 0 && (
-                                            <span className="mx-1 text-gray-400">
-                                                •
-                                            </span>
-                                        )}
-                                        <span
-                                            className={`px-2 py-0.5 rounded text-xs ${getSpeakerColor(
-                                                speaker,
-                                                index
-                                            )}`}
-                                        >
-                                            {speaker}
-                                        </span>
-                                    </span>
-                                ))}
-                            </span>
-                        </div>
-                    )}
-                </div>
-
-                {/* Vocabulary controls */}
-                <div className="mt-3 pt-3 border-t border-gray-100">
-                    <div className="flex items-center justify-between">
-                        <div className="text-sm text-gray-600">
-                            {matchingVocabulary.length} new vocabulary words in
-                            this dialogue
-                        </div>
-                        <button
-                            onClick={() =>
-                                setHighlightVocabulary(!highlightVocabulary)
-                            }
-                            className={`px-3 py-1 text-sm rounded transition-colors ${
-                                highlightVocabulary
-                                    ? 'bg-yellow-100 text-yellow-800 border border-yellow-200 hover:bg-yellow-200'
-                                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                            }`}
-                        >
-                            {highlightVocabulary
-                                ? '✓ Vocabulary Highlighted'
-                                : 'Highlight Vocabulary'}
-                        </button>
+            <div className="pb-4 border-b border-gray-200">
+                <div className="flex justify-between items-start">
+                    <div>
+                        <h4 className="text-xl font-bold text-gray-900">
+                            {content.title}
+                        </h4>
+                        <p className="text-sm text-gray-500 mt-1">
+                            Book {content.book_number || dialogue.book} • Lesson{' '}
+                            {content.lesson_number} •{' '}
+                            {isDialogue ? 'Dialogue' : 'Reading'}
+                        </p>
                     </div>
+                    <button
+                        onClick={() => setShowPinyin(!showPinyin)}
+                        className={`text-xs px-3 py-1 rounded-full border transition-colors ${showPinyin ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-600 border-gray-300 hover:bg-gray-50'}`}
+                    >
+                        {showPinyin ? 'Hide Pinyin' : 'Show Pinyin'}
+                    </button>
                 </div>
             </div>
 
-            {/* Content */}
-            <div>
-                {dialogue.type === 'dialogue' && content.content ? (
-                    <div className="space-y-2">
-                        {content.content.map((item, index) => {
-                            const speakerIndex = speakers.indexOf(item.speaker);
-                            const colorClass = getSpeakerColor(
-                                item.speaker,
-                                speakerIndex
-                            );
+            {/* Video Player */}
+            {videoEmbed && (
+                <div className="aspect-video w-full rounded-lg overflow-hidden shadow-sm border border-gray-200">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src={videoEmbed}
+                        title="Lesson Video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            )}
 
-                            return (
-                                <div
-                                    key={index}
-                                    className={`p-3 rounded-lg ${
-                                        colorClass.split(' ')[0]
-                                    } border-l-4 ${colorClass
-                                        .split(' ')[2]
-                                        .replace('border-', 'border-l-')}`}
-                                >
-                                    <div className="flex items-start gap-3">
-                                        {/* Speaker */}
-                                        <div className="font-medium text-gray-800 min-w-[60px]">
-                                            {item.speaker}:
-                                        </div>
-
-                                        {/* Content */}
-                                        <div className="flex-1">
-                                            {/* Chinese text with vocabulary highlighting */}
-                                            <div className="text-lg font-chinese leading-relaxed">
-                                                {highlightText(
-                                                    item.text,
-                                                    `speaker-${index}`
-                                                )}
-                                            </div>
-
-                                            {/* Pinyin (if available) */}
-                                            {item.pinyin && (
-                                                <div className="text-sm text-gray-600 mt-1">
-                                                    {item.pinyin}
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                ) : content.content ? (
-                    // Reading content
-                    <div className="space-y-6">
-                        {content.content.map((item, index) => (
+            {/* Main Content */}
+            <div className="space-y-4">
+                {isDialogue ? (
+                    content.content.map((item, index) => {
+                        const speakerIndex = speakers.indexOf(item.speaker);
+                        const colorClass = getSpeakerColor(
+                            item.speaker,
+                            speakerIndex,
+                        );
+                        return (
                             <div
                                 key={index}
-                                className="text-gray-800 leading-relaxed font-chinese text-lg"
+                                className={`p-4 rounded-lg border-l-4 ${colorClass}`}
                             >
-                                {highlightText(item.text, `reading-${index}`)}
-                                {item.pinyin && (
-                                    <div className="mt-2 text-sm text-gray-600">
-                                        {item.pinyin}
+                                <div className="flex items-start gap-4">
+                                    <div className="font-bold min-w-[70px]">
+                                        {item.speaker}:
                                     </div>
+                                    <div className="flex-1">
+                                        <div className="text-lg font-chinese leading-relaxed">
+                                            {highlightText(
+                                                item.text,
+                                                `d-${index}`,
+                                            )}
+                                        </div>
+                                        {showPinyin && item.pinyin && (
+                                            <div className="text-sm opacity-80 mt-1 font-sans">
+                                                {item.pinyin}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })
+                ) : (
+                    <div className="space-y-6">
+                        {content.content.map((item, index) => (
+                            <div key={index}>
+                                <p className="text-lg font-chinese leading-loose text-justify indent-8">
+                                    {highlightText(item.text, `r-${index}`)}
+                                </p>
+                                {showPinyin && item.pinyin && (
+                                    <p className="text-sm text-gray-500 mt-2 italic font-sans">
+                                        {item.pinyin}
+                                    </p>
                                 )}
                             </div>
                         ))}
                     </div>
-                ) : (
-                    <div className="text-gray-500 italic text-center py-8">
-                        No content available
-                    </div>
                 )}
             </div>
 
-            {/* Vocabulary summary */}
-            {highlightVocabulary && matchingVocabulary.length > 0 && (
-                <div className="pt-4 border-t border-gray-200">
-                    <div className="flex items-center justify-between mb-2">
-                        <h5 className="font-medium text-gray-800 flex items-center">
-                            <span className="mr-2">📚</span>
-                            Vocabulary ({matchingVocabulary.length})
-                        </h5>
-                        <button
-                            onClick={() =>
-                                setShowVocabularyList(!showVocabularyList)
-                            }
-                            className="text-sm text-gray-600 hover:text-gray-800"
-                        >
-                            {showVocabularyList ? 'Hide' : 'Show'}
-                        </button>
+            {/* Vocabulary Footer */}
+            <div className="pt-6 border-t border-gray-100">
+                <button
+                    onClick={() => setShowVocabularyList(!showVocabularyList)}
+                    className="text-sm font-medium text-gray-500 hover:text-gray-800 flex items-center gap-2"
+                >
+                    {showVocabularyList
+                        ? '▼ Hide Word List'
+                        : '▶ Show Word List'}{' '}
+                    ({matchingVocabulary.length})
+                </button>
+                {showVocabularyList && (
+                    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {matchingVocabulary.map((v) => (
+                            <div
+                                key={v.guid}
+                                className="p-3 bg-gray-50 rounded-lg flex justify-between items-center border border-gray-100"
+                            >
+                                <div>
+                                    <div className="font-chinese font-bold text-gray-900">
+                                        {v.traditional}
+                                    </div>
+                                    <div className="text-xs text-blue-600">
+                                        {v.pinyin}
+                                    </div>
+                                </div>
+                                <div className="text-sm text-gray-600 text-right max-w-[50%]">
+                                    {v.meaning}
+                                </div>
+                            </div>
+                        ))}
                     </div>
-
-                    {showVocabularyList && (
-                        <div className="overflow-x-auto">
-                            <table className="w-full text-sm">
-                                <thead>
-                                    <tr className="border-b border-gray-200">
-                                        <th className="text-left py-2 font-medium text-gray-700 w-16">
-                                            Chinese
-                                        </th>
-                                        <th className="text-left py-2 font-medium text-gray-700 w-24">
-                                            Pinyin
-                                        </th>
-                                        <th className="text-left py-2 font-medium text-gray-700">
-                                            Meaning
-                                        </th>
-                                        <th className="text-left py-2 font-medium text-gray-700 w-20">
-                                            Type
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {matchingVocabulary.map((vocab) => (
-                                        <tr
-                                            key={vocab.guid}
-                                            className="border-b border-gray-100 hover:bg-gray-50"
-                                        >
-                                            <td className="py-2">
-                                                <div className="flex flex-col">
-                                                    <span className="font-chinese text-lg">
-                                                        {vocab.traditional ||
-                                                            vocab.simplified}
-                                                    </span>
-                                                    {vocab.traditional &&
-                                                        vocab.traditional !==
-                                                            vocab.simplified && (
-                                                            <span className="font-chinese text-sm text-gray-500">
-                                                                (
-                                                                {
-                                                                    vocab.simplified
-                                                                }
-                                                                )
-                                                            </span>
-                                                        )}
-                                                </div>
-                                            </td>
-                                            <td className="py-2 text-blue-700">
-                                                {vocab.pinyin}
-                                            </td>
-                                            <td className="py-2 text-gray-700">
-                                                {vocab.meaning}
-                                            </td>
-                                            <td className="py-2">
-                                                {vocab.partOfSpeech && (
-                                                    <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded whitespace-nowrap">
-                                                        {vocab.partOfSpeech}
-                                                    </span>
-                                                )}
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    )}
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 };
