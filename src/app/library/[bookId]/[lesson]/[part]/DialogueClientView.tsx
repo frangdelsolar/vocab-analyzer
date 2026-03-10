@@ -13,7 +13,7 @@ import { useParticipantColors } from './_components/UseParticipantColors';
 import ContentLine from './_components/ContentLine';
 import PinyinSidebar from './_components/PinyinSidebar';
 
-import StudySettingsControl from '@/components/StudySettingsControl';
+import StudySettingsControl from './_components/StudySettingsControl';
 
 export default function DialogueClienView({
     params,
@@ -29,11 +29,16 @@ export default function DialogueClienView({
 
     // Sync Page State to Global Vocabulary Context
     useEffect(() => {
-        setSettings({
-            book: parseInt(bookNum),
-            lesson: parseInt(lesson),
-            section: part,
-        });
+        setSettings((prev) => ({
+            ...prev,
+            scope: 'explorer',
+            explorer: {
+                b: parseInt(bookNum),
+                l: parseInt(lesson),
+                p: parseInt(part),
+                mode: 'section', // Defaulting to 'section' so only this part's words highlight initially
+            },
+        }));
     }, [bookNum, lesson, part, setSettings]);
 
     useEffect(() => {

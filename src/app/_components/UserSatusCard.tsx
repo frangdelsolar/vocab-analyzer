@@ -21,7 +21,7 @@ export const UserStatusCard = () => {
             book: progress.book,
             lesson: progress.lesson,
             section: progress.section,
-            cumulative: true,
+            mode: 'cumulative',
         }).length;
     }, [progress, getFilteredCards]);
 

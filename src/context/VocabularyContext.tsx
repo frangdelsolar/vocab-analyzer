@@ -36,7 +36,10 @@ export interface LocationTree {
     };
 }
 
-export type SearchScope = 'all' | 'explorer' | 'user';
+// Added 'none' to SearchScope
+export type SearchScope = 'all' | 'explorer' | 'user' | 'none';
+// New type for granular explorer filtering
+export type ExplorerMode = 'chapter' | 'section' | 'cumulative';
 
 interface VocabSettings {
     scope: SearchScope;
@@ -45,7 +48,7 @@ interface VocabSettings {
         b: number;
         l: number;
         p: number;
-        cumulative: boolean;
+        mode: ExplorerMode; // Changed from 'cumulative: boolean'
     };
 }
 
@@ -53,7 +56,7 @@ interface FilterOptions {
     book: number;
     lesson: number;
     section: number;
-    cumulative: boolean;
+    mode: ExplorerMode; // Updated to use the new mode
 }
 
 // --- Context Definition ---
@@ -62,32 +65,31 @@ interface VocabContextType {
     metadata: LocationTree | null;
     dialogueManifest: string[];
     isLoading: boolean;
-    // Settings and Filtered Results
     settings: VocabSettings;
     setSettings: React.Dispatch<React.SetStateAction<VocabSettings>>;
     filteredList: AnkiCard[];
+    filteredMap: Map<string, AnkiCard>; // Optimization for text highlighting
     getFilteredCards: (options: FilterOptions) => AnkiCard[];
 }
 
 const VocabContext = createContext<VocabContextType | undefined>(undefined);
 
 export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
-    const { progress: userProgress, isHydrated } = useUser(); // Get live user progress
+    const { progress: userProgress, isHydrated } = useUser();
 
     const [cards, setCards] = useState<AnkiCard[]>([]);
     const [metadata, setMetadata] = useState<LocationTree | null>(null);
     const [dialogueManifest, setDialogueManifest] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    // Explorer/Search State
     const [settings, setSettings] = useState<VocabSettings>({
-        scope: 'user', // Default to current user studies
+        scope: 'user',
         searchQuery: '',
         explorer: {
             b: 1,
             l: 1,
             p: 1,
-            cumulative: true,
+            mode: 'cumulative',
         },
     });
 
@@ -117,12 +119,15 @@ export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
     }, []);
 
     const getFilteredCards = useCallback(
-        ({ book, lesson, section, cumulative }: FilterOptions) => {
+        ({ book, lesson, section, mode }: FilterOptions) => {
             if (cards.length === 0) return [];
 
             return cards.filter((card) => {
                 const c = card.location;
-                if (cumulative) {
+                if (!c || !c.book) return false;
+
+                // 1. Cumulative: All words up to this specific part
+                if (mode === 'cumulative') {
                     if (c.book < book) return true;
                     if (c.book === book && c.lesson < lesson) return true;
                     if (
@@ -133,18 +138,31 @@ export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
                         return true;
                     return false;
                 }
-                return (
-                    c.book === book &&
-                    c.lesson === lesson &&
-                    c.section === section
-                );
+
+                // 2. Chapter: All words in the lesson (Part I and Part II)
+                if (mode === 'chapter') {
+                    return c.book === book && c.lesson === lesson;
+                }
+
+                // 3. Section: Only words from this specific part
+                if (mode === 'section') {
+                    return (
+                        c.book === book &&
+                        c.lesson === lesson &&
+                        c.section === section
+                    );
+                }
+
+                return false;
             });
         },
         [cards],
     );
 
-    // The logic to derive what the user sees in the Explorer page
     const filteredList = useMemo(() => {
+        // Handle "None" scope immediately
+        if (settings.scope === 'none') return [];
+
         let baseCards = cards;
 
         if (settings.scope === 'user' && isHydrated) {
@@ -152,14 +170,14 @@ export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
                 book: userProgress.book,
                 lesson: userProgress.lesson,
                 section: userProgress.section,
-                cumulative: true,
+                mode: 'cumulative',
             });
         } else if (settings.scope === 'explorer') {
             baseCards = getFilteredCards({
                 book: settings.explorer.b,
                 lesson: settings.explorer.l,
                 section: settings.explorer.p,
-                cumulative: settings.explorer.cumulative,
+                mode: settings.explorer.mode,
             });
         }
 
@@ -168,6 +186,7 @@ export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
             return baseCards.filter(
                 (c) =>
                     c.traditional.includes(query) ||
+                    c.simplified.includes(query) ||
                     c.pinyin.toLowerCase().includes(query) ||
                     c.meaning.toLowerCase().includes(query),
             );
@@ -175,6 +194,15 @@ export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
 
         return baseCards;
     }, [cards, settings, userProgress, isHydrated, getFilteredCards]);
+
+    // High-performance map for SmartText lookup
+    const filteredMap = useMemo(() => {
+        const map = new Map<string, AnkiCard>();
+        filteredList.forEach((card) => {
+            map.set(card.traditional, card);
+        });
+        return map;
+    }, [filteredList]);
 
     return (
         <VocabContext.Provider
@@ -186,6 +214,7 @@ export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
                 settings,
                 setSettings,
                 filteredList,
+                filteredMap,
                 getFilteredCards,
             }}
         >
