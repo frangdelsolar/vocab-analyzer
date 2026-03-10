@@ -1,0 +1,116 @@
+{
+    "lesson_number": 2,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "買外套",
+    "video_url": "https://www.youtube.com/watch?v=ddCch_oOnvY&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=13",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=kn6f7TTreFc&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=14",
+    "participants": ["羅珊蒂", "何雅婷", "店員"],
+    "content": [
+        {
+            "speaker": "羅珊蒂",
+            "text": "謝謝妳陪我來買外套。沒想到今天人這麼多。",
+            "pinyin": "Xièxie nǐ péi wǒ lái mǎi wàitào. Méi xiǎng dào jīntiān rén zhème duō."
+        },
+        {
+            "speaker": "何雅婷",
+            "text": "現在百貨公司過年慶。一般來說，過年慶的時候大部分的產品都會有不錯的折扣。很多人趁這時候來買需要的東西，可以省不少錢。這個牌子品質不錯，選擇也多，我們進去看看吧。",
+            "pinyin": "Xiànzài bǎihuò gōngsī guònián qìng. Yībān lái shuō, guònián qìng de shíhou dà bùfèn de chǎnpǐn dōu huì yǒu bùcuò de zhékòu. Hěnduō rén chèn zhè shíhou lái mǎi xūyào de dōngxī, kěyǐ shěng bùshǎo qián. Zhège páizi pǐnzhì bùcuò, xuǎnzé yě duō, wǒmen jìnqù kànkan ba."
+        },
+        {
+            "speaker": "何雅婷",
+            "text": "你看，這件黃色的樣子不錯，摸起來也很舒服。你覺得怎麼樣？",
+            "pinyin": "Nǐ kàn, zhè jiàn huángsè de yàngzi bùcuò, mō qǐlái yě hěn shūfu. Nǐ juéde zěnmeyàng?"
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "我比較喜歡那件咖啡色的。",
+            "pinyin": "Wǒ bǐjiào xǐhuan nà jiàn kāfēisè de."
+        },
+        {
+            "speaker": "何雅婷",
+            "text": "你還是兩件都拿去試穿吧。有時候得穿上才知道好看不好看。",
+            "pinyin": "Nǐ háishì liǎng jiàn dōu ná qù shìchuān ba. Yǒu shíhou děi chuān shàng cái zhīdào hǎokàn bù hǎokàn."
+        },
+        {
+            "speaker": "店員",
+            "text": "小姐，這件外套你穿起來真漂亮。大小、長短都很合適，顏色也好看，而且是羊毛的，又輕又暖和。",
+            "pinyin": "Xiǎojiě, zhè jiàn wàitào nǐ chuān qǐlái zhēn piàoliang. Dàxiǎo, chángduǎn dōu hěn héshì, yánsè yě hǎokàn, érqiě shì yángmáo de, yòu qīng yòu nuǎnhuo."
+        },
+        {
+            "speaker": "何雅婷",
+            "text": "這件打完折多少錢？",
+            "pinyin": "Zhè jiàn dǎ wán zhé duōshǎo qián?"
+        },
+        {
+            "speaker": "店員",
+            "text": "原價3,900，現在九折，打完折3,510，算妳3,500。",
+            "pinyin": "Yuánjià sān qiān jiǔ bǎi, xiànzài jiǔ zhé, dǎ wán zhé sān qiān wǔ bǎi yī shí, suàn nǐ sān qiān wǔ bǎi."
+        },
+        {
+            "speaker": "何雅婷",
+            "text": "廣告上不是寫八折嗎？",
+            "pinyin": "Guǎnggào shàng bùshì xiě bā zhé ma?"
+        },
+        {
+            "speaker": "店員",
+            "text": "不好意思，是八折起。那件八折，可是這件打九折。",
+            "pinyin": "Bù hǎoyìsi, shì bā zhé qǐ. Nà jiàn bā zhé, kěshì zhè jiàn dǎ jiǔ zhé."
+        },
+        {
+            "speaker": "何雅婷",
+            "text": "羊毛外套3,500，雖然不便宜，可是品質不錯，樣子也好，值得買。",
+            "pinyin": "Yángmáo wàitào sān qiān wǔ bǎi, suīrán bù piányi, kěshì pǐnzhì bùcuò, yàngzi yě hǎo, zhíde mǎi."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "好吧。我就買這件。",
+            "pinyin": "Hǎo ba. Wǒ jiù mǎi zhè jiàn."
+        },
+        {
+            "speaker": "店員",
+            "text": "刷卡還是付現金？今天刷Visa卡，可以再打九五折。",
+            "pinyin": "Shuākǎ háishì fù xiànjīn? Jīntiān shuā VISA kǎ, kěyǐ zài dǎ jiǔ wǔ zhé."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "那就刷卡。",
+            "pinyin": "Nà jiù shuākǎ."
+        },
+        {
+            "speaker": "店員",
+            "text": "請等我一下。麻煩你在這裡簽名。謝謝。歡迎下次再來。",
+            "pinyin": "Qǐng děng wǒ yīxià. Máfan nǐ zài zhèlǐ qiānmíng. Xièxie. Huānyíng xià cì zài lái."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "我昨天買的這件外套，裡面破了一個洞。我要換一件新的。",
+            "pinyin": "Wǒ zuótiān mǎi de zhè jiàn wàitào, lǐmiàn pò le yī gè dòng. Wǒ yào huàn yī jiàn xīn de."
+        },
+        {
+            "speaker": "店員",
+            "text": "請問你帶發票來了嗎？",
+            "pinyin": "Qǐngwèn nǐ dài fāpiào lái le ma?"
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "我弄丟了，找不到。",
+            "pinyin": "Wǒ nòng diū le, zhǎo bù dào."
+        },
+        {
+            "speaker": "店員",
+            "text": "那不好意思。按照我們公司的規定，沒有發票不能退換。",
+            "pinyin": "Nà bù hǎoyìsi. Ànzhào wǒmen gōngsī de guīdìng, méiyǒu fāpiào bùnéng tuìhuàn."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "我昨天是刷卡買的，你們應該查得到資料。再說，衣服有問題也不是我的錯。",
+            "pinyin": "Wǒ zuótiān shì shuākǎ mǎi de, nǐmen yīnggāi chá dé dào zīliào. Zàishuō, yīfu yǒu wèntí yě bùshì wǒ de cuò."
+        },
+        {
+            "speaker": "店員",
+            "text": "對不起，對不起。請等一下，我去問問店長。",
+            "pinyin": "Duìbùqǐ, duìbùqǐ. Qǐng děng yīxià, wǒ qù wènwen diànzhǎng."
+        }
+    ]
+}

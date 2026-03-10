@@ -32,6 +32,9 @@ For Dialogues:
             "speaker": "美玲",
             "text": "你在做什麼？",
             "pinyin": "Nǐ zài zuò shénme?"
+        },
+        {
+            "comment":"他們走進火鍋店坐下"
         }
     ]
 }

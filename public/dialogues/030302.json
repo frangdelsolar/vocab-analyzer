@@ -1,0 +1,35 @@
+{
+    "lesson_number": 3,
+    "part": 3,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=VO3G4YTP774&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=26",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=4SyQXOUkjWk&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=27",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "華人的重要節日",
+            "pinyin": "Huárén de zhòngyào jiérì"
+        },
+        {
+            "paragraph": 2,
+            "text": "在台灣，除了原住民以外，大部分的人的祖先都是從中國移民來的，所以我們的傳統節日都跟中國一樣。一年當中，最重要的三個節日——春節、端午節跟中秋節——都是根據農曆來的。",
+            "pinyin": "Zài Táiwān, chúle yuánzhùmín yǐwài, dà bùfèn de rén de zǔxiān dōu shì cóng Zhōngguó yímín lái de, suǒyǐ wǒmen de chuántǒng jiérì dōu gēn Zhōngguó yīyàng. Yī nián dāngzhōng, zuì zhòngyào de sān gè jiérì——chūnjié, duānwǔjié gēn zhōngqiūjié——dōu shì gēnjù nónglì lái de."
+        },
+        {
+            "paragraph": 3,
+            "text": "古時候，中國是一個農業國家，農人的生活和工作都跟季節的變化有關係。比方，新年又叫春節，就是春天的開始。這時候，天氣還很冷，農人利用這段難得的休息時間，跟家人好好地聚聚。除夕這一天，在家裡除了祭祖，還要拜神。大年初一，全家人到廟裡拜拜，希望新的一年，神能保佑他們一家人平安、健康。",
+            "pinyin": "Gǔ shíhou, Zhōngguó shì yī gè nóngyè guójiā, nóngrén de shēnghuó hé gōngzuò dōu gēn jìjié de biànhuà yǒu guānxì. Bǐfang, xīnnián yòu jiào chūnjié, jiùshì chūntiān de kāishǐ. Zhè shíhou, tiānqì hái hěn lěng, nóngrén lìyòng zhè duàn nándé de xiūxí shíjiān, gēn jiārén hǎohǎo de jùjù. Chúxì zhè yī tiān, zài jiālǐ chúle jìzǔ, hái yào bài shén. Dànián chū yī, quán jiā rén dào miào lǐ bàibài, xīwàng xīn de yī nián, shén néng bǎoyòu tāmen yī jiā rén píng'ān, jiànkāng."
+        },
+        {
+            "paragraph": 4,
+            "text": "到了農曆三月，天氣越來越熱，蚊蟲慢慢多起來，人也容易生病。五月五號端午節這一天，古代的人戴香包、喝雄黃酒，還在門上掛一些植物。這些都是為了把瘟疫趕走。在現代，有人還按照傳統的做法過節，他們覺得這樣做多少有一點作用，有人認為這是一種迷信。",
+            "pinyin": "Dào le nónglì sānyuè, tiānqì yuè lái yuè rè, wénchóng mànman duō qǐlái, rén yě róngyì shēngbìng. Wǔyuè wǔ hào duānwǔjié zhè yī tiān, gǔdài de rén dài xiāngbāo, hē xiónghuáng jiǔ, hái zài mén shàng guà yīxiē zhíwù. Zhèxiē dōu shì wèile bǎ wēnyì gǎn zǒu. Zài xiàndài, yǒu rén hái ànzhào chuántǒng de zuòfǎ guò jié, tāmen juéde zhèyàng zuò duōshǎo yǒu yīdiǎn zuòyòng, yǒu rén rènwéi zhè shì yī zhǒng míxìn."
+        },
+        {
+            "paragraph": 5,
+            "text": "秋天是收成的季節，很多民族都有慶祝活動。農曆八月十五日的中秋節就是這樣來的。這一天，月亮又大又圓。雖然現在台灣已經不是農業社會了，但是離開家鄉的人，再遠也要回家團聚。晚餐以後，一家人吃著月餅、柚子，一邊給孩子講月亮的故事，過一個溫馨的節日。",
+            "pinyin": "Qiūtiān shì shōuchéng de jìjié, hěnduō mínzú dōu yǒu qìngzhù huódòng. Nónglì bāyuè shíwǔ rì de zhōngqiūjié jiùshì zhèyàng lái de. Zhè yī tiān, yuèliang yòu dà yòu yuán. Suīrán xiànzài Táiwān yǐjīng bùshì nóngyè shèhuì le, dànshì lí kāi jiāxiāng de rén, zài yuǎn yě yào huí jiā tuánjù. Wǎncān yǐhòu, yī jiā rén chīzhe yuèbǐng, yòuzi, yībiān gěi háizi jiǎng yuèliang de gùshì, guò yī gè wēnxīn de jiérì."
+        }
+    ]
+}

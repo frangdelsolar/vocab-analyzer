@@ -1,0 +1,40 @@
+{
+    "lesson_number": 5,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=nZviiEpROfQ&list=PLzhEEEIeppr_dVwRHHbF7olcBB-H8ddCo&index=3",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=lwcUGLfwjHE&list=PLzhEEEIeppr_dVwRHHbF7olcBB-H8ddCo&index=4",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "撞衫",
+            "pinyin": "Zhuàngshān"
+        },
+        {
+            "paragraph": 2,
+            "text": "何雅婷昨天晚上去上西班牙文課的時候，發現班上有個同學穿著一件跟她一模一樣的淺藍色外套。何雅婷馬上脫掉外套，把它塞進背包裡。她覺得怎麼會發生這種事情呢？這件外套是當季款式，她看到連續劇裡的女主角穿了這件衣服看起來很甜美，所以才特別請朋友從國外寄來的。",
+            "pinyin": "Hé Yǎtíng zuótiān wǎnshàng qù shàng Xībānyáwén kè de shíhou, fāxiàn bān shàng yǒu gè tóngxué chuānzhe yī jiàn gēn tā yī mú yī yàng de qiǎnlán sè wàitào. Hé Yǎtíng mǎshàng tuō diào wàitào, bǎ tā sāi jìn bēibāo lǐ. Tā juéde zěnme huì fāshēng zhè zhǒng shìqíng ne? Zhè jiàn wàitào shì dāngjì kuǎnshì, tā kàn dào liánxùjù lǐ de nǚ zhǔjué chuān le zhè jiàn yīfu kàn qǐlái hěn tiánměi, suǒyǐ cái tèbié qǐng péngyou cóng guówài jì lái de."
+        },
+        {
+            "paragraph": 3,
+            "text": "沒想到居然撞衫，害她整個晚上心情都很不好。",
+            "pinyin": "Méi xiǎng dào jūrán zhuàngshān, hài tā zhěnggè wǎnshàng xīnqíng dōu hěn bù hǎo."
+        },
+        {
+            "paragraph": 4,
+            "text": "今天中午下了課以後，何雅婷跟陳敏萱和安德思見面的時候，談到了這件事。陳敏萱覺得不需要為了這種事不高興。既然是最流行的款式，當然會有很多人穿。服裝公司在各種媒體上用不同的方式做廣告，吸引大家去買，撞衫就很難避免。只要能穿出不同的感覺就好了。",
+            "pinyin": "Jīntiān zhōngwǔ xià le kè yǐhòu, Hé Yǎtíng gēn Chén Mǐnxuān hé Āndésī jiànmiàn de shíhou, tán dào le zhè jiàn shì. Chén Mǐnxuān juéde bù xūyào wèile zhè zhǒng shì bù gāoxìng. Jìrán shì zuì liúxíng de kuǎnshì, dāngrán huì yǒu hěnduō rén chuān. Fúzhuāng gōngsī zài gè zhǒng méitǐ shàng yòng bùtóng de fāngshì zuò guǎnggào, xīyǐn dàjiā qù mǎi, zhuàngshān jiù hěn nán bìmiǎn. Zhǐyào néng chuān chū bùtóng de gǎnjué jiù hǎo le."
+        },
+        {
+            "paragraph": 5,
+            "text": "安德思不懂為什麼有人怕撞衫。他問何雅婷是不是太小題大作了。衣服、包包跟別人一樣有什麼關係。商人為了賺錢，每年都要推出新的產品、新的款式。像電子產品，如果市場上有了最新型的，自己沒有，就落伍了。如果別人有跟自己一樣的新產品，一定會說個不停，像碰到了知音。既然這樣，女人為什麼怕撞衫呢？",
+            "pinyin": "Āndésī bù dǒng wèishénme yǒu rén pà zhuàngshān. Tā wèn Hé Yǎtíng shì bùshì tài xiǎo tí dà zuò le. Yīfu, bāobāo gēn biérén yīyàng yǒu shénme guānxì. Shāngrén wèile zhuànqián, měi nián dōu yào tuī chū xīn de chǎnpǐn, xīn de kuǎnshì. Xiàng diànzǐ chǎnpǐn, rúguǒ shìchǎng shàng yǒu le zuì xīnxíng de, zìjǐ méiyǒu, jiù luòwǔ le. Rúguǒ biérén yǒu gēn zìjǐ yīyàng de xīn chǎnpǐn, yīdìng huì shuō gè bù tíng, xiàng pèng dào le zhīyīn. Jìrán zhèyàng, nǚrén wèishénme pà zhuàngshān ne?"
+        },
+        {
+            "paragraph": 6,
+            "text": "何雅婷覺得他說的沒錯，是很難想像如果自己穿著喇叭褲去上課，會給別人什麼印象。再說，如果不懂流行，不看最受歡迎的連續劇，不去最熱門的餐廳，不玩最流行的電腦遊戲，不知道現在流行化什麼樣的妝，大概就沒什麼朋友了。",
+            "pinyin": "Hé Yǎtíng juéde tā shuō de méi cuò, shì hěn nán xiǎngxiàng rúguǒ zìjǐ chuānzhe lǎbā kù qù shàngkè, huì gěi biérén shénme yìnxiàng. Zàishuō, rúguǒ bù dǒng liúxíng, bù kàn zuì shòu huānyíng de liánxùjù, bù qù zuì rèmén de cāntīng, bù wán zuì liúxíng de diànnǎo yóuxì, bù zhīdào xiànzài liúxíng huà shénme yàng de zhuāng, dàgài jiù méi shénme péngyou le."
+        }
+    ]
+}

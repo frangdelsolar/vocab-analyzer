@@ -1,0 +1,112 @@
+{
+    "lesson_number": 3,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "台灣的天氣",
+    "video_url": "https://www.youtube.com/watch?v=QdOwJZEPivM&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=24",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=07lBWArVV-w&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=25",
+    "participants": ["陳敏萱", "羅珊蒂", "高橋健太"],
+    "content": [
+        {
+            "comment": "在火鍋店門口"
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "你怎麼現在才來？我們等你等半天了。",
+            "pinyin": "Nǐ zěnme xiànzài cái lái? Wǒmen děng nǐ děng bàntiān le."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "對不起，我來晚了。我走到半路下起雨來了，只好又回去拿傘。台灣的天氣真奇怪，說變就變。",
+            "pinyin": "Duìbùqǐ, wǒ lái wǎn le. Wǒ zǒu dào bànlù xià qǐ yǔ lái le, zhǐhǎo yòu huíqù ná sǎn. Táiwān de tiānqì zhēn qíguài, shuō biàn jiù biàn."
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "就是啊。昨天還出大太陽，今天就又颳風又下雨。",
+            "pinyin": "Jiùshì a. Zuótiān hái chū dà tàiyáng, jīntiān jiù yòu guā fēng yòu xià yǔ."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "台灣是個海島，冬天的時候，受到北方來的冷空氣的影響，天氣很不穩定。",
+            "pinyin": "Táiwān shì gè hǎidǎo, dōngtiān de shíhou, shòudào běifāng lái de lěng kōngqì de yǐngxiǎng, tiānqì hěn bù wěndìng."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "幸好我買了外套，要不然就只好躲在家裡了。",
+            "pinyin": "Xìnghǎo wǒ mǎi le wàitào, yàobùrán jiù zhǐhǎo duǒ zài jiālǐ le."
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "沒那麼嚴重吧，今天還有18度。這樣的溫度在荷蘭只能算是夏天。荷蘭的冬天還常常到零下呢。",
+            "pinyin": "Méi nàme yánzhòng ba, jīntiān hái yǒu shíbā dù. Zhèyàng de wēndù zài Hélán zhǐ néng suàn shì xiàtiān. Hélán de dōngtiān hái chángcháng dào língxià ne."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "今天溫度是不低，不過因為下雨，感覺比實際溫度低得多，難怪羅珊蒂受不了。",
+            "pinyin": "Jīntiān wēndù shì bù dī, búguò yīnwèi xià yǔ, gǎnjué bǐ shíjì wēndù dī de duō, nánguài Luó Shāndì shòu bù liǎo."
+        },
+        {
+            "comment": "他們走進火鍋店坐下"
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "我餓死了，我們趕快點菜吧。天氣這麼冷，吃牛肉最好。你們呢？想吃點什麼？",
+            "pinyin": "Wǒ è sǐ le, wǒmen gǎnkuài diǎn cài ba. Tiānqì zhème lěng, chī niúròu zuì hǎo. Nǐmen ne? Xiǎng chī diǎn shénme?"
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "我昨天剛吃過烤肉，今天就點素菜鍋吧。這個季節的大白菜最甜了。",
+            "pinyin": "Wǒ zuótiān gāng chī guò kǎoròu, jīntiān jiù diǎn sùcài guō ba. Zhège jìjié de dà báicài zuì tián le."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "聽說這家火鍋店的海鮮很新鮮。我要海鮮。",
+            "pinyin": "Tīngshuō zhè jiā huǒguō diàn de hǎixiān hěn xīnxiān. Wǒ yào hǎixiān."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "沒想到台灣的冬天這麼冷，看起來我得讓我男朋友春天的時候再來。",
+            "pinyin": "Méi xiǎng dào Táiwān de dōngtiān zhème lěng, kàn qǐlái wǒ děi ràng wǒ nánpéngyou chūntiān de shíhou zài lái."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "春天真的很浪漫，到處都看得到櫻花，可是在台灣有句話說：「春天後母臉」。春天天氣變化比冬天更大，早晚的氣溫也差很多。",
+            "pinyin": "Chūntiān zhēn de hěn làngmàn, dàochù dōu kàn de dào yīnghuā, kěshì zài Táiwān yǒu jù huà shuō: \"chūntiān hòumǔ liǎn\". Chūntiān tiānqì biànhuà bǐ dōngtiān gèng dà, zǎo wǎn de qìwēn yě chà hěnduō."
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "高橋說的沒錯。我朋友告訴我，去年春天幾乎每天都下雨，衣服總是乾不了。",
+            "pinyin": "Gāoqiáo shuō de méi cuò. Wǒ péngyou gàosu wǒ, qùnián chūntiān jīhū měitiān dōu xià yǔ, yīfu zǒng shì gān bù liǎo."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "是啊，衣服、鞋子都發霉了，所以我去買了除濕機。",
+            "pinyin": "Shì a, yīfu, xiézi dōu fā méi le, suǒyǐ wǒ qù mǎi le chúshījī."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "我們雖然也有雨季，可是下過雨以後晚上就涼快了。不像台北這麼潮濕。我六月來的時候，又悶又熱，又沒有冷氣，真受不了。",
+            "pinyin": "Wǒmen suīrán yě yǒu yǔjì, kěshì xià guò yǔ yǐhòu wǎnshàng jiù liángkuai le. Bù xiàng Táiběi zhème cháoshī. Wǒ liùyuè lái de shíhou, yòu mēn yòu rè, yòu méiyǒu lěngqì, zhēn shòu bù liǎo."
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "我是八月來的。我一來就去海邊曬太陽，朋友都羨慕死了。本來打算六月底回國，但是因為台灣的夏天可以玩很多水上活動，而且吃到很多熱帶水果，所以我決定晚一點再回去。",
+            "pinyin": "Wǒ shì bāyuè lái de. Wǒ yī lái jiù qù hǎibiān shài tàiyáng, péngyou dōu xiànmù sǐ le. Běnlái dǎsuàn liùyuè dǐ huí guó, dànshì yīnwèi Táiwān de xiàtiān kěyǐ wán hěnduō shuǐshàng huódòng, érqiě chī dào hěnduō rèdài shuǐguǒ, suǒyǐ wǒ juédìng wǎn yīdiǎn zài huíqù."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "快吃吧。肉煮久了就不好吃了。",
+            "pinyin": "Kuài chī ba. Ròu zhǔ jiǔ le jiù bù hǎo chī le."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "真的很好吃。我男朋友來的時候，我們一定要再來這裡聚一聚。",
+            "pinyin": "Zhēn de hěn hǎochī. Wǒ nánpéngyou lái de shíhou, wǒmen yīdìng yào zài lái zhèlǐ jù yī jù."
+        },
+        {
+            "speaker": "陳敏萱、高橋健太",
+            "text": "那有什麼問題。",
+            "pinyin": "Nà yǒu shénme wèntí."
+        }
+    ]
+}

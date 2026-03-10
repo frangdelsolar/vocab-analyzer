@@ -1,0 +1,30 @@
+{
+    "lesson_number": 2,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=-j-xl4owxT0&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=15",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=Z3OD3RukDDw&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=16",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "購物糾紛",
+            "pinyin": "Gòuwù jiūfēn"
+        },
+        {
+            "paragraph": 2,
+            "text": "安德思上個月在電信公司的門市辦了一支新手機。他剛到台灣的時候，用的是預付卡，所以一拿到居留證就馬上去換成月租型的。店員告訴他，一個月只要一千多塊就能吃到飽。安德思高興得不得了，就放心地給親戚朋友打電話。沒想到前幾天收到帳單，一看要三千多塊，嚇了他一大跳。",
+            "pinyin": "Āndésī shàng gè yuè zài diànxìn gōngsī de ménshì bàn le yī zhī xīn shǒujī. Tā gāng dào Táiwān de shíhou, yòng de shì yùfùkǎ, suǒyǐ yī ná dào jūliúzhèng jiù mǎshàng qù huàn chéng yuèzū xíng de. Diànyuán gàosu tā, yī gè yuè zhǐyào yī qiān duō kuài jiù néng chī dào bǎo. Āndésī gāoxìng dé bùdé liǎo, jiù fàngxīn de gěi qīnqi péngyou dǎ diànhuà. Méi xiǎng dào qián jǐ tiān shōu dào zhàngdān, yī kàn yào sān qiān duō kuài, xià le tā yī dà tiào."
+        },
+        {
+            "paragraph": 3,
+            "text": "他馬上找何雅婷陪他去問清楚。店員告訴他，按照合約，吃到飽只是網路，並不包括打電話。何雅婷聽了店員的解釋，非常生氣。外國人怎麼看得懂這麼複雜的中文合約？店員應該把重要的事情跟顧客說清楚，尤其是對外國人的時候。這不是騙人嗎？何雅婷把店員罵了一頓，可是一點辦法也沒有。",
+            "pinyin": "Tā mǎshàng zhǎo Hé Yǎtíng péi tā qù wèn qīngchu. Diànyuán gàosu tā, ànzhào héyuē, chī dào bǎo zhǐshì wǎnglù, bìng bù bāokuò dǎ diànhuà. Hé Yǎtíng tīng le diànyuán de jiěshì, fēicháng shēngqì. Wàiguó rén zěnme kàn de dǒng zhème fùzá de Zhōngwén héyuē? Diànyuán yīnggāi bǎ zhòngyào de shìqíng gēn gùkè shuō qīngchu, yóuqí shì duì wàiguó rén de shíhou. Zhè bùshì piàn rén ma? Hé Yǎtíng bǎ diànyuán mà le yī dùn, kěshì yīdiǎn bànfǎ yě méiyǒu."
+        },
+        {
+            "paragraph": 4,
+            "text": "回家的路上，何雅婷告訴安德思，她在報上看到過不少買手機的糾紛。有人剛買的新手機常常自動關機，修理了幾次都修不好，可是電信公司不願意換新的給他。還有人手機聽不清楚，電信公司也說是因為他們住在山邊，不同意退錢。何雅婷建議安德思給電信公司的客服中心打電話。要是還不行，就只好去繳費了。",
+            "pinyin": "Huí jiā de lùshàng, Hé Yǎtíng gàosu Āndésī, tā zài bào shàng kàn dào guò bùshǎo mǎi shǒujī de jiūfēn. Yǒu rén gāng mǎi de xīn shǒujī chángcháng zìdòng guānjī, xiūlǐ le jǐ cì dōu xiū bù hǎo, kěshì diànxìn gōngsī bù yuànyì huàn xīn de gěi tā. Háiyǒu rén shǒujī tīng bù qīngchu, diànxìn gōngsī yě shuō shì yīnwèi tāmen zhù zài shān biān, bù tóngyì tuì qián. Hé Yǎtíng jiànyì Āndésī gěi diànxìn gōngsī de kèfú zhōngxīn dǎ diànhuà. Yàoshi hái bù xíng, jiù zhǐhǎo qù jiǎo fèi le."
+        }
+    ]
+}

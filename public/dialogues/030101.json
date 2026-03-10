@@ -1,0 +1,46 @@
+{
+    "lesson_number": 1,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "新學期",
+    "video_url": "https://www.youtube.com/watch?v=mIogD6_IMdc&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=2",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=TIc8ILBCiKQ&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=3",
+    "participants": ["安德思", "羅珊蒂"],
+    "content": [
+        {
+            "speaker": "安德思",
+            "text": "羅珊蒂，下課啦！怎麼樣？你們班上有我們上個學期的同學嗎？",
+            "pinyin": "Luó Shāndì, xià kè la! Zěnmeyàng? Nǐmen bān shàng yǒu wǒmen shàng gè xuéqí de tóngxué ma?"
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "沒有，都沒有。你們班怎麼樣？",
+            "pinyin": "Méiyǒu, dōu méiyǒu. Nǐmen bān zěnmeyàng?"
+        },
+        {
+            "speaker": "安德思",
+            "text": "都是新生，我一個也不認識，而且只有我一個男的。",
+            "pinyin": "Dōu shì xīnshēng, wǒ yī gè yě bù rènshi, érqiě zhǐyǒu wǒ yī gè nán de."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "老師呢？老師怎麼樣？",
+            "pinyin": "Lǎoshī ne? Lǎoshī zěnmeyàng?"
+        },
+        {
+            "speaker": "安德思",
+            "text": "老師很嚴。他說我們這學期除了每一課的口試、筆試以外，還要做兩次口頭報告。我覺得壓力好大。你們班呢？",
+            "pinyin": "Lǎoshī hěn yán. Tā shuō wǒmen zhè xuéqí chúle měi yī kè de kǒushì, bǐshì yǐwài, hái yào zuò liǎng cì kǒutóu bàogào. Wǒ juéde yālì hǎo dà. Nǐmen bān ne?"
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "老師的說明很清楚，同學也很熱情。我們今天就一起去吃中飯了。",
+            "pinyin": "Lǎoshī de shuōmíng hěn qīngchu, tóngxué yě hěn rèqíng. Wǒmen jīntiān jiù yīqǐ qù chī zhōngfàn le."
+        },
+        {
+            "speaker": "安德思",
+            "text": "聽起來不錯。還有位子嗎？有位子的話，我想去旁聽。",
+            "pinyin": "Tīng qǐlái bùcuò. Hái yǒu wèizi ma? Yǒu wèizi de huà, wǒ xiǎng qù pángtīng."
+        }
+    ]
+}

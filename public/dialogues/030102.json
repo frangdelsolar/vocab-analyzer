@@ -1,0 +1,30 @@
+{
+    "lesson_number": 1,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=L5t7ip2k0vU&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=4",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=PNaAKSR3n8Q&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=5",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "何雅婷要轉系",
+            "pinyin": "Hé Yǎtíng yào zhuǎn xì"
+        },
+        {
+            "paragraph": 2,
+            "text": "何雅婷是家裡的獨生女。從小父母讓她念私立小學，下了課還去學西班牙文、書法、游泳跟網球。何雅婷也沒讓父母失望，成績一直都很好，還考上了理想的大學，念的是熱門的會計系。沒想到才念了一個學期，她就發現跟她的興趣不合，念起來非常痛苦。她想了很久，決定跟媽媽討論轉系的事。",
+            "pinyin": "Hé Yǎtíng shì jiālǐ de dúshēngnǚ. Cóng xiǎo fùmǔ ràng tā niàn sīlì xiǎoxué, xià le kè hái qù xué Xībānyáwén, shūfǎ, yóuyǒng gēn wǎngqiú. Hé Yǎtíng yě méi ràng fùmǔ shīwàng, chéngjī yīzhí dōu hěn hǎo, hái kǎo shàng le lǐxiǎng de dàxué, niàn de shì rèmén de kuàijì xì. Méi xiǎng dào cái niàn le yī gè xuéqí, tā jiù fāxiàn gēn tā de xìngqù bù hé, niàn qǐlái fēicháng tòngkǔ. Tā xiǎng le hěn jiǔ, juédìng gēn māma tǎolùn zhuǎn xì de shì."
+        },
+        {
+            "paragraph": 3,
+            "text": "媽媽聽到何雅婷打算轉到國際關係系，非常生氣。她覺得何雅婷好不容易才考上這麼好的科系，怎麼可以說放棄就放棄？而且，念會計系工作機會比較多。跟興趣比起來，將來的發展當然更重要。如果她真的對別的課有興趣，利用時間去旁聽就好了。不管何雅婷怎麼說，她都反對。",
+            "pinyin": "Māma tīng dào Hé Yǎtíng dǎsuàn zhuǎn dào guójì guānxì xì, fēicháng shēngqì. Tā juéde Hé Yǎtíng hǎo bù róngyì cái kǎo shàng zhème hǎo de kēxì, zěnme kěyǐ shuō fàngqì jiù fàngqì? Érqiě, niàn kuàijì xì gōngzuò jīhuì bǐjiào duō. Gēn xìngqù bǐ qǐlái, jiānglái de fāzhǎn dāngrán gèng zhòngyào. Rúguǒ tā zhēn de duì bié de kè yǒu xìngqù, lìyòng shíjiān qù pángtīng jiù hǎo le. Bùguǎn Hé Yǎtíng zěnme shuō, tā dōu fǎnduì."
+        },
+        {
+            "paragraph": 4,
+            "text": "不過何雅婷告訴媽媽，她個性活潑，而且外語能力不錯，如果念國際關係，會有更好的成績，請媽媽不必擔心她的將來。這一次就請媽媽讓她自己決定吧。媽媽想了又想，捨不得女兒念得這麼痛苦，最後還是同意了。何雅婷聽了非常高興，她立刻上網填表辦轉系的手續，申請上學期的成績單，然後還請教授幫她寫推薦信。",
+            "pinyin": "Búguò Hé Yǎtíng gàosu māma, tā gèxìng huópō, érqiě wàiyǔ nénglì bùcuò, rúguǒ niàn guójì guānxì, huì yǒu gèng hǎo de chéngjī, qǐng māma bùbì dānxīn tā de jiānglái. Zhè yī cì jiù qǐng māma ràng tā zìjǐ juédìng ba. Māma xiǎng le yòu xiǎng, shěbùdé nǚ'ér niàn de zhème tòngkǔ, zuìhòu háishì tóngyì le. Hé Yǎtíng tīng le fēicháng gāoxìng, tā lìkè shàng wǎng tián biǎo bàn zhuǎn xì de shǒuxù, shēnqǐng shàng xuéqí de chéngjīdān, ránhòu hái qǐng jiàoshòu bāng tā xiě tuījiàn xìn."
+        }
+    ]
+}

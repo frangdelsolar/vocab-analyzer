@@ -1,0 +1,111 @@
+{
+    "lesson_number": 5,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "興趣與休閒",
+    "video_url": "https://www.youtube.com/watch?v=0CvpcHdXq6M&list=PLzhEEEIeppr_dVwRHHbF7olcBB-H8ddCo",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=7NKFeQfyN0Y&list=PLzhEEEIeppr_dVwRHHbF7olcBB-H8ddCo&index=2",
+    "participants": ["陳敏萱", "高橋健太", "羅珊蒂"],
+    "content": [
+        {
+            "speaker": "陳敏萱",
+            "text": "你怎麼了？怎麼那麼沒精神？",
+            "pinyin": "Nǐ zěnme le? Zěnme nàme méi jīngshén?"
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "唉！氣死了！昨天我上網買五月天演唱會的票。沒想到網路塞車，我試了兩、三個鐘頭，等我上線成功，票已經賣完了。真倒楣！",
+            "pinyin": "Āi! Qì sǐ le! Zuótiān wǒ shàng wǎng mǎi Wǔyuètiān yǎnchànghuì de piào. Méi xiǎng dào wǎnglù sāichē, wǒ shì le liǎng, sān gè zhōngtóu, děng wǒ shàngxiàn chénggōng, piào yǐjīng mài wán le. Zhēn dǎoméi!"
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "你別生氣了。買不到就算了。為什麼非聽不可？",
+            "pinyin": "Nǐ bié shēngqì le. Mǎi bù dào jiù suàn le. Wèishénme fēi tīng bùkě?"
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "五月天是誰？什麼演唱會啊？",
+            "pinyin": "Wǔyuètiān shì shuí? Shénme yǎnchànghuì a?"
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "你聽。這就是他們的歌。五月天是華人世界最受歡迎的樂團。下個月他們的演唱會，我當然不能錯過。",
+            "pinyin": "Nǐ tīng. Zhè jiùshì tāmen de gē. Wǔyuètiān shì huárén shìjiè zuì shòu huānyíng de yuètuán. Xià gè yuè tāmen de yǎnchànghuì, wǒ dāngrán bùnéng cuòguò."
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "我朋友去聽了他們的跨年演唱會。她說，那天體育館擠滿了人，大家都站在椅子上又唱又叫，興奮極了。",
+            "pinyin": "Wǒ péngyou qù tīng le tāmen de kuànián yǎnchànghuì. Tā shuō, nèi tiān tǐyùguǎn jǐ mǎn le rén, dàjiā dōu zhàn zài yǐzi shàng yòu chàng yòu jiào, xīngfèn jí le."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "他們很帥嗎？為什麼這麼多人迷他們？",
+            "pinyin": "Tāmen hěn shuài ma? Wèishénme zhème duō rén mí tāmen?"
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "大家喜歡他們是因為他們的歌詞不但都寫得很美，而且能說出年輕人心裡的話。高興的時候，要聽；難過的時候，更要聽。",
+            "pinyin": "Dàjiā xǐhuan tāmen shì yīnwèi tāmen de gēcí bùdàn dōu xiě de hěn měi, érqiě néng shuō chū niánqīng rén xīn lǐ de huà. Gāoxìng de shíhou, yào tīng; nánguò de shíhou, gèng yào tīng."
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "演唱會那人那麼多，票又不好買，不如在家上網看舒服。",
+            "pinyin": "Yǎnchànghuì nà rén nàme duō, piào yòu bù hǎo mǎi, bùrú zài jiā shàng wǎng kàn shūfu."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "聽演唱會當然要去現場，大家一起唱，一起跳，整個體育館都在震動。這樣的感覺沒去過的人是不能了解的。",
+            "pinyin": "Tīng yǎnchànghuì dāngrán yào qù xiànchǎng, dàjiā yīqǐ chàng, yīqǐ tiào, zhěnggè tǐyùguǎn dōu zài zhèndòng. Zhèyàng de gǎnjué méi qù guò de rén shì bùnéng liǎojiě de."
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "聲音那麼大，吵死了。還是在家好。",
+            "pinyin": "Shēngyīn nàme dà, chǎo sǐ le. Háishì zài jiā hǎo."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "你整天在家不會太無聊嗎？",
+            "pinyin": "Nǐ zhěngtiān zài jiā bù huì tài wúliáo ma?"
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "怎麼會呢？有那麼多有趣的漫畫，怎麼會覺得無聊呢？",
+            "pinyin": "Zěnme huì ne? Yǒu nàme duō yǒuqù de mànhuà, zěnme huì juéde wúliáo ne?"
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "我媽媽說租書店的漫畫內容都太色情，不適合我們看。",
+            "pinyin": "Wǒ māma shuō zūshūdiàn de mànhuà nèiróng dōu tài sèqíng, bù shìhé wǒmen kàn."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "現在誰去租書店啊？大家都用平板電腦跟智慧型手機上網看了。",
+            "pinyin": "Xiànzài shéi qù zūshūdiàn a? Dàjiā dōu yòng píngbǎn diànnǎo gēn zhìhuì xíng shǒujī shàng wǎng kàn le."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "我媽也說他朋友的孩子因為迷漫畫，花了太多時間，影響了功課，所以她不讓我們看。",
+            "pinyin": "Wǒ mā yě shuō tā péngyou de háizi yīnwèi mí mànhuà, huā le tài duō shíjiān, yǐngxiǎng le gōngkè, suǒyǐ tā bù ràng wǒmen kàn."
+        },
+        {
+            "speaker": "高橋健太",
+            "text": "不會啊，好的漫畫也很多啊。看漫畫除了可以放鬆心情，還可以學到很多歷史、文化和傳統。",
+            "pinyin": "Bù huì a, hǎo de mànhuà yě hěnduō a. Kàn mànhuà chúle kěyǐ fàngsōng xīnqíng, hái kěyǐ xué dào hěnduō lìshǐ, wénhuà hé chuántǒng."
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "沒錯。我也是看了漫畫才知道壽司是怎麼做的。",
+            "pinyin": "Méi cuò. Wǒ yěshì kàn le mànhuà cái zhīdào shòusī shì zěnme zuò de."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "看漫畫就是為了殺時間。你們想太多啦。",
+            "pinyin": "Kàn mànhuà jiùshì wèile shā shíjiān. Nǐmen xiǎng tài duō la."
+        },
+        {
+            "speaker": "陳敏萱",
+            "text": "幾點了？這麼晚啦？我跟朋友約了去看漫畫展，他們在捷運站等我，再不走就來不及了。改天再聊吧。",
+            "pinyin": "Jǐ diǎn le? Zhème wǎn la? Wǒ gēn péngyou yuē le qù kàn mànhuà zhǎn, tāmen zài jiéyùn zhàn děng wǒ, zài bù zǒu jiù láibùjí le. Gǎitiān zài liáo ba."
+        }
+    ]
+}
