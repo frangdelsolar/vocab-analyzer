@@ -5,6 +5,7 @@ import { useVocabulary } from '@/context/VocabularyContext';
 import { useUser } from '@/context/UserContext';
 import VocabExplorerControls from './_components/VocabExplorerControls';
 import VocabTable from './_components/VocabTable';
+import VocabMediaBar from './_components/VocabMediaBar'; // New Component
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Typography } from '@/components/ui/typography';
 import { Shell } from '@/components/layout/Shell';
@@ -17,16 +18,14 @@ export type VisibilitySettings = {
 };
 
 export default function VocabularyPage() {
-    // 1. Context Integration
     const {
         filteredList,
         isLoading: vocabLoading,
         settings,
         setSettings,
     } = useVocabulary();
-    const { isHydrated: userHydrated } = useUser();
+    const { isHydrated: userHydrated, progress: userProgress } = useUser();
 
-    // 2. Study Mode State (Page-level visibility)
     const [visibility, setVisibility] = useState<VisibilitySettings>({
         character: true,
         pinyin: true,
@@ -34,18 +33,62 @@ export default function VocabularyPage() {
         simplified: false,
     });
 
-    // 3. Logic: Ensure we default to 'user' scope once user progress is loaded
+    // --- Media State ---
+    const [activeLessonData, setActiveLessonData] = useState<{
+        videoUrl: string | null;
+        title: string | null;
+    }>({ videoUrl: null, title: null });
+
     useEffect(() => {
         if (userHydrated) {
             setSettings((prev) => ({ ...prev, scope: 'user' }));
         }
     }, [userHydrated, setSettings]);
 
+    // --- Sync Media Bar with Selection ---
+    useEffect(() => {
+        const updateMediaSource = async () => {
+            // Determine which book/lesson to fetch based on current scope
+            const b =
+                settings.scope === 'user'
+                    ? userProgress.book
+                    : settings.explorer.b;
+            const l =
+                settings.scope === 'user'
+                    ? userProgress.lesson
+                    : settings.explorer.l;
+            const p =
+                settings.scope === 'user'
+                    ? userProgress.section
+                    : settings.explorer.p;
+
+            const filename = `${String(b).padStart(2, '0')}${String(l).padStart(2, '0')}${String(p).padStart(2, '0')}.json`;
+
+            try {
+                // Assuming your JSONs are in public/data/lessons/
+                const res = await fetch(`/dialogues/${filename}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    setActiveLessonData({
+                        videoUrl: data.vocabulary_video_url || null,
+                        title: data.title || `Book ${b} Lesson ${l}`,
+                    });
+                }
+            } catch (error) {
+                console.error(
+                    'Could not load lesson metadata for media bar',
+                    error,
+                );
+            }
+        };
+
+        updateMediaSource();
+    }, [settings.explorer, settings.scope, userProgress, userHydrated]);
+
     const toggleVisibility = (key: keyof VisibilitySettings) => {
         setVisibility((prev) => ({ ...prev, [key]: !prev[key] }));
     };
 
-    // Combine loading states
     const isLoading = vocabLoading || !userHydrated;
 
     return (
@@ -72,16 +115,15 @@ export default function VocabularyPage() {
                 }
             />
 
-            <div className="space-y-8">
-                {/* Sticky Controls bar */}
+            <div className="space-y-8 pb-32">
+                {' '}
+                {/* Added padding for media bar clearance */}
                 <div className="sticky top-0 z-30 py-4 -mt-4 bg-paper-light/80 dark:bg-paper-dark/80 backdrop-blur-md">
                     <VocabExplorerControls
                         visibility={visibility}
                         onToggleVisibility={toggleVisibility}
                     />
                 </div>
-
-                {/* The Main Data Grid */}
                 <VocabTable
                     data={filteredList}
                     isLoading={isLoading}
@@ -89,6 +131,12 @@ export default function VocabularyPage() {
                     searchQuery={settings.searchQuery}
                 />
             </div>
+
+            {/* Floating Media Bar */}
+            <VocabMediaBar
+                videoUrl={activeLessonData.videoUrl}
+                title={activeLessonData.title || ''}
+            />
         </Shell>
     );
 }
