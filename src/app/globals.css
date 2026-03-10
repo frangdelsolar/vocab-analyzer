@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+@theme {
+    --font-kaiti: 'STKaiti', 'KaiTi', '楷体', 'STKaitiSC-Regular', serif;
+
+    /* Semantic Aliases - These point to the "live" variables below */
+    --color-paper: var(--paper);
+    --color-surface: var(--surface);
+    --color-ink: var(--ink);
+    --color-border-main: var(--border);
+}
+
+@layer base {
+    :root {
+        /* Your perfect light mode colors */
+        --paper: #fdfdfc;
+        --surface: #ffffff;
+        --ink: #2d2d2d;
+        --border: rgba(0, 0, 0, 0.08);
+    }
+
+    .dark {
+        /* Your perfect dark mode colors */
+        --paper: #161617;
+        --surface: #1e1e20;
+        --ink: #e8e8e7;
+        --border: rgba(255, 255, 255, 0.08);
+    }
+
+    body {
+        background-color: var(--paper);
+        color: var(--ink);
+        color-scheme: light;
+        @apply transition-colors duration-500 antialiased;
+    }
+
+    .dark body {
+        color-scheme: dark;
+    }
+}
+
+/* globals.css */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(var(--ink-rgb), 0.1);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--ink-rgb), 0.2);
+}

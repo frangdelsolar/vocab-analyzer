@@ -1,0 +1,111 @@
+{
+    "lesson_number": 11,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "台灣好玩的地方真多",
+    "video_url": "https://www.youtube.com/watch?v=EgdY6K2uMAQ",
+    "vocabulary_video_url": "",
+    "participants": ["馬丁", "如玉", "美玲"],
+    "content": [
+        {
+            "speaker": "馬丁",
+            "text": "我來台灣以後，沒離開過台北，所以想到其他地方去看看。",
+            "pinyin": "Wǒ lái Táiwān yǐhòu, méi líkāiguò Táiběi, suǒyǐ xiǎngdào qítā dìfāng qù kànkan."
+        },
+        {
+            "speaker": "如玉",
+            "text": "假期快到了，你可以計畫一下啊！",
+            "pinyin": "Jiàqī kuài dào le, nǐ kěyǐ jìhuà yíxià a!"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "你們去過很多地方，可不可以告訴我，哪裡一定要去看看呢？",
+            "pinyin": "Nǐmen qùguò hěnduō dìfāng, kě bù kěyǐ gàosù wǒ, nǎlǐ yídìng yào qù kànkan ne?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "如果你喜歡海邊和游泳，可以到墾丁去，那裡有各種水上活動。",
+            "pinyin": "Rúguǒ nǐ xǐhuān hǎibiān hé yóuyǒng, kěyǐ dào Kěndīng qù, nàlǐ yǒu gèzhǒng shuǐshàng huódòng."
+        },
+        {
+            "speaker": "如玉",
+            "text": "上次我朋友來，去綠島玩了三天，她說風景很美，而且海邊有個溫泉，非常特別。",
+            "pinyin": "Shàngcì wǒ péngyǒu lái, qù Lǜdǎo wánle sān tiān, tā shuō fēngjǐng hěn měi, érqiě hǎibiān yǒu ge wēnquán, fēicháng tèbié."
+        },
+        {
+            "speaker": "美玲",
+            "text": "綠島我去過兩次。如果時間夠，我建議你去看看。",
+            "pinyin": "Lǜdǎo wǒ qùguò liǎng cì. Rúguǒ shíjiān gòu, wǒ jiànyì nǐ qù kànkan."
+        },
+        {
+            "speaker": "如玉",
+            "text": "夏天去綠島的人很多，船票常常買不到，你可以考慮去墾丁，交通比較方便。",
+            "pinyin": "Xiàtiān qù Lǜdǎo de rén hěnduō, chuánpiào chángcháng mǎi búdào, nǐ kěyǐ kǎolǜ qù Kěndīng, jiāotōng bǐjiào fāngbiàn."
+        },
+        {
+            "speaker": "美玲",
+            "text": "墾丁也不錯。你回來的時候，可以順便去台中玩，台中附近也有很多著名的風景區。",
+            "pinyin": "Kěndīng yě búcuò. Nǐ huílái de shíhòu, kěyǐ shùnbiàn qù Táizhōng wán, Táizhōng fùjìn yě yǒu hěnduō zhùmíng de fēngjǐngqū."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "噢！我聽說有個地方叫什麼湖？",
+            "pinyin": "O! Wǒ tīngshuō yǒu ge dìfāng jiào shénme hú?"
+        },
+        {
+            "speaker": "如玉",
+            "text": "你說的是日月潭吧！在台灣中部，離台中不遠。那裡不錯，有山有水，還有原住民的文化。",
+            "pinyin": "Nǐ shuō de shì Rìyuètán ba! Zài Táiwān zhōngbù, lí Táizhōng bù yuǎn. Nàlǐ búcuò, yǒu shān yǒu shuǐ, háiyǒu yuánzhùmín de wénhuà."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "我也聽說台中的夜市有各種小吃，比台北多。",
+            "pinyin": "Wǒ yě tīngshuō Táizhōng de yèshì yǒu gèzhǒng xiǎochī, bǐ Táiběi duō."
+        },
+        {
+            "speaker": "美玲",
+            "text": "對，上個月我本來計畫去台中玩一趟，後來因為颱風就沒去。",
+            "pinyin": "Duì, shàng ge yuè wǒ běnlái jìhuà qù Táizhōng wán yí tàng, hòulái yīnwèi táifēng jiù méi qù."
+        },
+        {
+            "speaker": "如玉",
+            "text": "好可惜，台中很有意思。",
+            "pinyin": "Hǎo kěxī, Táizhōng hěn yǒu yìsi."
+        },
+        {
+            "speaker": "美玲",
+            "text": "沒關係，以後一定還有機會。",
+            "pinyin": "Méi guānxi, yǐhòu yídìng háiyǒu jīhuì."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "聽了你們的建議，我打算先去墾丁，然後再到台中去玩。",
+            "pinyin": "Tīngle nǐmen de jiànyì, wǒ dǎsuàn xiān qù Kěndīng, ránhòu zài dào Táizhōng qù wán."
+        },
+        {
+            "speaker": "如玉",
+            "text": "夏天去玩的人很多，去墾丁一定要先訂好旅館，才不會找不到地方住。",
+            "pinyin": "Xiàtiān qù wán de rén hěnduō, qù Kěndīng yídìng yào xiān dìnghǎo lǚguǎn, cái búhuì zhǎobúdào dìfāng zhù."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "還要注意什麼呢？",
+            "pinyin": "Háiyào zhùyì shénme ne?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "我上一次去的時候，把錢包和衣服放在沙灘上，沒想到錢包不見了，大概被偷了。",
+            "pinyin": "Wǒ shàng yí cì qù de shíhòu, bǎ qiánbāo hé yīfú fàngzài shātān shàng, méi xiǎngdào qiánbāo bújiànle, dàgài bèi tōule."
+        },
+        {
+            "speaker": "如玉",
+            "text": "雖然台灣很安全，但是還是要小心一點啊！",
+            "pinyin": "Suīrán Táiwān hěn ānquán, dànshì háishì yào xiǎoxīn yìdiǎn a!"
+        },
+        {
+            "speaker": "美玲",
+            "text": "除了這件事，墾丁真的很值得去。",
+            "pinyin": "Chúle zhè jiàn shì, Kěndīng zhēnde hěn zhídé qù."
+        }
+    ]
+}
