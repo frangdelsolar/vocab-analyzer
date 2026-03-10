@@ -1,12 +1,9 @@
 {
     "dialogue_id": "11-02",
     "title": "我想租房子",
-    "participants": [
-        "如玉",
-        "房東"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["如玉", "房東"],
+    "video_url": "https://www.youtube.com/watch?v=pjO8pwYmIkg&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=4",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=wdLosXBshrE&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=5",
     "content": [
         {
             "speaker": "如玉",

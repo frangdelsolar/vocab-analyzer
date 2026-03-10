@@ -1,12 +1,9 @@
 {
     "dialogue_id": "02-01",
     "title": "還是坐捷運吧！",
-    "participants": [
-        "如玉",
-        "安同"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["如玉", "安同"],
+    "video_url": "https://www.youtube.com/watch?v=RWI7n67yKaA&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=11",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=cFqXPlxBr1o&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=12",
     "content": [
         {
             "speaker": "如玉",

@@ -1,12 +1,9 @@
 {
     "dialogue_id": "06-01",
     "title": "租房子",
-    "participants": [
-        "美玲",
-        "東健"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["美玲", "東健"],
+    "video_url": "https://www.youtube.com/watch?v=lhuSpSA6X08&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=1",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=rmPQNf419tg&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=2",
     "content": [
         {
             "speaker": "美玲",

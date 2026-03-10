@@ -1,12 +1,9 @@
 {
     "dialogue_id": "dialogue",
     "title": "垃圾分類與回收",
-    "participants": [
-        "陳太太",
-        "東健"
-    ],
-    "video_url": "http://www.youtube.com/watch?v=O75BxFIp7Y0",
-    "vocabulary_video_url": "http://www.youtube.com/watch?v=O75BxFIp7Y0",
+    "participants": ["陳太太", "東健"],
+    "video_url": "https://www.youtube.com/watch?v=Ep404v89790&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=10",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=KGGgwNkuuKo&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=11",
     "content": [
         {
             "speaker": "陳太太",

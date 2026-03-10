@@ -1,12 +1,9 @@
 {
     "dialogue_id": "03-01",
     "title": "你的中文進步了！",
-    "participants": [
-        "田中",
-        "如玉"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["田中", "如玉"],
+    "video_url": "https://www.youtube.com/watch?v=hqEyYV2WIL0&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=21",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=8E_qHm9VKTk&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=22",
     "content": [
         {
             "speaker": "田中",

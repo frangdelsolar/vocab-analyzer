@@ -1,12 +1,9 @@
 {
     "dialogue_id": "15-02",
     "title": "我不舒服",
-    "participants": [
-        "如玉",
-        "安同"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["如玉", "安同"],
+    "video_url": "https://www.youtube.com/watch?v=OdGZmXPVEAs&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=42",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=fBL1fsGyjgs&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=43",
     "content": [
         {
             "speaker": "如玉",

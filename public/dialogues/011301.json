@@ -1,12 +1,9 @@
 {
     "dialogue_id": "13-01",
     "title": "生日快樂",
-    "participants": [
-        "怡君",
-        "安同"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["怡君", "安同"],
+    "video_url": "https://www.youtube.com/watch?v=iWRhO3t2n8o&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=19",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=m2pa1sbiNoA&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=20",
     "content": [
         {
             "speaker": "怡君",

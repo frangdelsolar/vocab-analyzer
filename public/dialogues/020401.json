@@ -1,12 +1,9 @@
 {
     "dialogue_id": "04-01",
     "title": "面談",
-    "participants": [
-        "主任",
-        "高美玲"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["主任", "高美玲"],
+    "video_url": "https://www.youtube.com/watch?v=hXKyfdCxezQ&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=31",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=WDzmkK4526M&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=32",
     "content": [
         {
             "speaker": "主任",

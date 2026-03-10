@@ -1,12 +1,9 @@
 {
     "dialogue_id": "14-01",
     "title": "天氣這麼冷！",
-    "participants": [
-        "如玉",
-        "明華"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["如玉", "明華"],
+    "video_url": "https://www.youtube.com/watch?v=II774YJ43xk&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=31",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=gROPCzH-xNk&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=32",
     "content": [
         {
             "speaker": "如玉",

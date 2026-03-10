@@ -1,12 +1,9 @@
 {
     "dialogue_id": "15-01",
     "title": "我不舒服",
-    "participants": [
-        "醫生",
-        "如玉"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["醫生", "如玉"],
+    "video_url": "https://www.youtube.com/watch?v=EKudXkdr2no&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=40",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=6VRxfjdxdw0&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=41",
     "content": [
         {
             "speaker": "醫生",

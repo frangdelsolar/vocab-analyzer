@@ -1,12 +1,9 @@
 {
     "dialogue_id": "01-01",
     "title": "請問，到師大怎麼走？",
-    "participants": [
-        "路人",
-        "安同"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["路人", "安同"],
+    "video_url": "https://www.youtube.com/watch?v=A73zC_pNPCQ&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=2",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=9SMDQmzLiJM&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=3",
     "content": [
         {
             "speaker": "路人",

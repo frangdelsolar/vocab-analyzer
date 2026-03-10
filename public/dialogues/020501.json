@@ -1,13 +1,9 @@
 {
     "dialogue_id": "05-01",
     "title": "參加婚禮",
-    "participants": [
-        "明華",
-        "安同",
-        "美玲"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["明華", "安同", "美玲"],
+    "video_url": "https://www.youtube.com/watch?v=IoUYNf_1PxI&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=40",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=mBdg7MABTfU&list=PLzhEEEIeppr86cOlKwAd5uAoPhfdPIXxf&index=41",
     "content": [
         {
             "speaker": "明華",

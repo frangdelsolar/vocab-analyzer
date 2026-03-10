@@ -1,12 +1,9 @@
 {
     "dialogue_id": "12-02",
     "title": "打算學多久中文？",
-    "participants": [
-        "月美",
-        "田中"
-    ],
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "participants": ["月美", "田中"],
+    "video_url": "https://www.youtube.com/watch?v=oA3njgQLD90&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=13",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=z0_mZNaTjf8&list=PLzhEEEIeppr9DGKlQJeZglps1ubDHUE0x&index=14",
     "content": [
         {
             "speaker": "月美",

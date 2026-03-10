@@ -1,8 +1,8 @@
 {
     "dialogue_id": "reading",
     "title": "短文",
-    "video_url": "",
-    "vocabulary_video_url": "",
+    "video_url": "https://www.youtube.com/watch?v=6Lp-3c3BLR8&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=12",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=Xc8B_OpTJMQ&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=13",
     "content": [
         {
             "paragraph": 1,
