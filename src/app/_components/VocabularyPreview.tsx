@@ -19,7 +19,7 @@ export const VocabularyPreview = () => {
             book: progress.book,
             lesson: progress.lesson,
             section: progress.section,
-            cumulative: true,
+            mode: 'cumulative',
         });
 
         return {

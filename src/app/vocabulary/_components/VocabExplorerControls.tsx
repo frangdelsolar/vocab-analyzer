@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useVocabulary } from '@/context/VocabularyContext';
+import { useVocabulary, ExplorerMode } from '@/context/VocabularyContext';
 import { cn } from '@/lib/utils';
 import {
     Search,
@@ -12,7 +12,7 @@ import {
     Filter,
     Eye,
     EyeOff,
-    Trophy, // Added for Progress scope
+    Trophy,
     Settings2,
 } from 'lucide-react';
 import { Typography } from '@/components/ui';
@@ -43,7 +43,14 @@ export default function VocabExplorerControls({
         });
     };
 
-    // Dynamic Options derived from Metadata
+    // Helper to cycle through the 3 modes or set them via UI
+    const cycleMode = () => {
+        const modes: ExplorerMode[] = ['section', 'chapter', 'cumulative'];
+        const currentIndex = modes.indexOf(settings.explorer.mode);
+        const nextMode = modes[(currentIndex + 1) % modes.length];
+        updateExplorer({ mode: nextMode });
+    };
+
     const bookOptions = metadata
         ? Object.keys(metadata.books)
               .map(Number)
@@ -65,54 +72,46 @@ export default function VocabExplorerControls({
                 isCollapsed ? 'gap-0 p-3' : 'gap-6 p-6',
             )}
         >
+            {/* Header / Scope Bar */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                 <div className="flex items-center justify-between lg:justify-start gap-4">
-                    <div className="flex items-center gap-3">
-                        <button
-                            onClick={() => setIsCollapsed(!isCollapsed)}
-                            className="p-2 hover:bg-ink/5 rounded-xl transition-colors text-ink/40"
-                        >
-                            <Settings2
-                                size={18}
-                                className={cn(
-                                    'transition-transform duration-300',
-                                    !isCollapsed && 'rotate-180 text-red-500',
-                                )}
-                            />
-                        </button>
-                    </div>
+                    <button
+                        onClick={() => setIsCollapsed(!isCollapsed)}
+                        className="p-2 hover:bg-ink/5 rounded-xl transition-colors text-ink/40"
+                    >
+                        <Settings2
+                            size={18}
+                            className={cn(
+                                'transition-transform duration-300',
+                                !isCollapsed && 'rotate-180 text-red-500',
+                            )}
+                        />
+                    </button>
 
-                    {/* Scope Switches */}
                     <div className="flex gap-1 bg-ink/[0.03] p-1 rounded-xl">
                         <FilterButton
                             active={isUserScope}
                             onClick={() =>
                                 setSettings({ ...settings, scope: 'user' })
                             }
-                            className={isCollapsed ? 'h-8 px-2 text-[9px]' : ''}
                         >
-                            <Trophy size={isCollapsed ? 12 : 14} />
-                            {!isCollapsed && 'My Progress'}
+                            <Trophy size={14} /> {!isCollapsed && 'My Progress'}
                         </FilterButton>
                         <FilterButton
                             active={isExplorerScope}
                             onClick={() =>
                                 setSettings({ ...settings, scope: 'explorer' })
                             }
-                            className={isCollapsed ? 'h-8 px-2 text-[9px]' : ''}
                         >
-                            <Filter size={isCollapsed ? 12 : 14} />
-                            {!isCollapsed && 'Explorer'}
+                            <Filter size={14} /> {!isCollapsed && 'Explorer'}
                         </FilterButton>
                         <FilterButton
                             active={isAllScope}
                             onClick={() =>
                                 setSettings({ ...settings, scope: 'all' })
                             }
-                            className={isCollapsed ? 'h-8 px-2 text-[9px]' : ''}
                         >
-                            <Globe size={isCollapsed ? 12 : 14} />
-                            {!isCollapsed && 'All'}
+                            <Globe size={14} /> {!isCollapsed && 'All'}
                         </FilterButton>
                     </div>
                 </div>
@@ -235,23 +234,26 @@ export default function VocabExplorerControls({
                         ))}
                     </FilterSelect>
 
-                    <div className="flex flex-col justify-end">
+                    <div className="flex flex-col justify-end gap-1.5">
+                        <span className="text-[9px] font-black uppercase tracking-widest opacity-40 px-1">
+                            Filter Mode
+                        </span>
                         <button
-                            onClick={() =>
-                                updateExplorer({
-                                    cumulative: !settings.explorer.cumulative,
-                                })
-                            }
+                            onClick={cycleMode}
                             className={cn(
-                                'h-10 px-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all border',
-                                settings.explorer.cumulative
+                                'h-10 px-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all border flex items-center justify-center gap-2',
+                                settings.explorer.mode === 'cumulative'
                                     ? 'bg-red-500/10 border-red-500/50 text-red-600'
                                     : 'bg-zinc-100 border-zinc-200 text-zinc-500',
                             )}
                         >
-                            {settings.explorer.cumulative
-                                ? 'Cumulative Mode'
-                                : 'Strict Match'}
+                            {/* Visual Feedback for the 3 modes */}
+                            {settings.explorer.mode === 'section' &&
+                                'Strict: This Part'}
+                            {settings.explorer.mode === 'chapter' &&
+                                'Full: This Lesson'}
+                            {settings.explorer.mode === 'cumulative' &&
+                                'Cumulative Mode'}
                         </button>
                     </div>
                 </div>
