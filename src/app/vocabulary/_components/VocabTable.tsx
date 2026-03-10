@@ -12,13 +12,19 @@ interface VocabTableProps {
     searchQuery: string;
 }
 
+interface VocabTableProps {
+    data: any[];
+    isLoading: boolean;
+    visibility: VisibilitySettings;
+    searchQuery: string;
+}
+
 export default function VocabTable({
     data,
     isLoading,
     visibility,
     searchQuery,
 }: VocabTableProps) {
-    // Dynamic colSpan for full-width rows (4 base columns + 1 optional simplified)
     const totalCols = visibility.simplified ? 5 : 4;
 
     return (
@@ -26,22 +32,47 @@ export default function VocabTable({
             <table className="w-full text-left border-collapse">
                 <thead className="bg-ink/[0.03] dark:bg-white/[0.03] border-b border-border-main/50">
                     <tr>
-                        <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest opacity-40">
-                            Traditional
+                        <th className="px-6 py-4">
+                            <Typography
+                                variant="small"
+                                className="text-[10px] font-black uppercase tracking-widest opacity-40"
+                            >
+                                Traditional
+                            </Typography>
                         </th>
                         {visibility.simplified && (
-                            <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest opacity-40 animate-in fade-in zoom-in-95 duration-300">
-                                Simplified
+                            <th className="px-6 py-4 animate-in fade-in zoom-in-95 duration-300">
+                                <Typography
+                                    variant="small"
+                                    className="text-[10px] font-black uppercase tracking-widest opacity-40"
+                                >
+                                    Simplified
+                                </Typography>
                             </th>
                         )}
-                        <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest opacity-40">
-                            Pinyin
+                        <th className="px-6 py-4">
+                            <Typography
+                                variant="small"
+                                className="text-[10px] font-black uppercase tracking-widest opacity-40"
+                            >
+                                Pinyin
+                            </Typography>
                         </th>
-                        <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest opacity-40">
-                            Meaning
+                        <th className="px-6 py-4">
+                            <Typography
+                                variant="small"
+                                className="text-[10px] font-black uppercase tracking-widest opacity-40"
+                            >
+                                Meaning
+                            </Typography>
                         </th>
-                        <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest opacity-40 text-right">
-                            Source
+                        <th className="px-6 py-4 text-right">
+                            <Typography
+                                variant="small"
+                                className="text-[10px] font-black uppercase tracking-widest opacity-40"
+                            >
+                                Source
+                            </Typography>
                         </th>
                     </tr>
                 </thead>
@@ -63,35 +94,38 @@ export default function VocabTable({
                                 key={idx}
                                 className="hover:bg-ink/[0.01] dark:hover:bg-white/[0.01] transition-colors group/row"
                             >
-                                {/* Character Cell */}
+                                {/* Traditional Character */}
                                 <td className="px-6 py-5 group cursor-help">
-                                    <span
+                                    <Typography
+                                        variant="hanzi"
                                         className={cn(
                                             'text-2xl font-black tracking-tighter transition-all duration-300 block',
-                                            'dark:text-ink-dark',
                                             !visibility.character &&
                                                 'blur-md opacity-10 select-none group-hover:blur-none group-hover:opacity-100',
                                         )}
                                     >
                                         {item.traditional}
-                                    </span>
+                                    </Typography>
                                 </td>
 
-                                {/* Simplified Cell */}
+                                {/* Simplified Character */}
                                 {visibility.simplified && (
-                                    <td className="px-6 py-5 group animate-in fade-in slide-in-from-left-2 duration-300">
-                                        <span className="text-2xl font-black tracking-tighter block dark:text-ink-dark/80">
+                                    <td className="px-6 py-5 animate-in fade-in slide-in-from-left-2 duration-300">
+                                        <Typography
+                                            variant="hanzi"
+                                            className="text-2xl font-black tracking-tighter block opacity-80"
+                                        >
                                             {item.simplified}
-                                        </span>
+                                        </Typography>
                                     </td>
                                 )}
 
-                                {/* Pinyin Cell */}
+                                {/* Pinyin */}
                                 <td className="px-6 py-5 group cursor-help">
                                     <Typography
                                         variant="pinyin"
                                         className={cn(
-                                            'text-sm text-red-600 dark:text-red-400 font-bold italic transition-all duration-300 block',
+                                            'text-sm text-red-600 dark:text-red-400 font-bold italic transition-all duration-300 block opacity-100',
                                             !visibility.pinyin &&
                                                 'blur-md opacity-10 select-none group-hover:blur-none group-hover:opacity-100',
                                         )}
@@ -100,12 +134,12 @@ export default function VocabTable({
                                     </Typography>
                                 </td>
 
-                                {/* Meaning Cell */}
+                                {/* Meaning */}
                                 <td className="px-6 py-5 group cursor-help">
                                     <Typography
                                         variant="p"
                                         className={cn(
-                                            'text-sm text-ink/70 dark:text-ink-dark/60 leading-relaxed line-clamp-2 transition-all duration-300 block',
+                                            'text-sm opacity-70 leading-relaxed line-clamp-2 transition-all duration-300 block mt-0',
                                             !visibility.meaning &&
                                                 'blur-md opacity-10 select-none group-hover:blur-none group-hover:opacity-100',
                                         )}
@@ -114,29 +148,36 @@ export default function VocabTable({
                                     </Typography>
                                 </td>
 
-                                {/* Breadcrumb Source Cell */}
+                                {/* Breadcrumb Source */}
                                 <td className="px-6 py-5 text-right whitespace-nowrap">
-                                    <div className="inline-flex items-center gap-1 font-black text-[10px] tracking-tighter opacity-30 group-hover/row:opacity-100 transition-opacity uppercase">
-                                        <span className="text-red-500">
-                                            B{item.location.book}
-                                        </span>
-                                        <ChevronRight
-                                            size={10}
-                                            className="opacity-50"
-                                        />
-                                        <span>L{item.location.lesson}</span>
-                                        <ChevronRight
-                                            size={10}
-                                            className="opacity-50"
-                                        />
-                                        <span>{item.location.section}</span>
-                                        <ChevronRight
-                                            size={10}
-                                            className="opacity-50"
-                                        />
-                                        <span className="bg-ink/5 dark:bg-white/10 px-1.5 py-0.5 rounded text-[9px]">
-                                            #{item.location.order}
-                                        </span>
+                                    <div className="inline-flex items-center gap-1 group-hover/row:opacity-100 transition-opacity uppercase">
+                                        <Typography
+                                            variant="small"
+                                            className="text-[10px] font-black tracking-tighter opacity-30 group-hover/row:opacity-100"
+                                        >
+                                            <span className="text-red-500">
+                                                B{item.location.book}
+                                            </span>
+                                            <ChevronRight
+                                                size={10}
+                                                className="inline mx-0.5 opacity-50"
+                                            />
+                                            <span>L{item.location.lesson}</span>
+                                            <ChevronRight
+                                                size={10}
+                                                className="inline mx-0.5 opacity-50"
+                                            />
+                                            <span>
+                                                P{item.location.section}
+                                            </span>
+                                            <ChevronRight
+                                                size={10}
+                                                className="inline mx-0.5 opacity-50"
+                                            />
+                                            <span className="bg-ink/5 dark:bg-white/10 px-1.5 py-0.5 rounded text-[9px]">
+                                                #{item.location.order}
+                                            </span>
+                                        </Typography>
                                     </div>
                                 </td>
                             </tr>
