@@ -5,11 +5,10 @@ import React, {
     useContext,
     useEffect,
     useState,
-    useMemo,
     useCallback,
 } from 'react';
 
-// 1. Interfaces & Types
+// 1. Interfaces
 export interface AnkiCard {
     traditional: string;
     simplified: string;
@@ -18,217 +17,127 @@ export interface AnkiCard {
     location: {
         book: number;
         lesson: number;
-        section: string;
+        section: number;
     };
 }
 
-export type HighlightScope =
-    | 'all'
-    | 'chapter'
-    | 'cumulative'
-    | 'section'
-    | 'manual'
-    | 'none'
-    | 'explorer';
+export interface LocationTree {
+    books: {
+        [bookId: string]: {
+            lessons: {
+                [lessonId: string]: {
+                    sections: number[];
+                };
+            };
+        };
+    };
+}
 
-export interface StudySettings {
-    scope: HighlightScope;
+interface FilterOptions {
     book: number;
     lesson: number;
-    section: string;
-    searchQuery: string; // New field for search
-    manualLessons: number[];
-    explorer: {
-        b: number;
-        l: number;
-        p: string;
-        cumulative: boolean;
-    };
+    section: number;
+    cumulative: boolean;
 }
-
-interface VocabContextType {
-    cards: AnkiCard[];
-    filteredMap: Map<string, AnkiCard>;
-    settings: StudySettings;
-    setSettings: (settings: Partial<StudySettings>) => void;
-    isLoading: boolean;
-}
-
-const VocabContext = createContext<VocabContextType | undefined>(undefined);
 
 // 2. Provider Implementation
+interface VocabContextType {
+    cards: AnkiCard[];
+    metadata: LocationTree | null;
+    dialogueManifest: string[];
+    isLoading: boolean;
+    getFilteredCards: (options: FilterOptions) => AnkiCard[];
+}
+const VocabContext = createContext<VocabContextType | undefined>(undefined);
+
 export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
     const [cards, setCards] = useState<AnkiCard[]>([]);
+    const [metadata, setMetadata] = useState<LocationTree | null>(null);
+    const [dialogueManifest, setDialogueManifest] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [isHydrated, setIsHydrated] = useState(false);
-    const [settings, setSettingsState] = useState<StudySettings>({
-        scope: 'all',
-        book: 1,
-        lesson: 1,
-        section: 'I',
-        searchQuery: '',
-        manualLessons: [],
-        explorer: {
-            b: 1,
-            l: 1,
-            p: 'I',
-            cumulative: false,
-        },
-    });
 
-    // 1. Load from LocalStorage on mount
     useEffect(() => {
-        const saved = localStorage.getItem('dangdai_study_context');
-        if (saved) {
+        const loadResources = async () => {
             try {
-                setSettings(JSON.parse(saved));
-            } catch (e) {
-                console.error('Failed to load session', e);
-            }
-        }
-        setIsHydrated(true);
-    }, []);
+                const [cardsRes, treeRes, manifestRes] = await Promise.all([
+                    fetch('/parsed-cards.json'),
+                    fetch('/location-tree.json'),
+                    fetch('/dialogues/manifest.json'), // Fetch the manifest
+                ]);
 
-    // 2. Save to LocalStorage whenever settings change
-    useEffect(() => {
-        if (isHydrated) {
-            localStorage.setItem(
-                'dangdai_study_context',
-                JSON.stringify(settings),
-            );
-        }
-    }, [settings, isHydrated]);
+                const cardsData = await cardsRes.json();
+                const treeData = await treeRes.json();
+                const manifestData = await manifestRes.json();
 
-    const setSettings = useCallback((newSettings: Partial<StudySettings>) => {
-        setSettingsState((prev) => ({ ...prev, ...newSettings }));
-    }, []);
-
-    useEffect(() => {
-        fetch('/parsed-cards.json')
-            .then((res) => res.json())
-            .then((data: AnkiCard[]) => {
-                setCards(data);
+                setCards(cardsData);
+                setMetadata(treeData);
+                setDialogueManifest(manifestData.files); // Store the filenames
+            } catch (err) {
+                console.error('Resource loading error:', err);
+            } finally {
                 setIsLoading(false);
-            })
-            .catch((err) => console.error('Failed to load vocab:', err));
+            }
+        };
+        loadResources();
     }, []);
 
-    // 3. The Filter Engine
-    const filteredMap = useMemo(() => {
-        const map = new Map<string, AnkiCard>();
-        if (cards.length === 0) return map;
+    /**
+     * The Filter Function
+     * Optimized to filter the preloaded cards based on user progress.
+     */
+    const getFilteredCards = useCallback(
+        ({ book, lesson, section, cumulative }: FilterOptions) => {
+            if (cards.length === 0) return [];
 
-        const getSectionScore = (section: string): number => {
-            const s = section?.toUpperCase().trim();
-            if (s === 'I' || s === '1' || s === 'PART-1') return 1;
-            if (s === 'II' || s === '2' || s === 'PART-2') return 2;
-            if (s === 'III' || s === '3') return 3;
-            if (s === 'READING' || s === '4') return 4;
-            return 0;
-        };
-
-        cards.forEach((card) => {
-            const { book, lesson, section: cardSection } = card.location;
-            const cardSectionScore = getSectionScore(cardSection);
-            let include = false;
-
-            // --- FILTERING LOGIC (STRICTLY PRESERVED) ---
-            if (settings.scope === 'explorer') {
-                const { b, l, p, cumulative } = settings.explorer;
-                const targetScore = getSectionScore(p);
+            return cards.filter((card) => {
+                const c = card.location;
 
                 if (cumulative) {
-                    if (book < b) include = true;
-                    else if (book === b && lesson < l) include = true;
-                    else if (
-                        book === b &&
-                        lesson === l &&
-                        cardSectionScore <= targetScore
-                    )
-                        include = true;
-                } else {
+                    // Logic:
+                    // 1. Any book previous to current
+                    // 2. Current book, any lesson previous to current
+                    // 3. Current book, current lesson, any section up to current
+                    if (c.book < book) return true;
+                    if (c.book === book && c.lesson < lesson) return true;
                     if (
-                        book === b &&
-                        lesson === l &&
-                        cardSectionScore === targetScore
+                        c.book === book &&
+                        c.lesson === lesson &&
+                        c.section <= section
                     )
-                        include = true;
+                        return true;
+                    return false;
+                } else {
+                    // Strict match for a specific dialogue part
+                    return (
+                        c.book === book &&
+                        c.lesson === lesson &&
+                        c.section === section
+                    );
                 }
-            } else {
-                const targetSectionScore = getSectionScore(settings.section);
-                switch (settings.scope) {
-                    case 'none':
-                        include = false;
-                        break;
-                    case 'all':
-                        include = true;
-                        break;
-                    case 'chapter':
-                        if (
-                            book === settings.book &&
-                            lesson === settings.lesson
-                        )
-                            include = true;
-                        break;
-                    case 'section':
-                        if (
-                            book === settings.book &&
-                            lesson === settings.lesson &&
-                            cardSectionScore === targetSectionScore
-                        )
-                            include = true;
-                        break;
-                    case 'cumulative':
-                        if (book < settings.book) include = true;
-                        else if (
-                            book === settings.book &&
-                            lesson < settings.lesson
-                        )
-                            include = true;
-                        else if (
-                            book === settings.book &&
-                            lesson === settings.lesson &&
-                            cardSectionScore <= targetSectionScore
-                        )
-                            include = true;
-                        break;
-                    case 'manual':
-                        if (settings.manualLessons.includes(lesson))
-                            include = true;
-                        break;
-                }
-            }
-
-            // --- SEARCH LOGIC (SECONDARY PASS) ---
-            // If the card survived the location filter, check if it matches the search query
-            if (include && settings.searchQuery.trim() !== '') {
-                const query = settings.searchQuery.toLowerCase();
-                const matchesSearch =
-                    card.traditional.includes(query) ||
-                    card.simplified?.includes(query) || // Added optional simplified check
-                    card.pinyin.toLowerCase().includes(query) ||
-                    card.meaning.toLowerCase().includes(query);
-
-                if (!matchesSearch) include = false;
-            }
-
-            if (include) map.set(card.traditional, card);
-        });
-        return map;
-    }, [cards, settings]);
+            });
+        },
+        [cards],
+    );
 
     return (
         <VocabContext.Provider
-            value={{ cards, filteredMap, settings, setSettings, isLoading }}
+            value={{
+                cards,
+                metadata,
+                dialogueManifest,
+                isLoading,
+                getFilteredCards,
+            }}
         >
             {children}
         </VocabContext.Provider>
     );
 };
-
+// 3. Hook
 export const useVocabulary = () => {
     const context = useContext(VocabContext);
-    if (!context)
-        throw new Error('useVocabulary must be used within VocabProvider');
+    if (!context) {
+        throw new Error('useVocabulary must be used within a VocabProvider');
+    }
     return context;
 };
