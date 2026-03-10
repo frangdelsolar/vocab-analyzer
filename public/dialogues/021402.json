@@ -1,0 +1,25 @@
+{
+    "lesson_number": 14,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=KlAKIfmInDo&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=37",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=R0oD-dq2O7w&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=38",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "白如玉高中就開始學中文，當時她覺得中文的聲調和漢字都好難，練習了很久，發音才越來越準，字也寫得越來越好。上了大學以後，如玉念了企業管理系，她認為中國經濟發展得很快，懂中文對找工作會有幫助，她打算畢業以後找一個跟中文有關的工作，才不會把中文忘了。",
+            "pinyin": "Bái Rúyù gāozhōng jiù kāishǐ xué Zhōngwén, dāngshí tā juéde Zhōngwén de shēngdiào hé Hànzì dōu hǎo nán, liànxí le hěn jiǔ, fāyīn cái yuè lái yuè zhǔn, zì yě xiě de yuè lái yuè hǎo. Shàng le dàxué yǐhòu, Rúyù niàn le qǐyè guǎnlǐ xì, tā rènwéi Zhōngguó jīngjì fāzhǎn de hěn kuài, dǒng Zhōngwén duì zhǎo gōngzuò huì yǒu bāngzhù, tā dǎsuàn bìyè yǐhòu zhǎo yī gè gēn Zhōngwén yǒuguān de gōngzuò, cái bù huì bǎ Zhōngwén wàng le."
+        },
+        {
+            "paragraph": 2,
+            "text": "高美玲本來是學語言學的，她對語法特別有興趣，常研究中文跟法文不同的地方。美玲打算學好中文以後，回國教書，把自己學中文的方法和經驗教給學生，這樣學生應該能學得更順利。她在台灣也發現了很多有意思的文化，所以除了教語言，她也希望順便把台灣的文化介紹給學生。",
+            "pinyin": "Gāo Měilíng běnlái shì xué yǔyánxué de, tā duì yǔfǎ tèbié yǒu xìngqù, cháng yánjiū Zhōngwén gēn Fǎwén bùtóng de dìfāng. Měilíng dǎsuàn xué hǎo Zhōngwén yǐhòu, huí guó jiāoshū, bǎ zìjǐ xué Zhōngwén de fāngfǎ hé jīngyàn jiāo gěi xuésheng, zhèyàng xuésheng yīnggāi néng xué de gèng shùnlì. Tā zài Táiwān yě fāxiàn le hěnduō yǒu yìsi de wénhuà, suǒyǐ chúle jiāo yǔyán, tā yě xīwàng shùnbiàn bǎ Táiwān de wénhuà jièshào gěi xuésheng."
+        },
+        {
+            "paragraph": 3,
+            "text": "林愛麗是加拿大華僑，雖然在家跟父母說中文，可是不太會寫漢字。她到台灣來的目的是把中文學好。林愛麗大學念的是國際關係，她還沒決定將來要當翻譯，還是外交人員。為了充實自己的專業能力，她決定留在台灣念研究所。",
+            "pinyin": "Lín Àilì shì Jiānádà huáqiáo, suīrán zài jiā gēn fùmǔ shuō Zhōngwén, kěshì bù tài huì xiě Hànzì. Tā dào Táiwān lái de mùdì shì bǎ Zhōngwén xué hǎo. Lín Àilì dàxué niàn de shì guójì guānxì, tā hái méi juédìng jiānglái yào dāng fānyì, háishì wàijiāo rényuán. Wèile chōngshí zìjǐ de zhuānyè nénglì, tā juédìng liú zài Táiwān niàn yánjiūsuǒ."
+        }
+    ]
+}

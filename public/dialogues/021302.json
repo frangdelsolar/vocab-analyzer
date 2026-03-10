@@ -1,0 +1,25 @@
+{
+    "lesson_number": 13,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=ay13mO7L-yI&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=24",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=oz-blSfKRr8&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=25",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "現代人的生活已經離不開網路了，生活裡有很多事，比方買東西、查資料、下載音樂，只要上網，就能做到。住在不同國家的人，也能天天用網路聊天。要是哪裡發生了事情，這些消息，都能透過網路，馬上傳到世界每一個地方，讓大家知道第一手資料。網路替我們節省了時間，還把世界變小了。",
+            "pinyin": "Xiàndài rén de shēnghuó yǐjīng lí bù kāi wǎnglù le, shēnghuó lǐ yǒu hěnduō shì, bǐfāng mǎi dōngxī, chá zīliào, xiàzǎi yīnyuè, zhǐyào shàng wǎng, jiù néng zuò dào. Zhù zài bùtóng guójiā de rén, yě néng tiāntiān yòng wǎnglù liáotiān. Yàoshi nǎlǐ fāshēng le shìqíng, zhèxiē xiāoxī, dōu néng tòuguò wǎnglù, mǎshàng chuán dào shìjiè měi yī gè dìfāng, ràng dàjiā zhīdào dì yī shǒu zīliào. Wǎnglù tì wǒmen jiéshěng le shíjiān, hái bǎ shìjiè biàn xiǎo le."
+        },
+        {
+            "paragraph": 2,
+            "text": "雖然網路讓我們的生活變得更便利，但是也有一些問題。很多人每天早上才起床，就急著上網。每五分鐘就要檢查一次郵件，一有新消息、新照片就立刻上傳。他們什麼時候都在上網，好像只有睡覺的時候，才離開網路。在網路上花太多時間，很多人的生活變得不正常了。",
+            "pinyin": "Suīrán wǎnglù ràng wǒmen de shēnghuó biàn de gèng biànlì, dànshì yě yǒu yīxiē wèntí. Hěnduō rén měitiān zǎoshang cái qǐchuáng, jiù jízhe shàng wǎng. Měi wǔ fēnzhōng jiù yào jiǎnchá yī cì yóujiàn, yī yǒu xīn xiāoxī, xīn zhàopiàn jiù lìkè shàngchuán. Tāmen shénme shíhou dōu zài shàng wǎng, hǎoxiàng zhǐyǒu shuìjiào de shíhou, cái lí kāi wǎnglù. Zài wǎnglù shàng huā tài duō shíjiān, hěnduō rén de shēnghuó biàn de bù zhèngcháng le."
+        },
+        {
+            "paragraph": 3,
+            "text": "網路太方便了，大家已經習慣透過網路跟朋友打招呼、聊天、談事情，但是不想跟人面對面地說話，人跟人的關係好像越來越遠了。我們應該想一想，怎麼好好地利用網路，才不會影響人跟人的關係。",
+            "pinyin": "Wǎnglù tài fāngbiàn le, dàjiā yǐjīng xíguàn tòuguò wǎnglù gēn péngyou dǎ zhāohū, liáotiān, tán shìqíng, dànshì bù xiǎng gēn rén miàn duì miàn de shuōhuà, rén gēn rén de guānxì hǎoxiàng yuè lái yuè yuǎn le. Wǒmen yīnggāi xiǎng yī xiǎng, zěnme hǎohǎo de lìyòng wǎnglù, cái bù huì yǐngxiǎng rén gēn rén de guānxì."
+        }
+    ]
+}

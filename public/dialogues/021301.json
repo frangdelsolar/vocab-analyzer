@@ -1,0 +1,111 @@
+{
+    "lesson_number": 13,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "找手機",
+    "video_url": "https://www.youtube.com/watch?v=V4itv1olw-o&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=22",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=IpuXihXX5wQ&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=23",
+    "participants": ["愛麗", "馬丁"],
+    "content": [
+        {
+            "speaker": "愛麗",
+            "text": "怎麼了？在找什麼？",
+            "pinyin": "Zěnme le? Zài zhǎo shénme?"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "找我的手機，我怎麼找都找不到。",
+            "pinyin": "Zhǎo wǒ de shǒujī, wǒ zěnme zhǎo dōu zhǎobúdào."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "我早上還看到你在餐廳低頭玩手機，你是不是在餐廳掉的？",
+            "pinyin": "Wǒ zǎoshàng hái kàndào nǐ zài cāntīng dītóu wán shǒujī, nǐ shìbúshì zài cāntīng diào de?"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "不是，我離開餐廳後，還給義大利朋友傳過簡訊。",
+            "pinyin": "Búshì, wǒ líkāi cāntīng hòu, hái gěi Yìdàlì péngyǒu chuánguò jiǎnxù."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "是不是被誰拿走了？要是有人撿到了，看見你的手機那麼新，功能又好，就留下來自己用了。",
+            "pinyin": "Shìbúshì bèi shéi názǒule? Yàoshì yǒurén jiǎndàole, kànjiàn nǐ de shǒujī nàme xīn, gōngnéng yòu hǎo, jiù liúxiàlái zìjǐ yòngle."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "我就怕是這樣，這已經是我掉的第三支手機了。",
+            "pinyin": "Wǒ jiù pà shì zhèyàng, zhè yǐjīng shì wǒ diào de dì sān zhī shǒujī le."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "你的手機是你女朋友送的禮物？這樣會讓她生氣吧！",
+            "pinyin": "Nǐ de shǒujī shì nǐ nǚpéngyǒu sòng de lǐwù? Zhèyàng huì ràng tā shēngqì ba!"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "是啊！她還叫我別再掉手機了。要是被她知道了，一定會罵我的。",
+            "pinyin": "Shì a! Tā hái jiào wǒ bié zài diào shǒujī le. Yàoshì bèi tā zhīdàole, yídìng huì mà wǒ de."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "你是什麼時候發現手機不見的？",
+            "pinyin": "Nǐ shì shénme shíhòu fāxiàn shǒujī bújiàn de?"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "我剛剛想上網，才發現不見的。",
+            "pinyin": "Wǒ gānggāng xiǎng shàngwǎng, cái fāxiàn bújiàn de."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "你傳完簡訊後，還去了什麼地方？",
+            "pinyin": "Nǐ chuánwán jiǎnxù hòu, hái qùle shénme dìfāng?"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "我先去健身房做運動，然後去圖書館做功課。",
+            "pinyin": "Wǒ xiān qù jiànshēnfáng zuò yùndòng, ránhòu qù túshūguǎn zuò gōngkè."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "你去圖書館找過了嗎？",
+            "pinyin": "Nǐ qù túshūguǎn zhǎoguòle ma?"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "到處都找過了，還是找不到。怎麼辦？我女朋友不會讓我再買新手機的。",
+            "pinyin": "Dàochù dōu zhǎoguòle, háishì zhǎobúdào. Zěnmebàn? Wǒ nǚpéngyǒu búhuì ràng wǒ zài mǎi xīn shǒujī de."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "那健身房呢？",
+            "pinyin": "Nà jiànshēnfáng ne?"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "我在健身房沒用手機。啊！我想起來了！",
+            "pinyin": "Wǒ zài jiànshēnfáng méiyòng shǒujī. A! Wǒ xiǎngqǐlái le!"
+        },
+        {
+            "speaker": "愛麗",
+            "text": "想起來啦？放在什麼地方了？",
+            "pinyin": "Xiǎngqǐlái la? Fàng zài shénme dìfāng le?"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "剛剛我在查回國的班機資料，正要訂位的時候，手機沒電了。所以我去健身房的時候，放在那裡充電。",
+            "pinyin": "Gānggāng wǒ zài chá huíguó de bānjī zīliào, zhèngyào dìwèi de shíhòu, shǒujī méidiàn le. Suǒyǐ wǒ qù jiànshēnfáng de shíhòu, fàng zài nàlǐ chōngdiàn."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "你怎麼這麼糊塗，趕快回去拿吧！",
+            "pinyin": "Nǐ zěnme zhème hútú, gǎnkuài huíqù ná ba!"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "那我先走了！妳別告訴我女朋友喔！",
+            "pinyin": "Nà wǒ xiān zǒule! Nǐ bié gàosù wǒ nǚpéngyǒu ō!"
+        }
+    ]
+}

@@ -1,0 +1,121 @@
+{
+    "lesson_number": 15,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "回國以前的計畫",
+    "video_url": "https://www.youtube.com/watch?v=tGNdgYQe2HQ&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=35",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=xOeUax-I8wM&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=36",
+    "participants": ["美玲", "如玉", "愛麗"],
+    "content": [
+        {
+            "speaker": "美玲",
+            "text": "如玉，好久不見，跟我們一起坐吧。",
+            "pinyin": "Rúyù, hǎojiǔ bújiàn, gēn wǒmen yìqǐ zuò ba."
+        },
+        {
+            "speaker": "如玉",
+            "text": "好啊！妳們在聊什麼，聊得這麼高興？",
+            "pinyin": "Hǎo a! Nǐmen zài liáo shénme, liáo de zhème gāoxìng?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "這個學期結束，我就要離開台灣了，正在跟愛麗說我將來的計畫。",
+            "pinyin": "Zhège xuéqí jiéshù, wǒ jiù yào líkāi Táiwān le, zhèngzài gēn Àilì shuō wǒ jiānglái de jìhuà."
+        },
+        {
+            "speaker": "如玉",
+            "text": "時間過得好快啊！妳已經來了快一年半了。",
+            "pinyin": "Shíjiān guò de hǎo kuài a! Nǐ yǐjīng láile kuài yì nián bàn le."
+        },
+        {
+            "speaker": "美玲",
+            "text": "對啊！在我回國以前，要開始找工作。",
+            "pinyin": "Duì a! Zài wǒ huíguó yǐqián, yào kāishǐ zhǎo gōngzuò."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "妳剛剛說到對一個工作有興趣，是什麼工作呢？",
+            "pinyin": "Nǐ gānggāng shuō dào duì yí gè gōngzuò yǒu xìngqù, shì shénme gōngzuò ne?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "我以前唸的高中正在徵求一位教中文的教師，我想試試看。",
+            "pinyin": "Wǒ yǐqián niàn de gāozhōng zhèngzài zhēngqiú yí wèi jiào Zhōngwén de jiàoshī, wǒ xiǎng shìshì kàn."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "妳的中文學得不錯，我認為妳回去教中文應該沒問題。",
+            "pinyin": "Nǐ de Zhōngwén xué de búcuò, wǒ rènwéi nǐ huíqù jiào Zhōngwén yīnggāi méi wèntí."
+        },
+        {
+            "speaker": "美玲",
+            "text": "真的嗎？我也希望這樣。",
+            "pinyin": "Zhēnde ma? Wǒ yě xīwàng zhèyàng."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "如玉，妳也快要離開了，有什麼打算呢？",
+            "pinyin": "Rúyù, nǐ yě kuàiyào líkāile, yǒu shénme dǎsuàn ne?"
+        },
+        {
+            "speaker": "如玉",
+            "text": "我得先回美國把大學唸完，等我畢業了，再到香港或是上海找工作。",
+            "pinyin": "Wǒ děi xiān huí Měiguó bǎ dàxué niànwán, děng wǒ bìyèle, zài dào Xiānggǎng huòshì Shànghǎi zhǎo gōngzuò."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "妳怎麼會想到上海找工作呢？",
+            "pinyin": "Nǐ zěnme huì xiǎngdào Shànghǎi zhǎo gōngzuò ne?"
+        },
+        {
+            "speaker": "如玉",
+            "text": "我聽幾位朋友說，這幾年上海發展得很快，連外國人都很容易找到工作。如果能找到美國分公司的工作，應該不錯。",
+            "pinyin": "Wǒ tīng jǐ wèi péngyǒu shuō, zhè jǐ nián Shànghǎi fāzhǎn de hěn kuài, lián wàiguórén dōu hěn róngyì zhǎodào gōngzuò. Rúguǒ néng zhǎodào Měiguó fēngōngsī de gōngzuò, yīnggāi búcuò."
+        },
+        {
+            "speaker": "美玲",
+            "text": "這個想法不錯，不但可以繼續使用中文，而且可以了解那裡跟台灣有什麼不同。",
+            "pinyin": "Zhège xiǎngfǎ búcuò, búdàn kěyǐ jìxù shǐyòng Zhōngwén, érqiě kěyǐ liǎojiě nàlǐ gēn Táiwān yǒu shénme bùtóng."
+        },
+        {
+            "speaker": "如玉",
+            "text": "真希望我的計畫都能實現。",
+            "pinyin": "Zhēn xīwàng wǒ de jìhuà dōu néng shíxiàn."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "我才認識妳們幾個月，妳們就要回國了，真捨不得妳們。",
+            "pinyin": "Wǒ cái rènshì nǐmen jǐ gè yuè, nǐmen jiù yào huíguóle, zhēn shěbùdé nǐmen."
+        },
+        {
+            "speaker": "美玲",
+            "text": "妳可以到法國來找我，我一定會好好招待妳。",
+            "pinyin": "Nǐ kěyǐ dào Fàguó lái zhǎo wǒ, wǒ yídìng huì hǎohǎo zhāodài nǐ."
+        },
+        {
+            "speaker": "愛麗",
+            "text": "太好了！有機會我一定去找妳。",
+            "pinyin": "Tài hǎole! Yǒu jīhuì wǒ yídìng qù zhǎo nǐ."
+        },
+        {
+            "speaker": "美玲",
+            "text": "愛麗，妳還要在台灣住多久？",
+            "pinyin": "Àilì, nǐ háiyào zài Táiwān zhù duōjiǔ?"
+        },
+        {
+            "speaker": "愛麗",
+            "text": "我覺得還得再學半年中文，然後在這裡唸研究所。",
+            "pinyin": "Wǒ juédé háiděi zài xué bànnián Zhōngwén, ránhòu zài zhèlǐ niàn yánjiūsuǒ."
+        },
+        {
+            "speaker": "如玉",
+            "text": "我們回國以前，大家再聚一聚吧！",
+            "pinyin": "Wǒmen huíguó yǐqián, dàjiā zài jù yí jù ba!"
+        },
+        {
+            "speaker": "美玲",
+            "text": "這個建議不錯，我們就這麼決定吧！",
+            "pinyin": "Zhège jiànyì búcuò, wǒmen jiù zhème juédìng ba!"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "lesson_number": 15,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=kPryXVxtr70&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=47",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=IL1s0L6g2qc&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=48",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "春節就是中國新年，是華人一年裡最大的一個節日。過年前一個月大家就忙起來了，得把家裡打掃乾淨，也要準備過年的食物，還要給孩子買新衣服。另外，每家門口都要貼上春聯，才有過年的氣氛。",
+            "pinyin": "Chūnjié jiùshì Zhōngguó xīnnián, shì huárén yī nián lǐ zuìdà de yī gè jiérì. Guònián qián yī gè yuè dàjiā jiù máng qǐlái le, děi bǎ jiālǐ dǎsǎo gānjìng, yě yào zhǔnbèi guònián de shíwù, hái yào gěi háizi mǎi xīn yīfu. Lìngwài, měi jiā ménkǒu dōu yào tiē shàng chūnlián, cái yǒu guònián de qìfēn."
+        },
+        {
+            "paragraph": 2,
+            "text": "春節前一天是除夕，大部分的人都比平常早回家，因為大家要吃年夜飯。過年的食物都有特別的意思，吃魚的意思是年年有餘（魚）；吃年糕是步步高（糕）升，希望大家工作、功課一年比一年好；吃橘子是希望新的一年大吉大利。",
+            "pinyin": "Chūnjié qián yī tiān shì chúxì, dà bùfèn de rén dōu bǐ píngcháng zǎo huí jiā, yīnwèi dàjiā yào chī niányèfàn. Guònián de shíwù dōu yǒu tèbié de yìsi, chī yú de yìsi shì niánnián yǒuyú (yú); chī niángāo shì bùbù gāo (gāo) shēng, xīwàng dàjiā gōngzuò, gōngkè yī nián bǐ yī nián hǎo; chī júzi shì xīwàng xīn de yī nián dà jí dà lì."
+        },
+        {
+            "paragraph": 3,
+            "text": "吃了年夜飯，一家人就一起聊聊天、看看電視，等新的一年開始，這叫守歲。傳統的說法是：除夕夜孩子越晚睡，父母就活得越久。父母也會給孩子壓歲錢，希望他們新的一年都能平平安安的。過了十二點，很多人就到外面放鞭炮，慶祝新年。",
+            "pinyin": "Chī le niányèfàn, yī jiā rén jiù yīqǐ liáoliao tiān, kànkan diànshì, děng xīn de yī nián kāishǐ, zhè jiào shǒusuì. Chuántǒng de shuōfǎ shì: chúxì yè háizi yuè wǎn shuì, fùmǔ jiù huó de yuè jiǔ. Fùmǔ yě huì gěi háizi yāsuìqián, xīwàng tāmen xīn de yī nián dōu néng píng píng ān ān de. Guò le shí'èr diǎn, hěnduō rén jiù dào wàimiàn fàng biānpào, qìngzhù xīnnián."
+        },
+        {
+            "paragraph": 4,
+            "text": "新年的第一天，也叫大年初一。大家會出門給親戚、朋友拜年，祝他們新年快樂。到了大年初五，大部分的人都得上班，街上又熱鬧起來了。",
+            "pinyin": "Xīnnián de dì yī tiān, yě jiào dànián chū yī. Dàjiā huì chūmén gěi qīnqi, péngyou bài nián, zhù tāmen xīnnián kuàilè. Dào le dànián chū wǔ, dà bùfèn de rén dōu děi shàngbān, jiē shàng yòu rènào qǐlái le."
+        }
+    ]
+}
