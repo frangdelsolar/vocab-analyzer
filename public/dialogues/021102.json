@@ -1,0 +1,30 @@
+{
+    "lesson_number": 11,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=xszQJJ2s1Bg&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=3",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=Gv7baz0yQeM&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=4",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "馬丁利用學期假到台灣中南部去玩了一趟。他先到南部的墾丁去住了三天，然後又到台中玩了兩天，玩得開心極了。",
+            "pinyin": "Mǎdīng lìyòng xuéqí jià dào Táiwān zhōng nánbù qù wán le yī tàng. Tā xiān dào nánbù de Kěndīng qù zhù le sān tiān, ránhòu yòu dào Táizhōng wán le liǎng tiān, wán dé kāixīn jí le."
+        },
+        {
+            "paragraph": 2,
+            "text": "去旅行以前，馬丁把網路上的各種資料都看了一遍。因為夏天觀光客多，很難訂到房間，他就先訂了一家在網路上很多人都說不錯的民宿。沒想到民宿就在海邊，風景比網站上的照片更漂亮，他覺得自己的運氣太好了。",
+            "pinyin": "Qù lǚxíng yǐqián, Mǎdīng bǎ wǎnglù shàng de gè zhǒng zīliào dōu kàn le yī biàn. Yīnwèi xiàtiān guānguāngkè duō, hěn nán dìng dào fángjiān, tā jiù xiān dìng le yī jiā zài wǎnglù shàng hěnduō rén dōu shuō bùcuò de mínsù. Méi xiǎng dào mínsù jiù zài hǎibiān, fēngjǐng bǐ wǎngzhàn shàng de zhàopiàn gèng piàoliang, tā juéde zìjǐ de yùnqì tài hǎo le."
+        },
+        {
+            "paragraph": 3,
+            "text": "馬丁一到墾丁，就租了摩托車到處逛逛。墾丁除了漂亮的海，還有很多熱帶植物。他第一天就把所有的地方都逛了一遍。第二天白天，馬丁去海邊游泳，游累了，就躺在沙灘上曬太陽。因為看見很多人在騎水上摩托車，他也試了試。",
+            "pinyin": "Mǎdīng yī dào Kěndīng, jiù zū le mótuōchē dàochù guàngguàng. Kěndīng chúle piàoliang de hǎi, hái yǒu hěnduō rèdài zhíwù. Tā dì yī tiān jiù bǎ suǒyǒu de dìfāng dōu guàng le yī biàn. Dì èr tiān báitiān, Mǎdīng qù hǎibiān yóuyǒng, yóu lèi le, jiù tǎng zài shātān shàng shài tàiyáng. Yīnwèi kànjiàn hěnduō rén zài qí shuǐshàng mótuōchē, tā yě shì le shì."
+        },
+        {
+            "paragraph": 4,
+            "text": "黃昏，馬丁逛到墾丁最熱鬧的那條街，看見賣各國食物的餐廳，他選了一家走進去。在餐廳裡，馬丁聽著音樂、喝著啤酒，跟別的觀光客聊聊天，他愛上了這種輕鬆又浪漫的氣氛，好像回到了自己的家鄉。馬丁覺得這一趟旅行真是太值得了。",
+            "pinyin": "Huánghūn, Mǎdīng guàng dào Kěndīng zuì rènào de nà tiáo jiē, kànjiàn mài gè guó shíwù de cāntīng, tā xuǎn le yī jiā zǒu jìnqù. Zài cāntīng lǐ, Mǎdīng tīngzhe yīnyuè, hēzhe píjiǔ, gēn bié de guānguāngkè liáoliáo tiān, tā ài shàng le zhè zhǒng qīngsōng yòu làngmàn de qìfēn, hǎoxiàng huí dào le zìjǐ de jiāxiāng. Mǎdīng juéde zhè yī tàng lǚxíng zhēnshi tài zhídé le."
+        }
+    ]
+}

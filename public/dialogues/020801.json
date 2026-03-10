@@ -1,0 +1,101 @@
+{
+    "lesson_number": 8,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "學功夫",
+    "video_url": "https://www.youtube.com/watch?v=zOOcQkndVDk&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=19",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=F7fqrEiunM0&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=20",
+    "participants": ["東健", "安同"],
+    "content": [
+        {
+            "speaker": "東健",
+            "text": "安同！安同！",
+            "pinyin": "Āntóng! Āntóng!"
+        },
+        {
+            "speaker": "安同",
+            "text": "東健！對不起，沒聽見你叫我。",
+            "pinyin": "Dōngjiàn! Duìbùqǐ, méi tīngjiàn nǐ jiào wǒ."
+        },
+        {
+            "speaker": "東健",
+            "text": "音樂那麼吵，你當然聽不見。",
+            "pinyin": "Yīnyuè nàme chǎo, nǐ dāngrán tīngbújiàn."
+        },
+        {
+            "speaker": "安同",
+            "text": "有什麼事嗎？",
+            "pinyin": "Yǒu shénme shì ma?"
+        },
+        {
+            "speaker": "東健",
+            "text": "沒事，只是一到學校門口，就看見你推著腳踏車走過來。",
+            "pinyin": "Méishì, zhǐshì yí dào xuéxiào ménkǒu, jiù kànjiàn nǐ tuīzhe jiǎotàchē zǒu guòlái."
+        },
+        {
+            "speaker": "安同",
+            "text": "你下午要做什麼？",
+            "pinyin": "Nǐ xiàwǔ yào zuò shénme?"
+        },
+        {
+            "speaker": "東健",
+            "text": "我要去體育館運動。對了，你現在還在學太極拳嗎？",
+            "pinyin": "Wǒ yào qù tǐyùguǎn yùndòng. Duìle, nǐ xiànzài hái zài xué Tàijíquán ma?"
+        },
+        {
+            "speaker": "安同",
+            "text": "是啊！我的師父說我有天分，學得不錯。",
+            "pinyin": "Shì a! Wǒ de shīfù shuō wǒ yǒu tiānfèn, xué de búcuò."
+        },
+        {
+            "speaker": "東健",
+            "text": "你師父是台灣人吧？他說中文你聽得懂嗎？",
+            "pinyin": "Nǐ shīfù shì Táiwānrén ba? Tā shuō Zhōngwén nǐ tīngde dǒng ma?"
+        },
+        {
+            "speaker": "安同",
+            "text": "剛開始我都聽不懂，可是現在沒問題了。",
+            "pinyin": "Gāng kāishǐ wǒ dōu tīngbùdǒng, kěshì xiànzài méi wèntí le."
+        },
+        {
+            "speaker": "東健",
+            "text": "太極拳難嗎？你學了多久了？",
+            "pinyin": "Tàijíquán nán ma? Nǐ xuéle duǒjiǔ le?"
+        },
+        {
+            "speaker": "安同",
+            "text": "不太容易，而且要很早起來。我學了三個多月了，才學會了一點。",
+            "pinyin": "Bú tài róngyì, érqiě yào hěn zǎo qǐlái. Wǒ xuéle sān ge duō yuè le, cái xuéhuìle yìdiǎn."
+        },
+        {
+            "speaker": "東健",
+            "text": "可是太極拳的動作看起來慢慢的，輕輕的，應該很輕鬆。",
+            "pinyin": "Kěshì Tàijíquán de dòngzuò kàn qǐlái mànmàn de, qīngqīng de, yīnggāi hěn qīngsōng."
+        },
+        {
+            "speaker": "安同",
+            "text": "那些動作好像很容易，但是剛開始的時候，我早上常常累得起不來，腿也痛得走不了路。",
+            "pinyin": "Nàxiē dòngzuò hǎoxiàng hěn róngyì, dànshì gāng kāishǐ de shíhòu, wǒ zǎoshàng chángcháng lèi de qǐbùlái, tuǐ yě tòng de zǒubùliǎo lù."
+        },
+        {
+            "speaker": "東健",
+            "text": "那你怎麼還學得下去？",
+            "pinyin": "Nà nǐ zěnme hái xué de xiàqù?"
+        },
+        {
+            "speaker": "安同",
+            "text": "雖然很累，可是這是我的興趣。",
+            "pinyin": "Suīrán hěn lèi, kěshì zhè shì wǒ de xìngqù."
+        },
+        {
+            "speaker": "東健",
+            "text": "你下午沒事吧？要不要跟我一起去運動？",
+            "pinyin": "Nǐ xiàwǔ méishì ba? Yào bú yào gēn wǒ yìqǐ qù yùndòng?"
+        },
+        {
+            "speaker": "安同",
+            "text": "好啊！我先去圖書館借書，下午再跟你去運動。",
+            "pinyin": "Hǎo a! Wǒ xiān qù túshūguǎn jièshū, xiàwǔ zài gēn nǐ qù yùndòng."
+        }
+    ]
+}

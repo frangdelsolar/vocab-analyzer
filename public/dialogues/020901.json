@@ -1,0 +1,106 @@
+{
+    "lesson_number": 9,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "那個城市好漂亮",
+    "video_url": "https://www.youtube.com/watch?v=6lfgf8D9_sE&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=31",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=kdpHab0pugM&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=32",
+    "participants": ["美玲", "東健"],
+    "content": [
+        {
+            "speaker": "美玲",
+            "text": "我放春假的時候到泰國去玩了一個星期，你呢？",
+            "pinyin": "Wǒ fàng chūnjià de shíhòu dào Tàiguó qù wánle yí ge xīngqí, nǐ ne?"
+        },
+        {
+            "speaker": "東健",
+            "text": "我哪裡也沒去，忙著搬家。",
+            "pinyin": "Wǒ nǎlǐ yě méi qù, mángzhe bānjiā."
+        },
+        {
+            "speaker": "美玲",
+            "text": "都搬好了嗎？",
+            "pinyin": "Dōu bānhǎo le ma?"
+        },
+        {
+            "speaker": "東健",
+            "text": "都搬好了。泰國怎麼樣？",
+            "pinyin": "Dōu bānhǎo le. Tàiguó zěnmeyàng?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "我好喜歡，沒想到泰國這麼有特色，玩一個星期也不夠。",
+            "pinyin": "Wǒ hǎo xǐhuān, méi xiǎngdào Tàiguó zhème yǒu tèsè, wán yí ge xīngqí yě búgòu."
+        },
+        {
+            "speaker": "東健",
+            "text": "真的啊！有些什麼特色呢？",
+            "pinyin": "Zhēnde a! Yǒuxiē shénme tèsè ne?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "那裡的房子很漂亮，跟法國的比起來，顏色比較多。",
+            "pinyin": "Nàlǐ de fángzi hěn piàoliang, gēn Fǎguó de bǐ qǐlái, yánsè bǐjiào duō."
+        },
+        {
+            "speaker": "東健",
+            "text": "聽說泰國的廟很多。",
+            "pinyin": "Tīngshuō Tàiguó de miào hěnduō."
+        },
+        {
+            "speaker": "美玲",
+            "text": "是。泰國到處都是廟，就像法國有很多教堂一樣。",
+            "pinyin": "Shì. Tàiguó dàochù dōushì miào, jiù xiàng Fǎguó yǒu hěnduō jiàotáng yíyàng."
+        },
+        {
+            "speaker": "東健",
+            "text": "泰國的海邊怎麼樣？",
+            "pinyin": "Tàiguó de hǎibiān zěnmeyàng?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "美極了。我到南部的小島去潛水，藍藍的海水非常乾淨，看得見各種顏色的魚。",
+            "pinyin": "Měijíle. Wǒ dào nánbù de xiǎodǎo qù qiánshuǐ, lánlán de hǎishuǐ fēicháng gānjìng, kàndejiàn gèzhǒng yánsè de yú."
+        },
+        {
+            "speaker": "東健",
+            "text": "聽起來好美啊！除了到處去玩，妳一定也吃了很多泰國菜吧？",
+            "pinyin": "Tīng qǐlái hǎoměi a! Chúle dàochù qù wán, nǐ yídìng yě chīle hěnduō Tàiguócài ba?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "當然啊，在那裡吃的泰國菜跟我在法國吃的不一樣。",
+            "pinyin": "Dāngrán a, zài nàlǐ chī de Tàiguócài gēn wǒ zài Fǎguó chī de bù yìyàng."
+        },
+        {
+            "speaker": "東健",
+            "text": "有什麼不一樣？",
+            "pinyin": "Yǒu shénme bù yìyàng?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "在法國，沒有那麼多酸酸辣辣的菜，但是在泰國，很多菜都放了檸檬，味道比較酸。",
+            "pinyin": "Zài Fǎguó, méiyǒu nàme duō suānsuān làlà de cài, dànshì zài Tàiguó, hěnduō cài dōu fàngle níngméng, wèidào bǐjiào suān."
+        },
+        {
+            "speaker": "東健",
+            "text": "泰國這麼好玩，妳不想回來吧？",
+            "pinyin": "Tàiguó zhème hǎowán, nǐ bù xiǎng huílái ba?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "對啊！這些都是忘不了的經驗。如果不必上課，我一定要多住一個月。",
+            "pinyin": "Duì a! Zhèxiē dōushì wàngbùliǎo de jīngyàn. Rúguǒ búbì shàngkè, wǒ yídìng yào duō zhù yí ge yuè."
+        },
+        {
+            "speaker": "東健",
+            "text": "妳下次去的時候，我可以跟妳一起去嗎？",
+            "pinyin": "Nǐ xiàcì qù de shíhòu, wǒ kěyǐ gēn nǐ yìqǐ qù ma?"
+        },
+        {
+            "speaker": "美玲",
+            "text": "好，沒問題。",
+            "pinyin": "Hǎo, méi wèntí."
+        }
+    ]
+}

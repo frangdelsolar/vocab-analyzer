@@ -1,0 +1,25 @@
+{
+    "lesson_number": 10,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文 Reading",
+    "video_url": "https://www.youtube.com/watch?v=uhdIzEH6_58&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=43",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=D4LsIcYf_cg&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=44",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "這個學期，馬丁、陳月美、高美玲和李東健都是張老師的學生，他們趁學期結束以前的一個週末，到張老師家包餃子。張老師已經把餃子餡兒跟餃子皮都準備好了。到了老師家以後，張老師就教他們怎麼包餃子，怎麼把餃子包得好看，怎麼包不容易煮破。",
+            "pinyin": "Zhège xuéqí, Mǎdīng, Chén Yuèměi, Gāo Měilíng hé Lǐ Dōngjiàn dōu shì Zhāng lǎoshī de xuésheng, tāmen chèn xuéqí jiéshù yǐqián de yígè zhōumò, dào Zhāng lǎoshī jiā bāo jiǎozi. Zhāng lǎoshī yǐjīng bǎ jiǎozi xiànr gēn jiǎozi pí dōu zhǔnbèi hǎole. Dàole lǎoshī jiā yǐhòu, Zhāng lǎoshī jiù jiào tāmen zěnme bāo jiǎozi, zěnme bǎ jiǎozi bāo de hǎokàn, zěnme bāo bù róngyì zhǔ pò."
+        },
+        {
+            "paragraph": 2,
+            "text": "除了包餃子，李東健跟陳月美還帶了自己做的韓國泡菜和越南春捲請大家吃。大家嚐了泡菜都說看不出來李東健會做泡菜。李東健說他是跟媽媽學的，做起來不太難。先把大白菜洗乾淨，加鹽拌一拌，再放辣椒和調味料，最後裝進玻璃或是塑膠罐裡，放一下就可以吃了。",
+            "pinyin": "Chúle bāo jiǎozi, Lǐ Dōngjiàn gēn Chén Yuèměi hái dàile zìjǐ zuò de Hánguó pàocài hé Yuènán chūnjuǎn qǐng dàjiā chī. Dàjiā chángle pàocài dōu shuō kànbùchūlái Lǐ Dōngjiàn huì zuò pàocài. Lǐ Dōngjiàn shuō tā shì gēn māmā xué de, zuòqǐlái bútài nán. Xiān bǎ dàbáicài xǐ gānjìng, jiā yán bàn yí bàn, zài fàng làjiāo hé tiáowèiliào, zuìhòu zhuāngjìn bōlí huòshì sùjiāoguàn lǐ, fàng yíxià jiù kěyǐ chīle."
+        },
+        {
+            "paragraph": 3,
+            "text": "張老師也說，像中國的餃子、韓國的泡菜，或是越南的春捲、日本的壽司，材料很容易買得到，做起來也不難，都是大家常吃的食物。",
+            "pinyin": "Zhāng lǎoshī yě shuō, xiàng Zhōngguó de jiǎozi, Hánguó de pàocài, huòshì Yuènán de chūnjuǎn, Rìběn de shòusī, cáiliào hěn róngyì mǎidédào, zuòqǐlái yě bù nán, dōu shì dàjiā cháng chī de shíwù."
+        }
+    ]
+}

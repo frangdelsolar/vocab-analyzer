@@ -1,0 +1,40 @@
+{
+    "lesson_number": 12,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=KbgCrjjl81s&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=14",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=Rlimsrhd-7U&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=15",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "白如玉、馬丁和陳月美一起到一家素食餐廳吃午餐，他們聊起吃素的經驗。",
+            "pinyin": "Bái Rúyù, Mǎdīng hé Chén Yuèměi yīqǐ dào yī jiā sùshí cāntīng chī wǔcān, tāmen liáo qǐ chī sù de jīngyàn."
+        },
+        {
+            "paragraph": 2,
+            "text": "他們注意到只要在學校附近就找得到素食餐，他們也覺得很多台灣人都不討厭吃素，但是不一定每餐都吃素；還有，很多台灣人吃素是因為宗教的關係。",
+            "pinyin": "Tāmen zhùyì dào zhǐyào zài xuéxiào fùjìn jiù zhǎo dé dào sùshí cān, tāmen yě juéde hěnduō Táiwān rén dōu bù tǎoyàn chī sù, dànshì bù yīdìng měi cān dōu chī sù; háiyǒu, hěnduō Táiwān rén chī sù shì yīnwèi zōngjiào de guānxì."
+        },
+        {
+            "paragraph": 3,
+            "text": "白如玉說她吃素跟宗教沒有關係，只是覺得吃太多肉容易變胖。她建議馬丁應該少吃一點漢堡、薯條什麼的，多吃青菜，可以讓身體更健康。",
+            "pinyin": "Bái Rúyù shuō tā chī sù gēn zōngjiào méiyǒu guānxì, zhǐshì juéde chī tài duō ròu róngyì biàn pàng. Tā jiànyì Mǎdīng yīnggāi shǎo chī yīdiǎn hànbǎo, shǔtiáo shénme de, duō chī qīngcài, kěyǐ ràng shēntǐ gèng jiànkāng."
+        },
+        {
+            "paragraph": 4,
+            "text": "陳月美也同意，最好不要常吃炸的、烤的食物，菜的作法越簡單越好，煮的或是蒸的東西，都不太油膩。",
+            "pinyin": "Chén Yuèměi yě tóngyì, zuì hǎo bùyào cháng chī zhá de, kǎo de shíwù, cài de zuòfǎ yuè jiǎndān yuè hǎo, zhǔ de huòshì zhē de dōngxī, dōu bù tài yóunì."
+        },
+        {
+            "paragraph": 5,
+            "text": "陳月美還說，在她家附近有一家賣有機食品的店，天天都有很多人去買他們的食品，好像人人都很注意身體健康。他們覺得，這大概是因為地球的環境汙染越來越嚴重，不少人吃了有問題的食物就生病了，所以才慢慢開始注意食品的衛生和營養問題。",
+            "pinyin": "Chén Yuèměi hái shuō, zài tā jiā fùjìn yǒu yī jiā mài yǒujī shípǐn de diàn, tiāntiān dōu yǒu hěnduō rén qù mǎi tāmen de shípǐn, hǎoxiàng rénrén dōu hěn zhùyì shēntǐ jiànkāng. Tāmen juéde, zhè dàgài shì yīnwèi dìqiú de huánjìng wūrǎn yuè lái yuè yánzhòng, bùshǎo rén chī le yǒu wèntí de shíwù jiù shēngbìng le, suǒyǐ cái mànman kāishǐ zhùyì shípǐn de wèishēng hé yíngyǎng wèntí."
+        },
+        {
+            "paragraph": 6,
+            "text": "馬丁聽了以後，決定他可以趁在台灣的機會，多吃吃素食，讓自己瘦下來。",
+            "pinyin": "Mǎdīng tīng le yǐhòu, juédìng tā kěyǐ chèn zài Táiwān de jīhuì, duō chī chī sùshí, ràng zìjǐ shòu xiàlái."
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "lesson_number": 9,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=JVprW_FCd0E&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=33",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=jUWDGaGi1t4&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=34",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "高美玲利用放假的時候到處去旅行，她喜歡台北這個大城市，也喜歡中南部鄉下。因為她家在巴黎，已經習慣大城市熱鬧的氣氛，但是她覺得台灣鄉下小鎮也很有意思。",
+            "pinyin": "Gāo Měilíng lìyòng fàngjià de shíhòu dàochù qù lǚxíng, tā xǐhuān Táiběi zhège dà chéngshì, yě xǐhuān zhōngnánbù xiāngxià. Yīnwèi tā jiā zài Bālí, yǐjīng xíguàn dà chéngshì rènào de qìfēn, dànshì tā juéde Táiwān xiāngxià xiǎozhèn yě hěn yǒuyìsi."
+        },
+        {
+            "paragraph": 2,
+            "text": "高美玲發現中南部跟台北有很多不同的地方。台北市區現代的公寓、大樓比較多，馬路寬、汽車多。中南部除了新建築，也看得見傳統的老房子。她在高雄市看見很多三層樓的房子，朋友告訴她，買得起房子的南部人，比較喜歡這種房子。",
+            "pinyin": "Gāo Měilíng fāxiàn zhōngnánbù gēn Táiběi yǒu hěnduō bùtóng de dìfāng. Táiběi shìqū xiàndài de gōngyù, dàlóu bǐjiào duō, mǎlù kuān, qìchē duō. Zhōngnánbù chúle xīn jiànzhù, yě kàndejiàn chuántǒng de lǎo fángzi. Tā zài Gāoxióng shì kànjiàn hěnduō sāncénglóu de fángzi, péngyǒu gàosù tā, mǎideqǐ fángzi de nánbùrén, bǐjiào xǐhuān zhèzhǒng fángzi."
+        },
+        {
+            "paragraph": 3,
+            "text": "台灣不是很大，但是南部的天氣比北部好多了。夏天雖然熱得很，可是冬天不冷，而且不常下雨。美玲覺得可能天氣好，所以南部人很熱情。",
+            "pinyin": "Táiwān búshì hěn dà, dànshì nánbù de tiānqì bǐ běibù hǎo duō le. Xiàtiān suīrán rè de hěn, kěshì dōngtiān bù lěng, érqiě bù cháng xiàyǔ. Měilíng juéde kěnéng tiānqì hǎo, suǒyǐ nánbùrén hěn rèqíng."
+        },
+        {
+            "paragraph": 4,
+            "text": "台北跟中南部比起來，雖然生活費高，環境比較擠，但是美玲還是喜歡住在台北。她覺得台北到處都有餐廳、便利商店，百貨公司也很多，什麼時候都吃得到飯，也買得到飲料，所以她越來越喜歡生活方便的台北了。",
+            "pinyin": "Táiběi gēn zhōngnánbù bǐ qǐlái, suīrán shēnghuófèi gāo, huánjìng bǐjiào jǐ, dànshì Měilíng háishì xǐhuān zhùzài Táiběi. Tā juéde Táiběi dàochù dōu yǒu cāntīng, biànlì shāngdiàn, bǎihuò gōngsī yě hěnduō, shénme shíhòu dōu chī de dào fàn, yě mǎide dào yǐnliào, suǒyǐ tā yuè lái yuè xǐhuān shēnghuó fāngbiàn de Táiběi le."
+        }
+    ]
+}

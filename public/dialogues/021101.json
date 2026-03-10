@@ -1,13 +1,9 @@
 {
     "dialogue_id": "dialogue",
     "title": "台灣好玩的地方真多",
-    "participants": [
-        "馬丁",
-        "如玉",
-        "美玲"
-    ],
-    "video_url": "https://www.youtube.com/watch?v=EgdY6K2uMAQ",
-    "vocabulary_video_url": "",
+    "participants": ["馬丁", "如玉", "美玲"],
+    "video_url": "https://www.youtube.com/watch?v=EgdY6K2uMAQ&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=1",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=iq9Rs_sTyXQ&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=2",
     "content": [
         {
             "speaker": "馬丁",

@@ -1,0 +1,30 @@
+{
+    "lesson_number": 8,
+    "part": 2,
+    "dialogue_id": "reading",
+    "title": "短文",
+    "video_url": "https://www.youtube.com/watch?v=JKuZ7UsnLvE&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=21",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=3ompvRFJk1o&list=PLzhEEEIeppr-HYv-qgRyiITlBUAYt6rbO&index=22",
+    "content": [
+        {
+            "paragraph": 1,
+            "text": "今天李東健跟馬安同在體育館運動的時候，安同一直跟他說學太極拳的好處，還問他有沒有興趣，下次練習的時候可以帶他一起去。",
+            "pinyin": "Jīntiān Lǐ Dōngjiàn gēn Mǎ Āntóng zài tǐyùguǎn yùndòng de shíhòu, Āntóng yìzhí gēn tā shuō xué Tàijíquán de hǎochù, hái wèn tā yǒu méiyǒu xìngqù, xiàcì liànxí de shíhòu kěyǐ dài tā yìqǐ qù."
+        },
+        {
+            "paragraph": 2,
+            "text": "東健想起安同剛開始學功夫的時候，常跟他抱怨，師父每次練習以前，都要大家先跑一千公尺，安同總是最後一個跑完，有的時候還跑不完。現在，東健發現安同的體力比三個月以前好多了，上了整天的課，安同還是很有精神。",
+            "pinyin": "Dōngjiàn xiǎngqǐ Āntóng gāng kāishǐ xué gōngfū de shíhòu, cháng gēn tā bàoyuàn, shīfù měicì liànxí yǐqián, dōu yào dàjiā xiān pǎo yìqiān gōngchǐ, Āntóng zǒngshì zuìhòu yí ge pǎowán, yǒude shíhòu hái pǎobùwán. Xiànzài, Dōngjiàn fāxiàn Āntóng de tǐlì bǐ sān ge yuè yǐqián hǎo duō le, shàngle zhěngtiān de kè, Āntóng háishì hěn yǒu jīngshén."
+        },
+        {
+            "paragraph": 3,
+            "text": "李東健本來以為學功夫要花很多時間，安同可能沒有時間念書了，但是安同為了多練習，每天一下課，就回宿舍念書、做功課。做完了功課，再去練習。雖然練習的時間不少，但是一點都沒影響安同的成績。",
+            "pinyin": "Lǐ Dōngjiàn běnlái yǐwéi xué gōngfū yào huā hěnduō shíjiān, Āntóng kěnéng méiyǒu shíjiān niànshū le, dànshì Āntóng wèile duō liànxí, měitiān yí xiàkè, jiù huí sùshè niànshū, zuò gōngkè. Zuòwánle gōngkè, zài qù liànxí. Suīrán liànxí de shíjiān bùshǎo, dànshì yìdiǎn dōu méi yǐngxiǎng Āntóng de chéngjī."
+        },
+        {
+            "paragraph": 4,
+            "text": "李東健看馬安同學了太極拳以後，身體健康了，功課也進步了，覺得練太極拳的好處真不少，決定明天就跟安同說他也要學太極拳。",
+            "pinyin": "Lǐ Dōngjiàn kàn Mǎ Āntóng xuéle Tàijíquán yǐhòu, shēntǐ jiànkāng le, gōngkè yě jìnbù le, juéde liàn Tàijíquán de hǎochù zhēn bùshǎo, juédìng míngtiān jiù gēn Āntóng shuō tā yě yào xué Tàijíquán."
+        }
+    ]
+}

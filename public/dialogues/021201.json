@@ -1,0 +1,131 @@
+{
+    "lesson_number": 12,
+    "part": 1,
+    "dialogue_id": "dialogue",
+    "title": "在學校門口",
+    "video_url": "https://www.youtube.com/watch?v=DsWkv6utBt8&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=12",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=JkGcxDzO2DQ&list=PLzhEEEIeppr_xe4UfRMuu6nS24qF_CLuK&index=13",
+    "participants": ["月美", "馬丁", "如玉"],
+    "content": [
+        {
+            "speaker": "月美",
+            "text": "我正在等白如玉，我們要上去吃飯，你想跟我們一起去嗎？",
+            "pinyin": "Wǒ zhèngzài děng Bái Rúyù, wǒmen yào shàngqù chīfàn, nǐ xiǎng gēn wǒmen yìqǐ qù ma?"
+        },
+        {
+            "speaker": "馬丁",
+            "text": "好啊！妳們要去吃什麼？",
+            "pinyin": "Hǎo a! Nǐmen yào qù chī shénme?"
+        },
+        {
+            "speaker": "月美",
+            "text": "我們打算去學校對面一家新開的素食餐廳。",
+            "pinyin": "Wǒmen dǎsuàn qù xuéxiào duìmiàn yìjiā xīnkāi de sùshí cāntīng."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "速食？學校對面有「麥當勞」？我怎麼沒注意到？",
+            "pinyin": "Sùshí? Xuéxiào duìmiàn yǒu \"Màidāngláo\"? Wǒ zěnme méi zhùyì dào?"
+        },
+        {
+            "speaker": "月美",
+            "text": "你想錯了，不是麥當勞那種速食店，是不吃肉的素食餐廳。",
+            "pinyin": "Nǐ xiǎng cuòle, búshì Màidāngláo nàzhǒng sùshí diàn, shì bù chī ròu de sùshí cāntīng."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "新開的餐廳我都想去嚐一嚐，好，我跟妳們一起去。",
+            "pinyin": "Xīnkāi de cāntīng wǒ dōu xiǎng qù cháng yì cháng, hǎo, wǒ gēn nǐmen yìqǐ qù."
+        },
+        {
+            "speaker": "none",
+            "text": "（白如玉到了）",
+            "pinyin": "(Bái Rúyù dào le)"
+        },
+        {
+            "speaker": "如玉",
+            "text": "欸！馬丁，好久不見！月美，對不起，讓妳等了這麼久。",
+            "pinyin": "Éi! Mǎdīng, hǎojiǔ bújiàn! Yuèměi, duìbùqǐ, ràng nǐ děngle zhème jiǔ."
+        },
+        {
+            "speaker": "月美",
+            "text": "沒關係，我也剛下課。馬丁也跟我們去吃飯。",
+            "pinyin": "Méiguānxì, wǒ yě gāng xiàkè. Mǎdīng yě gēn wǒmen qù chīfàn."
+        },
+        {
+            "speaker": "none",
+            "text": "（餐廳裡）",
+            "pinyin": "(Cāntīng lǐ)"
+        },
+        {
+            "speaker": "如玉",
+            "text": "馬丁，你拿了這麼多菜，我沒想到你也喜歡吃素。",
+            "pinyin": "Mǎdīng, nǐ nále zhème duō cài, wǒ méixiǎngdào nǐ yě xǐhuān chīsù."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "我是到了台灣以後才覺得吃素不錯，我以前吃漢堡的機會比較多。",
+            "pinyin": "Wǒ shì dàole Táiwān yǐhòu cái juédé chīsù búcuò, wǒ yǐqián chī hànbǎo de jīhuì bǐjiào duō."
+        },
+        {
+            "speaker": "如玉",
+            "text": "漢堡吃多了對健康不好，而且容易讓你變胖。",
+            "pinyin": "Hànbǎo chī duōle duì jiànkāng bùhǎo, érqiě róngyì ràng nǐ biàn pàng."
+        },
+        {
+            "speaker": "月美",
+            "text": "我在越南就常常吃素。還有，這家餐廳的素菜看起來不油膩，好像每一樣都值得試試。",
+            "pinyin": "Wǒ zài Yuènán jiù chángcháng chīsù. Háiyǒu, zhèjiā cāntīng de sùcài kànqǐlái bù yóunì, hǎoxiàng měi yíyàng dōu zhídé shìshì."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "我很好奇台灣女孩是不是都喜歡吃青菜？她們看起來個個都很瘦。",
+            "pinyin": "Wǒ hěn hàoqí Táiwān nǚhái shìbúshì dōu xǐhuān chī qīngcài? Tāmen kànqǐlái gègè dōu hěn shòu."
+        },
+        {
+            "speaker": "月美",
+            "text": "這也不一定，我室友吃素，但是有一點胖。如玉，我記得妳男朋友不吃肉，對不對？",
+            "pinyin": "Zhè yě bù yídìng, wǒ shìyǒu chīsù, dànshì yǒu yìdiǎn pàng. Rúyù, wǒ jìdé nǐ nánpéngyǒu bù chī ròu, duì bú duì?"
+        },
+        {
+            "speaker": "如玉",
+            "text": "對，牛肉、豬肉，他不常吃，他只吃魚。",
+            "pinyin": "Duì, niúròu, zhūròu, tā bù cháng chī, tā zhǐ chī yú."
+        },
+        {
+            "speaker": "月美",
+            "text": "我聽說西方一些吃素的人跟我們不太一樣，我們是完全不吃肉的。",
+            "pinyin": "Wǒ tīngshuō xīfāng yìxiē chīsù de rén gēn wǒmen bútài yíyàng, wǒmen shì wánquán bù chī ròu de."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "我覺得吃素應該是為了健康。",
+            "pinyin": "Wǒ juédé chīsù yīnggāi shì wèile jiànkāng."
+        },
+        {
+            "speaker": "如玉",
+            "text": "菜的味道不要太鹹，不要常吃炸的、烤的東西，就比較健康。",
+            "pinyin": "Cài de wèidào búyào tài xián, búyào cháng chī zhà de, kǎo de dōngxī, jiù bǐjiào jiànkāng."
+        },
+        {
+            "speaker": "月美",
+            "text": "下次有機會，請你們吃我做的越南素食。",
+            "pinyin": "Xiàcì yǒu jīhuì, qǐng nǐmen chī wǒ zuò de Yuènán sùshí."
+        },
+        {
+            "speaker": "如玉",
+            "text": "我也可以做一些青菜沙拉請大家吃。",
+            "pinyin": "Wǒ yě kěyǐ zuò yìxiē qīngcài shālā qǐng dàjiā chī."
+        },
+        {
+            "speaker": "馬丁",
+            "text": "真的？太好了，我希望多吃素，瘦一點，讓自己更健康。",
+            "pinyin": "Zhēnde? Tài hǎole, wǒ xīwàng duō chīsù, shòu yìdiǎn, ràng zìjǐ gèng jiànkāng."
+        },
+        {
+            "speaker": "如玉",
+            "text": "快一點吃吧！我跟月美等一下還要準備下午的考試。",
+            "pinyin": "Kuài yìdiǎn chī ba! Wǒ gēn Yuèměi děng yìxià hái yào zhǔnbèi xiàwǔ de kǎoshì."
+        }
+    ]
+}
