@@ -1,8 +1,9 @@
 {
-    "lesson_number": 4,
-    "title": "請問一共多少錢？",
     "dialogue_id": "04-02",
-    "participants": ["月美 (Yuèměi)", "明華 (Mínghuá)"],
+    "title": "請問一共多少錢？",
+    "participants": ["月美", "明華"],
+    "video_url": "https://www.youtube.com/watch?v=M3wxBwm7jLc&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=32",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=cwNLsVWIhWs&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=33",
     "content": [
         {
             "speaker": "月美",
@@ -44,5 +45,6 @@
             "text": "那種手機不便宜。一支要一萬五千多。",
             "pinyin": "Nà zhǒng shǒujī bù piányí. Yì zhī yào yíwàn wǔqiān duō."
         }
-    ]
+    ],
+    "lesson_number": 4
 }

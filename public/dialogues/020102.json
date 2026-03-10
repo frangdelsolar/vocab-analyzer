@@ -1,7 +1,7 @@
 {
-    "lesson_number": 1,
-    "reading_id": "01-03",
     "title": "短文 Reading",
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "paragraph": 1,
@@ -15,5 +15,7 @@
             "paragraph": 3,
             "text": "最後，馬安同買了一個背包，白如玉也在附近買了兩枝筆和一本本子。馬安同和白如玉都覺得，逛師大附近的店真有意思，吃的東西和日用品也很便宜。"
         }
-    ]
+    ],
+    "lesson_number": 1,
+    "reading_id": "01-03"
 }

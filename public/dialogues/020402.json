@@ -1,7 +1,8 @@
 {
-    "lesson_number": 4,
     "dialogue_id": "04-02",
     "title": "短文 Reading",
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "paragraph": 1,
@@ -15,5 +16,6 @@
             "paragraph": 3,
             "text": "黃主任也給高美玲介紹了上課的書，還跟她說明了工作環境。然後，黃主任告訴高美玲，薪水按照工作的時間算，每個月的月底發薪水。高美玲覺得這份工作聽起來很不錯，所以馬上就答應了。黃主任對她說，下個月一號就開始上班。高美玲沒想到這次的面談這麼順利。"
         }
-    ]
+    ],
+    "lesson_number": 4
 }

@@ -1,11 +1,12 @@
 {
-    "lesson_number": 7,
-    "part": 1,
     "dialogue_id": "dialogue",
     "title": "垃圾分類與回收",
+    "participants": [
+        "陳太太",
+        "東健"
+    ],
     "video_url": "http://www.youtube.com/watch?v=O75BxFIp7Y0",
     "vocabulary_video_url": "http://www.youtube.com/watch?v=O75BxFIp7Y0",
-    "participants": ["陳太太", "東健"],
     "content": [
         {
             "speaker": "陳太太",
@@ -92,5 +93,7 @@
             "text": "你拿回家去，明天再倒吧！",
             "pinyin": "Nǐ ná huí jiā qù, míngtiān zài dào ba!"
         }
-    ]
+    ],
+    "lesson_number": 7,
+    "part": 1
 }

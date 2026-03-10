@@ -1,8 +1,9 @@
 {
-    "lesson_number": 6,
-    "title": "她們學校在山上",
     "dialogue_id": "06-01",
-    "participants": ["安同 (Āntóng)", "如玉 (Rúyù)"],
+    "title": "她們學校在山上",
+    "participants": ["安同", "如玉"],
+    "video_url": "https://www.youtube.com/watch?v=TNJW2r2Ceb8&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=2",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=VMyz7OEpwG4&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=3",
     "content": [
         {
             "speaker": "安同",
@@ -36,5 +37,6 @@
             "speaker": "如玉",
             "text": "我去樓下找朋友，我們要一起去上課。"
         }
-    ]
+    ],
+    "lesson_number": 6
 }

@@ -1,7 +1,8 @@
 {
-    "lesson_number": 3,
     "dialogue_id": "03-02",
     "title": "短文 Reading",
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "paragraph": 1,
@@ -15,5 +16,6 @@
             "paragraph": 3,
             "text": "馬安同有一個語言交換的朋友，他們一有空，就拿著地圖搭捷運去逛逛。安同喜歡看捷運上的廣告，要是 有沒學過的字，他就會問那位朋友怎麼說。他覺得到處走走，可以了解台灣人的生活，也可以練習練習中文，哪裡都能學中文，真是不錯。"
         }
-    ]
+    ],
+    "lesson_number": 3
 }

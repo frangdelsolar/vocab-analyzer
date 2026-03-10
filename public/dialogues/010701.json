@@ -1,8 +1,9 @@
 {
-    "lesson_number": 7,
     "dialogue_id": "07-01",
     "title": "要去哪裡？",
-    "participants": ["安同 (Āntóng)", "月美 (Yuèměi)"],
+    "participants": ["安同", "月美"],
+    "video_url": "https://www.youtube.com/watch?v=4oAIid4trvU&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=11",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=_dD3QOQdHp4&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=12",
     "content": [
         {
             "speaker": "安同",
@@ -44,5 +45,6 @@
             "speaker": "月美",
             "text": "好啊！再見。"
         }
-    ]
+    ],
+    "lesson_number": 7
 }

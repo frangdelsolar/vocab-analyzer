@@ -2,11 +2,9 @@
     "lesson": 2,
     "dialogue_id": "02-02",
     "title": "田中，這是我媽媽",
-    "participants": [
-        "明華 (Mínghuá)",
-        "田中 (Tiánzhōng)",
-        "明華的媽媽 (Mínghuá de māma)"
-    ],
+    "participants": ["明華", "田中", "明華的媽媽"],
+    "video_url": "https://www.youtube.com/watch?v=dQF5zmZu3D0&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=14",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=ysa_7mPIoCg&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=15",
     "content": [
         {
             "speaker": "明華",

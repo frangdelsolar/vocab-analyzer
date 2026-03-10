@@ -1,8 +1,9 @@
 {
-    "lesson_number": 5,
-    "title": "牛肉麵真好吃",
     "dialogue_id": "05-02",
-    "participants": ["月美 (Yuèměi)", "安同 (Āntóng)"],
+    "title": "牛肉麵真好吃",
+    "participants": ["月美", "安同"],
+    "video_url": "https://www.youtube.com/watch?v=Ly4uEE8OzRY&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=42",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=BD8bTBofwWw&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=43",
     "content": [
         {
             "speaker": "月美",
@@ -44,5 +45,6 @@
             "text": "好啊！謝謝妳。",
             "pinyin": "Hǎo a! Xièxie nǐ."
         }
-    ]
+    ],
+    "lesson_number": 5
 }

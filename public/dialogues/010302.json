@@ -2,7 +2,9 @@
     "lesson": 3,
     "dialogue_id": "03-02",
     "title": "去看電影",
-    "participants": ["如玉 (Rúyù)", "月美 (Yuèměi)"],
+    "participants": ["如玉", "月美"],
+    "video_url": "https://www.youtube.com/watch?v=XztxJvW67To&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=23",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=4i7jrCkT7fI&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=24",
     "content": [
         {
             "speaker": "如玉",

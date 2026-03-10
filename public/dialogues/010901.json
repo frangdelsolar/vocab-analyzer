@@ -1,8 +1,9 @@
 {
-    "lesson_number": 9,
     "dialogue_id": "09-01",
     "title": "要去玩幾天？",
-    "participants": ["安同 (Āntóng)", "田中 (Tiánzhōng)"],
+    "participants": ["安同", "田中"],
+    "video_url": "https://www.youtube.com/watch?v=_EW9tJvoGqg&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=29",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=NOH9h-ENOnc&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=30",
     "content": [
         {
             "speaker": "安同",
@@ -48,5 +49,6 @@
             "speaker": "安同",
             "text": "大概玩四、五天。"
         }
-    ]
+    ],
+    "lesson_number": 9
 }

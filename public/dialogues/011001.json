@@ -1,8 +1,9 @@
 {
-    "lesson_number": 10,
     "dialogue_id": "10-01",
     "title": "臺灣水果真好吃",
-    "participants": ["如玉 (Rúyù)", "月美 (Yuèměi)"],
+    "participants": ["如玉", "月美"],
+    "video_url": "https://www.youtube.com/watch?v=jEWdhn2SHic&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=38",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=0wndmfJFDtE&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=39",
     "content": [
         {
             "speaker": "如玉",
@@ -44,5 +45,6 @@
             "speaker": "月美",
             "text": "妳來越南，我一定請妳吃。"
         }
-    ]
+    ],
+    "lesson_number": 10
 }

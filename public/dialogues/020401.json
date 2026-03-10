@@ -1,8 +1,12 @@
 {
-    "lesson_number": 4,
     "dialogue_id": "04-01",
     "title": "面談",
-    "participants": ["主任 (Zhǔrèn)", "高美玲 (Gāo Měilíng)"],
+    "participants": [
+        "主任",
+        "高美玲"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "主任",
@@ -76,5 +80,6 @@
             "speaker": "美玲",
             "text": "可以的。謝謝。"
         }
-    ]
+    ],
+    "lesson_number": 4
 }

@@ -1,8 +1,12 @@
 {
-    "lesson_number": 14,
     "dialogue_id": "14-02",
     "title": "天氣這麼冷！",
-    "participants": ["明華 (Mínghuá)", "如玉 (Rúyù)"],
+    "participants": [
+        "明華",
+        "如玉"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "明華",
@@ -48,5 +52,6 @@
             "speaker": "明華",
             "text": "不客氣。小心慢走。"
         }
-    ]
+    ],
+    "lesson_number": 14
 }

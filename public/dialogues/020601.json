@@ -1,8 +1,12 @@
 {
-    "lesson_number": 6,
     "dialogue_id": "06-01",
     "title": "租房子",
-    "participants": ["美玲 (Měilíng)", "東健 (Dōngjiàn)"],
+    "participants": [
+        "美玲",
+        "東健"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "美玲",
@@ -72,5 +76,6 @@
             "speaker": "美玲",
             "text": "慢慢來，不急！等一會兒我們再去騎腳踏車。"
         }
-    ]
+    ],
+    "lesson_number": 6
 }

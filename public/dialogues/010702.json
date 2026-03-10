@@ -1,8 +1,9 @@
 {
-    "lesson_number": 7,
     "dialogue_id": "07-02",
     "title": "要去哪裡？",
-    "participants": ["安同 (Āntóng)", "如玉 (Rúyù)"],
+    "participants": ["安同", "如玉"],
+    "video_url": "https://www.youtube.com/watch?v=EZiZIjbDnGs&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=13",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=wa5G2TZmrnw&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=14",
     "content": [
         {
             "speaker": "安同",
@@ -44,5 +45,6 @@
             "speaker": "如玉",
             "text": "我得問問老師。"
         }
-    ]
+    ],
+    "lesson_number": 7
 }

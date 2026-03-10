@@ -1,8 +1,12 @@
 {
-    "lesson_number": 11,
     "dialogue_id": "11-01",
     "title": "我想租房子",
-    "participants": ["如玉 (Rúyù)", "房東 (Fángdōng)"],
+    "participants": [
+        "如玉",
+        "房東"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "如玉",
@@ -44,5 +48,6 @@
             "speaker": "如玉",
             "text": "我回去想想，再打電話給你。"
         }
-    ]
+    ],
+    "lesson_number": 11
 }

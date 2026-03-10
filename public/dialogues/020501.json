@@ -1,8 +1,13 @@
 {
-    "lesson_number": 5,
     "dialogue_id": "05-01",
     "title": "參加婚禮",
-    "participants": ["明華 (Mínghuá)", "安同 (Āntóng)", "美玲 (Měilíng)"],
+    "participants": [
+        "明華",
+        "安同",
+        "美玲"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "明華",
@@ -76,5 +81,6 @@
             "speaker": "明華",
             "text": "等一下你們就會看見她了。婚禮要開始了，我帶你們去你們的座位吧！"
         }
-    ]
+    ],
+    "lesson_number": 5
 }

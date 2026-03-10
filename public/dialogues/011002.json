@@ -1,8 +1,9 @@
 {
-    "lesson_number": 10,
     "dialogue_id": "10-02",
     "title": "臺灣水果真好吃",
-    "participants": ["明華 (Mínghuá)", "田中 (Tiánzhōng)"],
+    "participants": ["明華", "田中"],
+    "video_url": "https://www.youtube.com/watch?v=0wndmfJFDtE&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=39",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=cDh194-9PAk&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=41",
     "content": [
         {
             "speaker": "明華",
@@ -48,5 +49,6 @@
             "speaker": "明華",
             "text": "下次我也想去住。"
         }
-    ]
+    ],
+    "lesson_number": 10
 }

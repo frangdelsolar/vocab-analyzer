@@ -1,8 +1,9 @@
 {
-    "lesson_number": 6,
-    "title": "她們學校在山上",
     "dialogue_id": "06-02",
-    "participants": ["怡君 (Yíjūn)", "安同 (Āntóng)", "如玉 (Rúyù)"],
+    "title": "她們學校在山上",
+    "participants": ["怡君", "安同", "如玉"],
+    "video_url": "https://www.youtube.com/watch?v=P5G_7e5ZNsE&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=4",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=CnERwdaEX00&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=5",
     "content": [
         {
             "speaker": "怡君",
@@ -40,5 +41,6 @@
             "speaker": "怡君",
             "text": "這是圖書館，旁邊的那棟大樓是教室，圖書館後面有游泳池。"
         }
-    ]
+    ],
+    "lesson_number": 6
 }

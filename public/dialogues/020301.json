@@ -1,8 +1,12 @@
 {
-    "lesson_number": 3,
     "dialogue_id": "03-01",
     "title": "你的中文進步了！",
-    "participants": ["田中 (Tiánzhōng)", "如玉 (Rúyù)"],
+    "participants": [
+        "田中",
+        "如玉"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "田中",
@@ -72,5 +76,6 @@
             "speaker": "田中",
             "text": "噢，我想起來了。"
         }
-    ]
+    ],
+    "lesson_number": 3
 }

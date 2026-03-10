@@ -1,8 +1,12 @@
 {
-    "lesson_number": 14,
     "dialogue_id": "14-01",
     "title": "天氣這麼冷！",
-    "participants": ["如玉 (Rúyù)", "明華 (Mínghuá)"],
+    "participants": [
+        "如玉",
+        "明華"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "如玉",
@@ -48,5 +52,6 @@
             "speaker": "如玉",
             "text": "因為我們只放十天的假，所以一月五號回來。"
         }
-    ]
+    ],
+    "lesson_number": 14
 }

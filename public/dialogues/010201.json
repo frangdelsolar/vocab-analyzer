@@ -2,7 +2,9 @@
     "lesson": 2,
     "dialogue_id": "02-01",
     "title": "這是我家",
-    "participants": ["怡君 (Yíjūn)", "安同 (Āntóng)"],
+    "participants": ["怡君", "安同"],
+    "video_url": "https://www.youtube.com/watch?v=aLMdVSNLOgo&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=12",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=TkrIM1voIRM&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=13",
     "content": [
         {
             "speaker": "怡君",

@@ -1,8 +1,9 @@
 {
-    "lesson_number": 8,
     "dialogue_id": "08-01",
     "title": "坐高鐵比坐火車快",
-    "participants": ["如玉 (Rúyù)", "明華 (Mínghuá)"],
+    "participants": ["如玉", "明華"],
+    "video_url": "https://www.youtube.com/watch?v=y6ZAiO3VsAM&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=20",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=A1BKs7o5Aag&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=21",
     "content": [
         {
             "speaker": "如玉",
@@ -40,5 +41,6 @@
             "speaker": "如玉",
             "text": "這麼方便！那我坐高鐵去，謝謝你。"
         }
-    ]
+    ],
+    "lesson_number": 8
 }

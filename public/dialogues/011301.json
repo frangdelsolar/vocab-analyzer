@@ -1,8 +1,12 @@
 {
-    "lesson_number": 13,
     "dialogue_id": "13-01",
     "title": "生日快樂",
-    "participants": ["怡君 (Yíjūn)", "安同 (Āntóng)"],
+    "participants": [
+        "怡君",
+        "安同"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "怡君",
@@ -60,5 +64,6 @@
             "speaker": "安同",
             "text": "好，我會在學校門口等妳。"
         }
-    ]
+    ],
+    "lesson_number": 13
 }

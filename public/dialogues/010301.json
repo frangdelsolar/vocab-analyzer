@@ -2,7 +2,9 @@
     "lesson": 3,
     "dialogue_id": "03-01",
     "title": "週末做什麼？",
-    "participants": ["安同 (Āntóng)", "田中 (Tiánzhōng)"],
+    "participants": ["安同", "田中"],
+    "video_url": "https://www.youtube.com/watch?v=L_rPske93Ak&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=21",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=voOPPkGAQdc&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=22",
     "content": [
         {
             "speaker": "安同",

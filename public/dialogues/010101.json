@@ -2,7 +2,13 @@
     "lesson": 1,
     "dialogue_id": "01-01",
     "title": "歡迎你們來臺灣",
-    "participants": ["明華", "月美", "開文"],
+    "participants": [
+        "明華",
+        "月美",
+        "開文"
+    ],
+    "video_url": "https://www.youtube.com/watch?v=nyt9zrTkuqo",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=FX9qC7aj8pU",
     "content": [
         {
             "speaker": "明華",

@@ -1,8 +1,12 @@
 {
-    "lesson_number": 15,
     "dialogue_id": "15-01",
     "title": "我不舒服",
-    "participants": ["醫生 (Yīshēng)", "如玉 (Rúyù)"],
+    "participants": [
+        "醫生",
+        "如玉"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "醫生",
@@ -52,5 +56,6 @@
             "speaker": "如玉",
             "text": "好的，謝謝您。"
         }
-    ]
+    ],
+    "lesson_number": 15
 }

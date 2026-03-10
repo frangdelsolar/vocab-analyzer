@@ -1,8 +1,12 @@
 {
-    "lesson_number": 12,
     "dialogue_id": "12-01",
     "title": "打算學多久中文？",
-    "participants": ["田中 (Tiánzhōng)", "安同 (Āntóng)"],
+    "participants": [
+        "田中",
+        "安同"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "田中",
@@ -52,5 +56,6 @@
             "speaker": "安同",
             "text": "我們一起加油吧！"
         }
-    ]
+    ],
+    "lesson_number": 12
 }

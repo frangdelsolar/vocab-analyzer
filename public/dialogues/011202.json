@@ -1,8 +1,12 @@
 {
-    "lesson_number": 12,
     "dialogue_id": "12-02",
     "title": "打算學多久中文？",
-    "participants": ["月美 (Yuèměi)", "田中 (Tiánzhōng)"],
+    "participants": [
+        "月美",
+        "田中"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "月美",
@@ -52,5 +56,6 @@
             "speaker": "田中",
             "text": "太好了！那我們就可以再見面了。"
         }
-    ]
+    ],
+    "lesson_number": 12
 }

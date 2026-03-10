@@ -1,8 +1,9 @@
 {
-    "lesson_number": 5,
-    "title": "請問一共多少錢？",
     "dialogue_id": "05-01",
-    "participants": ["月美 (Yuèměi)", "明華 (Mínghuá)"],
+    "title": "請問一共多少錢？",
+    "participants": ["月美", "明華"],
+    "video_url": "https://www.youtube.com/watch?v=ImjYOGA6b3w&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=40",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=AgBRhr29fbc&list=PLzhEEEIeppr9UQkBIlRatsvt1-QX-q2CA&index=41",
     "content": [
         {
             "speaker": "月美",
@@ -44,5 +45,6 @@
             "text": "我們明天去。一定要點大碗的。",
             "pinyin": "Wǒmen mingtian qù. Yídìng yào diǎn dà wǎn de."
         }
-    ]
+    ],
+    "lesson_number": 5
 }

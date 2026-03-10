@@ -1,9 +1,8 @@
 {
-    "lesson_number": 7,
-    "part": 2,
     "dialogue_id": "reading",
     "title": "短文",
     "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "paragraph": 1,
@@ -20,5 +19,7 @@
             "text": "為了保護環境，大家都應該做垃圾分類，那些可以再利用的紙、瓶子、塑膠杯都要回收，丟進資源回收桶裡。現在大家都知道，一個乾乾淨淨的城市也是一個進步的城市。",
             "pinyin": "Wèile bǎohù huánjìng, dàjiā dōu yīnggāi zuò lèsè fēnlèi, nàxiē kěyǐ zài lìyòng de zhǐ, píngzi, sùjiāobēi dōu yào huíshōu, diū jìn zīyuán huíshōu tǒng lǐ. Xiànzài dàjiā dōu zhīdào, yígè gāngān-jìngjìng de chéngshì yěshì yígè jìnbù de chéngshì."
         }
-    ]
+    ],
+    "lesson_number": 7,
+    "part": 2
 }

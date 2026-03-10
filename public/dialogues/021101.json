@@ -1,11 +1,13 @@
 {
-    "lesson_number": 11,
-    "part": 1,
     "dialogue_id": "dialogue",
     "title": "台灣好玩的地方真多",
+    "participants": [
+        "馬丁",
+        "如玉",
+        "美玲"
+    ],
     "video_url": "https://www.youtube.com/watch?v=EgdY6K2uMAQ",
     "vocabulary_video_url": "",
-    "participants": ["馬丁", "如玉", "美玲"],
     "content": [
         {
             "speaker": "馬丁",
@@ -107,5 +109,7 @@
             "text": "除了這件事，墾丁真的很值得去。",
             "pinyin": "Chúle zhè jiàn shì, Kěndīng zhēnde hěn zhídé qù."
         }
-    ]
+    ],
+    "lesson_number": 11,
+    "part": 1
 }

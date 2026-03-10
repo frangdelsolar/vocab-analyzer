@@ -1,7 +1,8 @@
 {
-    "lesson_number": 5,
     "dialogue_id": "05-02",
     "title": "短文 Reading",
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "paragraph": 1,
@@ -15,5 +16,6 @@
             "paragraph": 3,
             "text": "等喜酒吃得差不多了，新娘會換另外一件漂亮的禮服，跟新郎拿著糖在門口送客人離開。這個時候很多人會跟新人一起照相，再多說幾句祝福的話。等客人都回去了，喜宴就結束了。"
         }
-    ]
+    ],
+    "lesson_number": 5
 }

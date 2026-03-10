@@ -1,8 +1,12 @@
 {
-    "lesson_number": 15,
     "dialogue_id": "15-02",
     "title": "我不舒服",
-    "participants": ["如玉 (Rúyù)", "安同 (Āntóng)"],
+    "participants": [
+        "如玉",
+        "安同"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "如玉",
@@ -56,5 +60,6 @@
             "speaker": "如玉",
             "text": "不錯。你睡了幾個小時的覺以後，現在臉色比早上好得多了。"
         }
-    ]
+    ],
+    "lesson_number": 15
 }

@@ -1,8 +1,12 @@
 {
-    "lesson_number": 13,
     "dialogue_id": "13-02",
     "title": "生日快樂",
-    "participants": ["安同 (Āntóng)", "怡君 (Yíjūn)"],
+    "participants": [
+        "安同",
+        "怡君"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "安同",
@@ -56,5 +60,6 @@
             "speaker": "安同",
             "text": "謝謝！謝謝！"
         }
-    ]
+    ],
+    "lesson_number": 13
 }

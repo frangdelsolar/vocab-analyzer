@@ -1,8 +1,9 @@
 {
-    "lesson_number": 9,
     "dialogue_id": "09-02",
     "title": "要去玩幾天？",
-    "participants": ["田中 (Tiánzhōng)", "明華 (Mínghuá)"],
+    "participants": ["田中", "明華"],
+    "video_url": "https://www.youtube.com/watch?v=M-zYccKlLw8&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=31",
+    "vocabulary_video_url": "https://www.youtube.com/watch?v=XvrUrIDNimo&list=PLzhEEEIeppr8eIolQjg2scNnytVQ1vm46&index=32",
     "content": [
         {
             "speaker": "田中",
@@ -48,5 +49,6 @@
             "speaker": "田中",
             "text": "太好了！謝謝！"
         }
-    ]
+    ],
+    "lesson_number": 9
 }

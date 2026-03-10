@@ -1,8 +1,12 @@
 {
-    "lesson_number": 1,
     "dialogue_id": "01-01",
     "title": "請問，到師大怎麼走？",
-    "participants": ["路人 (Lùrén)", "安同 (Āntóng)"],
+    "participants": [
+        "路人",
+        "安同"
+    ],
+    "video_url": "",
+    "vocabulary_video_url": "",
     "content": [
         {
             "speaker": "路人",
@@ -64,5 +68,6 @@
             "speaker": "路人",
             "text": "不客氣。"
         }
-    ]
+    ],
+    "lesson_number": 1
 }
