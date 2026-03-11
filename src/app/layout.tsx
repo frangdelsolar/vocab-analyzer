@@ -1,16 +1,18 @@
 // src/app/layout.tsx
-import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
+import { Noto_Sans_TC } from 'next/font/google'; // Import Noto Sans TC
 import './globals.css';
 
 import Sidebar from '@/components/Navigation';
 import { ThemeProvider } from '@/context/ThemeProvider';
-import { VocabProvider } from '@/context/VocabularyContext'; //
+import { VocabProvider } from '@/context/VocabularyContext';
 import { UserProvider } from '@/context/UserContext';
 
-const geistSans = Geist({
-    variable: '--font-sans',
+// Configure the font
+const notoSmansTC = Noto_Sans_TC({
     subsets: ['latin'],
+    weight: ['100', '300', '400', '500', '700', '900'],
+    variable: '--font-noto-sans-tc', // Define the CSS variable
+    display: 'swap',
 });
 
 export default function RootLayout({
@@ -19,7 +21,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="zh-Hans" suppressHydrationWarning>
+        // Add the font variable to the html tag
+        <html
+            lang="zh-TW"
+            className={`${notoSmansTC.variable}`}
+            suppressHydrationWarning
+        >
             <body className="font-sans bg-paper text-ink transition-colors duration-500">
                 <ThemeProvider
                     attribute="class"

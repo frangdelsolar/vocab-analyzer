@@ -17,7 +17,7 @@ export const Typography = ({ variant, children, className = '' }: Props) => {
         h4: `text-lg font-bold tracking-tight ${colorClasses}`,
         p: `leading-7 [&:not(:first-child)]:mt-4 ${colorClasses}`,
         small: `text-sm font-medium leading-none opacity-70 ${colorClasses}`,
-        hanzi: `font-kaiti text-3xl leading-relaxed tracking-wide ${colorClasses}`,
+        hanzi: `font-sans text-3xl leading-relaxed tracking-wide ${colorClasses}`,
         pinyin: `text-sm font-sans italic opacity-60 tracking-tight ${colorClasses}`,
     };
 

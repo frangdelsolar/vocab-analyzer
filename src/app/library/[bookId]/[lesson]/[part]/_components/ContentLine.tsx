@@ -14,38 +14,36 @@ const ContentLine = ({
     isReading: boolean;
     theme?: (typeof PARTICIPANT_THEMES)[0];
 }) => (
-    <div className="group flex flex-col gap-2">
+    <div className="flex flex-col gap-2">
         {item.speaker && (
             <div className="flex items-center gap-2 ml-1">
                 <span
                     className={cn(
-                        'text-base font-black uppercase tracking-wider', // Reduced text-lg to text-base
-                        theme?.text || 'text-red-600',
+                        'text-xs font-black uppercase tracking-widest opacity-70',
+                        theme?.text || 'text-ink',
                     )}
                 >
                     {item.speaker}
                 </span>
-                <div
-                    className={cn(
-                        'h-[1.5px] flex-1 bg-current opacity-10 rounded-full',
-                        theme?.text || 'text-red-600',
-                    )}
-                />
+                <div className="h-[1px] flex-1 bg-ink/10 rounded-full" />
             </div>
         )}
         <div
             className={cn(
-                'p-4 rounded-2xl transition-all border shadow-sm group-hover:shadow-md', // Reduced p-6 to p-4, rounded-3xl to 2xl
+                'transition-colors',
                 isReading
-                    ? 'bg-transparent px-0 border-none shadow-none'
-                    : 'bg-surface border-border-main group-hover:border-red-500/20',
+                    ? 'bg-transparent'
+                    : 'p-4 rounded-xl bg-surface border border-border-main',
             )}
         >
+            {/* The variant here controls the size for BOTH raw text and SmartText content */}
             <Typography
                 variant="hanzi"
-                className={isReading ? 'text-2xl' : 'text-xl font-medium'}
+                className={cn(
+                    'leading-relaxed',
+                    isReading ? 'text-2xl' : 'text-xl font-medium',
+                )}
             >
-                {/* Reduced sizes by one level */}
                 <SmartText text={item.text} />
             </Typography>
         </div>

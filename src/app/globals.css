@@ -1,9 +1,13 @@
 @import 'tailwindcss';
 
 @theme {
-    --font-kaiti: 'STKaiti', 'KaiTi', '楷体', 'STKaitiSC-Regular', serif;
+    /* Map the Next.js font variable to a Tailwind font-family */
+    --font-sans:
+        var(--font-noto-sans-tc), 'Microsoft JhengHei', '微軟正黑體',
+        'Heiti TC', '黑體-繁', sans-serif;
 
-    /* Semantic Aliases - These point to the "live" variables below */
+    --font-kaiti: 'STKaiti', 'KaiTi', '楷體', 'STKaitiTC-Regular', serif;
+
     --color-paper: var(--paper);
     --color-surface: var(--surface);
     --color-ink: var(--ink);

@@ -80,7 +80,7 @@ export const VocabularyPreview = () => {
                                 <TableCell className="whitespace-nowrap">
                                     <Typography
                                         variant="hanzi"
-                                        className="text-2xl font-black mt-0"
+                                        className="text-2xl font-bold mt-0"
                                     >
                                         {item.traditional}
                                     </Typography>

@@ -6,6 +6,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover';
+import { Typography } from '@/components/ui';
 
 export const SmartText = ({ text }: { text: string }) => {
     const { filteredMap, isLoading } = useVocabulary();
@@ -16,7 +17,6 @@ export const SmartText = ({ text }: { text: string }) => {
     let i = 0;
     while (i < text.length) {
         let found = false;
-        // Check for words up to 4 chars long
         for (let len = 4; len >= 1; len--) {
             const word = text.substring(i, i + len);
             const card = filteredMap.get(word);
@@ -26,33 +26,43 @@ export const SmartText = ({ text }: { text: string }) => {
                     <Popover key={`${i}-${word}`}>
                         <PopoverTrigger asChild>
                             <span
-                                className="inline-flex items-center mx-[2px] mr-1.5 pl-1 pr-1.5 py-[1px]
-                               rounded-lg cursor-help transition-all duration-300
-                               bg-yellow-100 dark:bg-yellow-500/10 
-                               border-b-2 border-r-4 border-yellow-400/30
-                               hover:bg-yellow-200 dark:hover:bg-yellow-500/30
-                               hover:shadow-md hover:border-yellow-400"
+                                className="cursor-help mx-[1px] px-1 rounded-md transition-all
+                                           bg-red-500/5 dark:bg-red-500/10 
+                                           border border-red-500/20 hover:border-red-500/50
+                                           text-red-600 dark:text-red-400"
                             >
                                 {word}
                             </span>
                         </PopoverTrigger>
-                        <PopoverContent className="w-64 p-4 shadow-2xl">
+                        <PopoverContent className="w-64 p-4 shadow-2xl border-border-main bg-surface">
                             <div className="space-y-1">
                                 <div className="flex justify-between items-start">
-                                    <span className="text-2xl font-bold font-kaiti">
+                                    <Typography
+                                        variant="hanzi"
+                                        className="text-2xl font-bold"
+                                    >
                                         {card.traditional}
-                                    </span>
-                                    <span className="text-[10px] bg-ink/5 px-1.5 rounded">
+                                    </Typography>
+                                    <Typography
+                                        variant="small"
+                                        className="bg-ink/5 px-1.5 rounded text-[10px] font-bold"
+                                    >
                                         B{card.location.book} L
                                         {card.location.lesson}
-                                    </span>
+                                    </Typography>
                                 </div>
-                                <p className="text-blue-500 font-medium italic">
+                                <Typography
+                                    variant="pinyin"
+                                    className="text-blue-500 font-medium"
+                                >
                                     {card.pinyin}
-                                </p>
-                                <p className="text-sm opacity-80 pt-2 border-t mt-2">
+                                </Typography>
+                                <Typography
+                                    variant="small"
+                                    className="block pt-2 border-t mt-2 opacity-90 leading-snug"
+                                >
                                     {card.meaning}
-                                </p>
+                                </Typography>
                             </div>
                         </PopoverContent>
                     </Popover>,

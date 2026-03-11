@@ -67,7 +67,7 @@ export default function VocabTable({
                                 <Typography
                                     variant="hanzi"
                                     className={cn(
-                                        'text-2xl font-black tracking-tighter transition-all duration-300',
+                                        'text-2xl font-bold tracking-tighter transition-all duration-300',
                                         !visibility.character &&
                                             'blur-[5px] opacity-20 select-none group-hover:blur-none group-hover:opacity-100',
                                     )}
@@ -80,7 +80,7 @@ export default function VocabTable({
                                 <TableCell className="animate-in fade-in slide-in-from-left-2 duration-300">
                                     <Typography
                                         variant="hanzi"
-                                        className="text-2xl font-black tracking-tighter opacity-80"
+                                        className="text-2xl font-bold tracking-tighter opacity-80"
                                     >
                                         {item.simplified}
                                     </Typography>
