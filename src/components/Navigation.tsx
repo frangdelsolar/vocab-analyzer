@@ -10,6 +10,7 @@ import {
     ChevronLeft,
     ChevronRight,
     Library,
+    Notebook,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -19,6 +20,7 @@ const navItems = [
     { name: 'Home', icon: Home, href: '/' },
     { name: 'Library', icon: Library, href: '/library' },
     { name: 'Vocabulary', icon: PenTool, href: '/vocabulary' },
+    { name: 'Study', icon: Notebook, href: '/study' },
 ];
 
 export default function Sidebar() {
