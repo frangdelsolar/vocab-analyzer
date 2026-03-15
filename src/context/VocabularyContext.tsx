@@ -12,6 +12,7 @@ import { useUser } from './UserContext';
 
 // --- Interfaces ---
 export interface AnkiCard {
+    guid: string;
     traditional: string;
     simplified: string;
     pinyin: string;

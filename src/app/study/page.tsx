@@ -1,16 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Shell } from '@/components/layout/Shell';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useVocabulary } from '@/context/VocabularyContext';
+import { useStorage } from '@/context/StorageContext';
 import VocabExplorerControls from '../vocabulary/_components/VocabExplorerControls';
 import FlashcardStudy from './_components/FlashcardStudy';
 import StudyDashboard from './_components/StudyDashboard';
-import { PlayCircle } from 'lucide-react';
+import { PlayCircle, Sparkles } from 'lucide-react';
+import { Typography } from '@/components/ui';
 
 export default function StudyPage() {
     const { filteredList } = useVocabulary();
+    const { studyData } = useStorage();
+
     const [isStarted, setIsStarted] = useState(false);
     const [visibility, setVisibility] = useState({
         character: true,
@@ -18,6 +22,16 @@ export default function StudyPage() {
         meaning: true,
         simplified: false,
     });
+
+    // Compute the list of cards that are actually due or new
+    const dueList = useMemo(() => {
+        const now = Date.now();
+        return filteredList.filter((card) => {
+            const progress = studyData[card.guid];
+            // If card has never been seen OR the due date has passed
+            return !progress || progress.due <= now;
+        });
+    }, [filteredList, studyData]);
 
     if (isStarted) {
         return (
@@ -29,7 +43,8 @@ export default function StudyPage() {
                     >
                         ← Exit to Dashboard
                     </button>
-                    <FlashcardStudy vocabList={filteredList} />
+                    {/* Pass only the dueList to the study session */}
+                    <FlashcardStudy vocabList={dueList} />
                 </div>
             </Shell>
         );
@@ -46,21 +61,57 @@ export default function StudyPage() {
             <StudyDashboard />
 
             <div className="bg-surface border border-border-main rounded-[2.5rem] p-10">
-                <VocabExplorerControls
-                    visibility={visibility}
-                    onToggleVisibility={(key) =>
-                        setVisibility((v) => ({ ...v, [key]: !v[key] }))
-                    }
-                />
+                <div className="mb-8">
+                    <VocabExplorerControls
+                        visibility={visibility}
+                        onToggleVisibility={(key) =>
+                            setVisibility((v) => ({ ...v, [key]: !v[key] }))
+                        }
+                    />
+                </div>
 
-                <button
-                    onClick={() => setIsStarted(true)}
-                    disabled={filteredList.length === 0}
-                    className="w-full mt-8 py-5 bg-red-500 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:scale-[1.01] transition-all shadow-xl shadow-red-500/20 flex items-center justify-center gap-3 disabled:opacity-20"
-                >
-                    <PlayCircle size={18} /> Start with {filteredList.length}{' '}
-                    Cards
-                </button>
+                <div className="space-y-4">
+                    <button
+                        onClick={() => setIsStarted(true)}
+                        disabled={dueList.length === 0}
+                        className="w-full py-6 bg-red-500 text-white rounded-3xl font-black uppercase tracking-[0.2em] text-xs hover:scale-[1.01] transition-all shadow-xl shadow-red-500/20 flex flex-col items-center justify-center gap-2 disabled:opacity-20 disabled:grayscale disabled:hover:scale-100"
+                    >
+                        <div className="flex items-center gap-3">
+                            <PlayCircle size={20} />
+                            <span>Start Due Session</span>
+                        </div>
+                        <span className="text-[9px] opacity-60 tracking-widest font-bold">
+                            {dueList.length} Cards Ready for Review
+                        </span>
+                    </button>
+
+                    {dueList.length === 0 && filteredList.length > 0 && (
+                        <div className="flex items-center justify-center gap-2 py-4 animate-in fade-in slide-in-from-top-2">
+                            <Sparkles size={14} className="text-orange-400" />
+                            <Typography
+                                variant="small"
+                                className="text-[10px] font-black uppercase tracking-widest opacity-40"
+                            >
+                                Everything is currently memorized.
+                            </Typography>
+                        </div>
+                    )}
+                </div>
+
+                <div className="mt-8 pt-8 border-t border-border-main/50 flex justify-between items-center px-2">
+                    <Typography
+                        variant="small"
+                        className="text-[10px] font-black uppercase opacity-20 tracking-widest"
+                    >
+                        Total Pool: {filteredList.length}
+                    </Typography>
+                    <Typography
+                        variant="small"
+                        className="text-[10px] font-black uppercase opacity-20 tracking-widest"
+                    >
+                        New/Due: {dueList.length}
+                    </Typography>
+                </div>
             </div>
         </Shell>
     );
