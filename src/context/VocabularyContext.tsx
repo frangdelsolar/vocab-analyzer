@@ -8,7 +8,7 @@ import React, {
     useCallback,
     useMemo,
 } from 'react';
-import { useUser } from './UserContext';
+import { useProgress } from './ProgressContext';
 
 // --- Interfaces ---
 export interface AnkiCard {
@@ -76,7 +76,7 @@ interface VocabContextType {
 const VocabContext = createContext<VocabContextType | undefined>(undefined);
 
 export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
-    const { progress: userProgress, isHydrated } = useUser();
+    const { progress: userProgress } = useProgress();
 
     const [cards, setCards] = useState<AnkiCard[]>([]);
     const [metadata, setMetadata] = useState<LocationTree | null>(null);
@@ -166,7 +166,7 @@ export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
 
         let baseCards = cards;
 
-        if (settings.scope === 'user' && isHydrated) {
+        if (settings.scope === 'user') {
             baseCards = getFilteredCards({
                 book: userProgress.book,
                 lesson: userProgress.lesson,
@@ -194,7 +194,7 @@ export const VocabProvider = ({ children }: { children: React.ReactNode }) => {
         }
 
         return baseCards;
-    }, [cards, settings, userProgress, isHydrated, getFilteredCards]);
+    }, [cards, settings, userProgress, getFilteredCards]);
 
     // High-performance map for SmartText lookup
     const filteredMap = useMemo(() => {

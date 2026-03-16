@@ -10,7 +10,6 @@ export default function HomePage() {
         <Shell>
             <PageHeader overline="Welcome Back, 學員" title="當代中文課程" />
             <UserStatusCard />
-            {/* <StatsSummary /> */}
             <CourseLibrary />
             <VocabularyPreview />
         </Shell>

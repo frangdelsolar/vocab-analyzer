@@ -1,17 +1,19 @@
+// @/components/LibraryStats.tsx
 'use client';
 
 import { useMemo } from 'react';
 import { Typography, Card, CardContent } from '@/components/ui';
 import { BookCheck } from 'lucide-react';
-import { useUser } from '@/context/UserContext';
+import { useProgress } from '@/context/ProgressContext'; // Use ProgressContext
 import { useVocabulary } from '@/context/VocabularyContext';
 
 export function LibraryStats() {
-    const { progress, isHydrated } = useUser();
+    // Consume progress and loading state from ProgressContext
+    const { progress, isLoading: progressLoading } = useProgress();
     const { metadata, isLoading: vocabLoading } = useVocabulary();
 
     const stats = useMemo(() => {
-        if (!isHydrated || vocabLoading || !metadata) {
+        if (progressLoading || vocabLoading || !metadata) {
             return { currentTotal: 0, totalLessons: 0, percentage: 0 };
         }
 
@@ -33,7 +35,8 @@ export function LibraryStats() {
                 // User has finished all lessons in previous books
                 currentTotal += lessonsInBook;
             } else if (bookId === progress.book) {
-                // User is currently in this book, add lessons up to current one
+                // User is currently in this book, add completed lessons
+                // Note: progress.lesson represents the current lesson they are on
                 currentTotal += progress.lesson;
             }
         });
@@ -48,11 +51,14 @@ export function LibraryStats() {
             totalLessons,
             percentage,
         };
-    }, [progress, isHydrated, metadata, vocabLoading]);
+    }, [progress, progressLoading, metadata, vocabLoading]);
 
-    // Don't render until we have data to prevent layout shift or incorrect "0/0"
-    if (!isHydrated || vocabLoading || !metadata)
-        return <div className="w-48 h-16 bg-ink/5 animate-pulse rounded-2xl" />;
+    // Skeleton loader to prevent layout shift
+    if (progressLoading || vocabLoading || !metadata) {
+        return (
+            <div className="w-48 h-16 bg-ink/5 dark:bg-white/5 animate-pulse rounded-2xl" />
+        );
+    }
 
     return (
         <Card className="bg-ink/5 dark:bg-white/5 border-none shadow-none">

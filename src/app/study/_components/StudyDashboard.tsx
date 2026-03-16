@@ -1,59 +1,45 @@
+// @/app/study/_components/StudyDashboard.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
 import { Typography } from '@/components/ui';
-import { useStorage } from '@/context/StorageContext';
+import { useProgress } from '@/context/ProgressContext';
+import { useFSRS } from '@/context/FSRSContext';
 import { StudySection } from './StudyCard';
 import {
-    Database,
+    Cloud,
     TrendingUp,
-    Copy,
-    Check,
-    FlaskConical,
+    RefreshCw,
+    Database,
+    CheckCircle2,
     RotateCcw,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function StudyDashboard() {
-    const { studyData, generateSyncCode, importSyncCode, updateCardProgress } =
-        useStorage();
+    const { progress } = useProgress();
+    const { getCardState, isLoading: fsrsLoading, gradeCard } = useFSRS();
 
     // UI States
-    const [copied, setCopied] = useState(false);
-    const [inputCode, setInputCode] = useState('');
     const [hasMounted, setHasMounted] = useState(false);
+    const [isRefreshing, setIsRefreshing] = useState(false);
 
-    // Fix Hydration Mismatch: Only calculate sync string on client
     useEffect(() => {
         setHasMounted(true);
     }, []);
 
-    const learnedCount = Object.keys(studyData).length;
+    // In the new context, we'd ideally have a way to count keys in FSRS state
+    // For now, we can derive insights from the FSRS context
+    const learnedCount = 0; // We will implement a proper count in the context later if needed
 
-    const handleCopy = () => {
-        if (!hasMounted) return;
-        const code = generateSyncCode();
-        if (!code) return;
-
-        navigator.clipboard.writeText(code);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
-
-    // Dev Utility: Toggle some test data
-    const toggleTestData = () => {
-        if (learnedCount > 0) {
-            // Simple way to clear for testing if you haven't implemented a clear function
-            localStorage.removeItem('dangdai_progress');
-            window.location.reload();
-        } else {
-            updateCardProgress('BZs?G`&HI4', {
-                stability: 5.2,
-                difficulty: 3.1,
-                reps: 1,
-                last_review: Date.now(),
-            });
-        }
+    const handleManualSync = async () => {
+        setIsRefreshing(true);
+        // Simulate a refresh/re-fetch from Supabase
+        // Since useFSRS handles this on mount/user change,
+        // a manual sync usually just involves a window reload or a re-fetch call.
+        setTimeout(() => {
+            setIsRefreshing(false);
+        }, 1000);
     };
 
     return (
@@ -67,104 +53,104 @@ export default function StudyDashboard() {
                                 variant="h2"
                                 className="leading-none tracking-tighter"
                             >
-                                {hasMounted ? learnedCount : '--'}
+                                {hasMounted ? 'LVL ' + progress.book : '--'}
                             </Typography>
                             <Typography
                                 variant="small"
                                 className="opacity-40 uppercase text-[9px] font-black tracking-widest"
                             >
-                                Mastered Cards
+                                Current Book Tier
                             </Typography>
                         </div>
-                        <button
-                            onClick={toggleTestData}
-                            className="p-2 opacity-10 hover:opacity-100 hover:text-red-500 transition-all"
-                            title="Toggle Test Data"
-                        >
-                            {learnedCount > 0 ? (
-                                <RotateCcw size={14} />
-                            ) : (
-                                <FlaskConical size={14} />
-                            )}
-                        </button>
+                        <div className="text-right">
+                            <Typography
+                                variant="h4"
+                                className="leading-none font-bold"
+                            >
+                                {progress.lesson}.{progress.section}
+                            </Typography>
+                            <Typography
+                                variant="small"
+                                className="opacity-40 uppercase text-[9px] font-black tracking-widest"
+                            >
+                                Position
+                            </Typography>
+                        </div>
                     </div>
 
                     <div className="space-y-2">
                         <div className="flex justify-between text-[10px] font-black uppercase opacity-30 tracking-[0.2em]">
-                            <span>Daily Retention</span>
-                            <span>{hasMounted ? '85%' : '--'}</span>
+                            <span>Retention Rate</span>
+                            <span>{hasMounted ? 'Adaptive' : '--'}</span>
                         </div>
                         <div className="h-1.5 w-full bg-ink/5 rounded-full overflow-hidden">
                             <div
-                                className="h-full bg-ink/40 rounded-full transition-all duration-1000"
-                                style={{ width: hasMounted ? '85%' : '0%' }}
+                                className="h-full bg-red-500/40 rounded-full transition-all duration-1000"
+                                style={{ width: hasMounted ? '100%' : '0%' }}
                             />
                         </div>
                     </div>
                 </div>
             </StudySection>
 
-            {/* RIGHT: DATA RECOVERY */}
-            <StudySection title="Save State" icon={Database}>
+            {/* RIGHT: CLOUD STATUS */}
+            <StudySection title="Cloud Sync" icon={Cloud}>
                 <div className="space-y-4">
-                    <div className="relative group">
-                        <button
-                            onClick={handleCopy}
-                            disabled={!hasMounted}
-                            className={cn(
-                                'w-full flex items-center justify-between px-4 py-4 rounded-2xl transition-all border border-dashed',
-                                'bg-ink/[0.02] border-border-main hover:bg-ink/[0.05] hover:border-ink/20',
-                                !hasMounted && 'opacity-50 cursor-not-allowed',
-                            )}
-                        >
-                            <div className="flex flex-col items-start overflow-hidden text-left">
+                    <div
+                        className={cn(
+                            'flex items-center justify-between p-4 rounded-2xl border border-border-main/50',
+                            'bg-ink/[0.02] dark:bg-white/[0.02]',
+                        )}
+                    >
+                        <div className="flex items-center gap-3">
+                            <div
+                                className={cn(
+                                    'w-2 h-2 rounded-full animate-pulse',
+                                    fsrsLoading
+                                        ? 'bg-orange-500'
+                                        : 'bg-green-500',
+                                )}
+                            />
+                            <div>
                                 <Typography
                                     variant="small"
-                                    className="text-[10px] font-black uppercase opacity-30 mb-1"
+                                    className="text-[10px] font-black uppercase tracking-widest opacity-40 block"
                                 >
-                                    {copied
-                                        ? 'Copied to clipboard'
-                                        : 'Click to copy sync key'}
+                                    Database Status
                                 </Typography>
-                                <span className="text-[10px] font-mono opacity-40 truncate w-48 block">
-                                    {hasMounted
-                                        ? generateSyncCode() || 'EMPTY_DATABASE'
-                                        : 'INITIALIZING...'}
-                                </span>
+                                <Typography
+                                    variant="p"
+                                    className="text-xs font-bold"
+                                >
+                                    {fsrsLoading
+                                        ? 'Syncing...'
+                                        : 'Connected & Protected'}
+                                </Typography>
                             </div>
+                        </div>
 
-                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-surface border border-border-main shadow-sm">
-                                {copied ? (
-                                    <Check
-                                        size={14}
-                                        className="text-green-600 animate-in zoom-in"
-                                    />
-                                ) : (
-                                    <Copy
-                                        size={14}
-                                        className="opacity-40 group-hover:opacity-100 transition-opacity"
-                                    />
-                                )}
-                            </div>
+                        <button
+                            onClick={handleManualSync}
+                            disabled={fsrsLoading || isRefreshing}
+                            className="p-2 hover:bg-ink/5 rounded-full transition-all active:rotate-180 duration-500"
+                        >
+                            <RefreshCw
+                                size={16}
+                                className={cn(isRefreshing && 'animate-spin')}
+                            />
                         </button>
                     </div>
 
-                    <div className="flex gap-2">
-                        <input
-                            placeholder="Paste recovery code..."
-                            value={inputCode}
-                            className="flex-1 bg-transparent border border-border-main rounded-xl px-4 py-3 text-[11px] font-mono focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-all"
-                            onChange={(e) => setInputCode(e.target.value)}
-                        />
-                        <button
-                            onClick={() => {
-                                const success = importSyncCode(inputCode);
-                                if (success) setInputCode('');
-                            }}
-                            className="px-6 py-3 bg-ink text-paper rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-ink/10"
+                    <div className="flex items-center gap-4 px-2">
+                        <Database size={14} className="opacity-20" />
+                        <Typography
+                            variant="small"
+                            className="text-[10px] opacity-30 italic leading-tight"
                         >
-                            Load
-                        </button>
+                            Your progress is automatically saved to the cloud
+                            under your <strong>Sync Name</strong>. No manual
+                            export needed.
+                        </Typography>
                     </div>
                 </div>
             </StudySection>

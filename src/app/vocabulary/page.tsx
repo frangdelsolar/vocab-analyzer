@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useVocabulary } from '@/context/VocabularyContext';
-import { useUser } from '@/context/UserContext';
+import { useProgress } from '@/context/ProgressContext';
 import VocabExplorerControls from './_components/VocabExplorerControls';
 import VocabTable from './_components/VocabTable';
 import VocabMediaBar from './_components/VocabMediaBar'; // New Component
@@ -14,7 +14,8 @@ export type VisibilitySettings = {
     character: boolean;
     pinyin: boolean;
     meaning: boolean;
-    simplified: boolean;
+    simplified: boolean; // This will now control BLUR
+    showSimplified: boolean; // This will control DOM PRESENCE
 };
 
 export default function VocabularyPage() {
@@ -24,13 +25,14 @@ export default function VocabularyPage() {
         settings,
         setSettings,
     } = useVocabulary();
-    const { isHydrated: userHydrated, progress: userProgress } = useUser();
+    const { progress: userProgress } = useProgress();
 
     const [visibility, setVisibility] = useState<VisibilitySettings>({
         character: true,
         pinyin: true,
         meaning: true,
-        simplified: false,
+        simplified: true, // Content starts visible
+        showSimplified: false, // Column starts removed (Traditional focus)
     });
 
     // --- Media State ---
@@ -40,10 +42,8 @@ export default function VocabularyPage() {
     }>({ videoUrl: null, title: null });
 
     useEffect(() => {
-        if (userHydrated) {
-            setSettings((prev) => ({ ...prev, scope: 'user' }));
-        }
-    }, [userHydrated, setSettings]);
+        setSettings((prev) => ({ ...prev, scope: 'user' }));
+    }, [setSettings]);
 
     // --- Sync Media Bar with Selection ---
     useEffect(() => {
@@ -83,13 +83,13 @@ export default function VocabularyPage() {
         };
 
         updateMediaSource();
-    }, [settings.explorer, settings.scope, userProgress, userHydrated]);
+    }, [settings.explorer, settings.scope, userProgress]);
 
     const toggleVisibility = (key: keyof VisibilitySettings) => {
         setVisibility((prev) => ({ ...prev, [key]: !prev[key] }));
     };
 
-    const isLoading = vocabLoading || !userHydrated;
+    const isLoading = vocabLoading;
 
     return (
         <Shell>
@@ -129,6 +129,7 @@ export default function VocabularyPage() {
                     isLoading={isLoading}
                     visibility={visibility}
                     searchQuery={settings.searchQuery}
+                    onToggleVisibility={toggleVisibility}
                 />
             </div>
 

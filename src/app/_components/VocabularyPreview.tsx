@@ -3,7 +3,7 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { useVocabulary } from '@/context/VocabularyContext';
-import { useUser } from '@/context/UserContext';
+import { useProgress } from '@/context/ProgressContext';
 import { Typography } from '@/components/ui';
 import {
     Table,
@@ -18,10 +18,9 @@ import { ArrowRight, ExternalLink } from 'lucide-react';
 
 export const VocabularyPreview = () => {
     const { getFilteredCards, isLoading: vocabLoading } = useVocabulary();
-    const { progress, isHydrated } = useUser();
+    const { progress } = useProgress();
 
     const { activeWords, totalCount } = useMemo(() => {
-        if (!isHydrated) return { activeWords: [], totalCount: 0 };
         const allActive = getFilteredCards({
             book: progress.book,
             lesson: progress.lesson,
@@ -32,9 +31,9 @@ export const VocabularyPreview = () => {
             activeWords: [...allActive].reverse().slice(0, 6),
             totalCount: allActive.length,
         };
-    }, [progress, getFilteredCards, isHydrated]);
+    }, [progress, getFilteredCards]);
 
-    const isLoading = vocabLoading || !isHydrated;
+    const isLoading = vocabLoading;
 
     return (
         <div className="w-full space-y-6">

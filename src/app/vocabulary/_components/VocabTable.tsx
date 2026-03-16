@@ -1,3 +1,4 @@
+// @/components/vocabulary/_components/VocabTable.tsx
 'use client';
 
 import { cn } from '@/lib/utils';
@@ -12,11 +13,13 @@ import {
 } from '@/components/ui/table';
 import { LocationBadge } from '@/components/ui/location-badge';
 import { VisibilitySettings } from '../page';
+import { Eye, EyeOff } from 'lucide-react';
 
 interface VocabTableProps {
     data: any[];
     isLoading: boolean;
     visibility: VisibilitySettings;
+    onToggleVisibility: (key: keyof VisibilitySettings) => void;
     searchQuery: string;
 }
 
@@ -24,22 +27,48 @@ export default function VocabTable({
     data,
     isLoading,
     visibility,
+    onToggleVisibility,
     searchQuery,
 }: VocabTableProps) {
-    const totalCols = visibility.simplified ? 5 : 4;
-
+    const totalCols = visibility.showSimplified ? 5 : 4;
     return (
         <Table>
             <TableHeader>
                 <TableRow className="hover:bg-transparent">
-                    <TableHead>Traditional</TableHead>
-                    {visibility.simplified && (
+                    <TableHead>
+                        <HeaderToggle
+                            label="Traditional"
+                            active={visibility.character}
+                            onClick={() => onToggleVisibility('character')}
+                        />
+                    </TableHead>
+
+                    {visibility.showSimplified && ( // Presence Check
                         <TableHead className="animate-in fade-in zoom-in-95">
-                            Simplified
+                            <HeaderToggle
+                                label="Simplified"
+                                active={visibility.simplified} // Blur Check
+                                onClick={() => onToggleVisibility('simplified')} // Toggle Blur
+                            />
                         </TableHead>
                     )}
-                    <TableHead>Pinyin</TableHead>
-                    <TableHead>Meaning</TableHead>
+
+                    <TableHead>
+                        <HeaderToggle
+                            label="Pinyin"
+                            active={visibility.pinyin}
+                            onClick={() => onToggleVisibility('pinyin')}
+                        />
+                    </TableHead>
+
+                    <TableHead>
+                        <HeaderToggle
+                            label="Meaning"
+                            active={visibility.meaning}
+                            onClick={() => onToggleVisibility('meaning')}
+                        />
+                    </TableHead>
+
                     <TableHead className="text-right">Source</TableHead>
                 </TableRow>
             </TableHeader>
@@ -76,11 +105,20 @@ export default function VocabTable({
                                 </Typography>
                             </TableCell>
 
-                            {visibility.simplified && (
-                                <TableCell className="animate-in fade-in slide-in-from-left-2 duration-300">
+                            {visibility.showSimplified && ( // Presence Check
+                                <TableCell
+                                    className={cn(
+                                        'animate-in fade-in slide-in-from-left-2 duration-300 group',
+                                        !visibility.simplified && 'cursor-help',
+                                    )}
+                                >
                                     <Typography
                                         variant="hanzi"
-                                        className="text-2xl font-bold tracking-tighter opacity-80"
+                                        className={cn(
+                                            'text-2xl font-bold tracking-tighter transition-all duration-300 opacity-80',
+                                            !visibility.simplified && // Blur Check
+                                                'blur-[5px] opacity-20 select-none group-hover:blur-none group-hover:opacity-100',
+                                        )}
                                     >
                                         {item.simplified}
                                     </Typography>
@@ -135,6 +173,38 @@ export default function VocabTable({
                 )}
             </TableBody>
         </Table>
+    );
+}
+
+/**
+ * Reusable Header component to handle column-specific blurring
+ */
+function HeaderToggle({
+    label,
+    active,
+    onClick,
+}: {
+    label: string;
+    active: boolean;
+    onClick: () => void;
+}) {
+    return (
+        <button
+            onClick={onClick}
+            className="flex items-center gap-2 group/btn hover:text-red-500 transition-colors"
+        >
+            <span className="text-[10px] font-black uppercase tracking-widest opacity-30 group-hover/btn:opacity-100 transition-opacity">
+                {label}
+            </span>
+            {active ? (
+                <Eye
+                    size={12}
+                    className="opacity-10 group-hover/btn:opacity-100"
+                />
+            ) : (
+                <EyeOff size={12} className="text-red-500" />
+            )}
+        </button>
     );
 }
 

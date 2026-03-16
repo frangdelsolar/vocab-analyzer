@@ -1,52 +1,52 @@
+// @/context/UserContext.tsx
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-interface UserProgress {
-    book: number;
-    lesson: number;
-    section: number;
-}
+const ADJECTIVES = ['Happy', 'Bright', 'Quiet', 'Clever', 'Swift', 'Golden'];
+const NOUNS = ['Scholar', 'Panda', 'Mountain', 'River', 'Dragon', 'Student'];
+
+const generateReadableId = () => {
+    const adj = ADJECTIVES[Math.floor(Math.random() * ADJECTIVES.length)];
+    const noun = NOUNS[Math.floor(Math.random() * NOUNS.length)];
+    const num = Math.floor(100 + Math.random() * 900); // 3-digit number
+    return `${adj}${noun}${num}`; // e.g., SwiftPanda412
+};
 
 interface UserContextType {
-    progress: UserProgress;
-    updateProgress: (updates: Partial<UserProgress>) => void;
+    userId: string;
+    setUserId: (id: string) => void;
     isHydrated: boolean;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-    const [progress, setProgress] = useState<UserProgress>({
-        book: 1,
-        lesson: 1,
-        section: 1,
-    });
+    const [userId, setUserIdState] = useState<string>('');
     const [isHydrated, setIsHydrated] = useState(false);
 
-    // Hydrate from localStorage on mount
     useEffect(() => {
-        const saved = localStorage.getItem('dangdai_user_progress');
-        if (saved) {
-            try {
-                setProgress(JSON.parse(saved));
-            } catch (e) {
-                console.error('Failed to load progress');
-            }
+        const savedId = localStorage.getItem('dangdai_user_id');
+        if (savedId) {
+            setUserIdState(savedId);
+        } else {
+            const newId = generateReadableId();
+            setUserIdState(newId);
+            localStorage.setItem('dangdai_user_id', newId);
         }
         setIsHydrated(true);
     }, []);
 
-    const updateProgress = (updates: Partial<UserProgress>) => {
-        setProgress((prev) => {
-            const next = { ...prev, ...updates };
-            localStorage.setItem('dangdai_user_progress', JSON.stringify(next));
-            return next;
-        });
+    const setUserId = (id: string) => {
+        const cleanId = id.trim();
+        if (cleanId) {
+            setUserIdState(cleanId);
+            localStorage.setItem('dangdai_user_id', cleanId);
+        }
     };
 
     return (
-        <UserContext.Provider value={{ progress, updateProgress, isHydrated }}>
+        <UserContext.Provider value={{ userId, setUserId, isHydrated }}>
             {children}
         </UserContext.Provider>
     );
