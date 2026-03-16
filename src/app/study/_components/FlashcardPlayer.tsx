@@ -30,10 +30,11 @@ export function FlashcardPlayer({ queue, onClose, settings }: PlayerProps) {
 
             // 1. Lock UI and submit grade immediately
             setIsTransitioning(true);
-            gradeCard(currentCard.guid, rating);
 
             // 2. Short delay for the "slide out" animation
             setTimeout(() => {
+                gradeCard(currentCard.guid, rating);
+
                 if (currentIndex >= queue.length - 1) {
                     onClose();
                 } else {
