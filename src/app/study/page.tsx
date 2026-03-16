@@ -82,7 +82,7 @@ export default function StudyPage() {
                 />
 
                 <StudyStartCard
-                    totalCards={sessionCards.length}
+                    totalInDeck={filteredList.length} // Full count
                     dueCount={queue.due.length}
                     newCount={queue.new.length}
                     isPeeking={isPeeking}

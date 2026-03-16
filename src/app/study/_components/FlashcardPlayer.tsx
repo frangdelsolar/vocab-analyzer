@@ -34,7 +34,6 @@ export function FlashcardPlayer({ queue, onClose, settings }: PlayerProps) {
             // 2. Short delay for the "slide out" animation
             setTimeout(() => {
                 gradeCard(currentCard.guid, rating);
-
                 if (currentIndex >= queue.length - 1) {
                     onClose();
                 } else {
