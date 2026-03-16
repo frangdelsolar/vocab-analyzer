@@ -90,9 +90,10 @@ export default function StudyPage() {
                     onPeekToggle={() => setIsPeeking(!isPeeking)}
                 />
 
-                {isPeeking && sessionCards.length > 0 && (
+                {isPeeking && filteredList.length > 0 && (
                     <SessionDeckPreview
-                        cards={sessionCards}
+                        allFilteredCards={filteredList} // The raw list before session logic
+                        sessionCards={sessionCards} // The actual queue (reviews + new)
                         dueGuids={dueGuids}
                     />
                 )}
