@@ -1,8 +1,17 @@
+// @/components/ui/typography.tsx
 import { ReactNode } from 'react';
 
 interface Props {
-    // Add h3 and h4 here
-    variant: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'small' | 'hanzi' | 'pinyin';
+    variant:
+        | 'h1'
+        | 'h2'
+        | 'h3'
+        | 'h4'
+        | 'p'
+        | 'small'
+        | 'hanzi'
+        | 'pinyin'
+        | 'simplified';
     children: ReactNode;
     className?: string;
 }
@@ -18,11 +27,16 @@ export const Typography = ({ variant, children, className = '' }: Props) => {
         p: `leading-7 [&:not(:first-child)]:mt-4 ${colorClasses}`,
         small: `text-sm font-medium leading-none opacity-70 ${colorClasses}`,
         hanzi: `font-sans text-3xl leading-relaxed tracking-wide ${colorClasses}`,
+        // New Simplified variant using the Kaiti font defined in your @theme
+        simplified: `font-kaiti text-3xl leading-relaxed tracking-wide ${colorClasses}`,
         pinyin: `text-sm font-sans italic opacity-60 tracking-tight ${colorClasses}`,
     };
 
     const Component =
-        variant === 'small' || variant === 'hanzi' || variant === 'pinyin'
+        variant === 'small' ||
+        variant === 'hanzi' ||
+        variant === 'simplified' ||
+        variant === 'pinyin'
             ? 'span'
             : variant;
 

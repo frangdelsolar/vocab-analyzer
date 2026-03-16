@@ -105,7 +105,7 @@ export default function VocabTable({
                                 </Typography>
                             </TableCell>
 
-                            {visibility.showSimplified && ( // Presence Check
+                            {visibility.showSimplified && (
                                 <TableCell
                                     className={cn(
                                         'animate-in fade-in slide-in-from-left-2 duration-300 group',
@@ -113,10 +113,10 @@ export default function VocabTable({
                                     )}
                                 >
                                     <Typography
-                                        variant="hanzi"
+                                        variant="simplified" // <--- Change this from "hanzi"
                                         className={cn(
                                             'text-2xl font-bold tracking-tighter transition-all duration-300 opacity-80',
-                                            !visibility.simplified && // Blur Check
+                                            !visibility.simplified &&
                                                 'blur-[5px] opacity-20 select-none group-hover:blur-none group-hover:opacity-100',
                                         )}
                                     >
@@ -124,7 +124,6 @@ export default function VocabTable({
                                     </Typography>
                                 </TableCell>
                             )}
-
                             <TableCell
                                 className={cn(
                                     'group',

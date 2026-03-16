@@ -1,7 +1,6 @@
-// @/components/vocabulary/_components/VocabExplorerControls.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useVocabulary, ExplorerMode } from '@/context/VocabularyContext';
 import { cn } from '@/lib/utils';
 import {
@@ -13,7 +12,7 @@ import {
     Filter,
     Trophy,
     ChevronDown,
-    Languages, // For Simplified Toggle
+    Languages,
 } from 'lucide-react';
 import { FilterSelect, FilterButton } from '@/components/ui/form-elements';
 import { Typography } from '@/components/ui';
@@ -29,7 +28,14 @@ export default function VocabExplorerControls({
     onToggleVisibility,
 }: ControlsProps) {
     const { settings, setSettings, metadata } = useVocabulary();
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(true);
+
+    const isExplorer = settings.scope === 'explorer';
+
+    // Automatically collapse if we leave explorer mode
+    useEffect(() => {
+        if (!isExplorer) setIsCollapsed(true);
+    }, [isExplorer]);
 
     const updateExplorer = (updates: Partial<typeof settings.explorer>) => {
         setSettings({
@@ -69,30 +75,7 @@ export default function VocabExplorerControls({
         >
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
-                    <button
-                        onClick={() => setIsCollapsed(!isCollapsed)}
-                        className={cn(
-                            'group flex items-center gap-2 px-3 py-2 rounded-xl transition-all',
-                            isCollapsed
-                                ? 'hover:bg-ink/5'
-                                : 'bg-red-500/5 text-red-600',
-                        )}
-                    >
-                        <ChevronDown
-                            size={16}
-                            className={cn(
-                                'transition-transform duration-300',
-                                !isCollapsed && 'rotate-180',
-                            )}
-                        />
-                        <Typography
-                            variant="small"
-                            className="text-[10px] font-black uppercase tracking-widest"
-                        >
-                            {isCollapsed ? 'Filters' : 'Hide'}
-                        </Typography>
-                    </button>
-
+                    {/* Scope Selector */}
                     <div className="flex gap-1 bg-ink/[0.03] p-1 rounded-xl">
                         <FilterButton
                             active={settings.scope === 'user'}
@@ -100,18 +83,18 @@ export default function VocabExplorerControls({
                                 setSettings({ ...settings, scope: 'user' })
                             }
                         >
-                            <Trophy size={14} />{' '}
+                            <Trophy size={14} />
                             <span className="hidden sm:inline">
                                 My Progress
                             </span>
                         </FilterButton>
                         <FilterButton
-                            active={settings.scope === 'explorer'}
+                            active={isExplorer}
                             onClick={() =>
                                 setSettings({ ...settings, scope: 'explorer' })
                             }
                         >
-                            <Filter size={14} />{' '}
+                            <Filter size={14} />
                             <span className="hidden sm:inline">Explorer</span>
                         </FilterButton>
                         <FilterButton
@@ -120,19 +103,45 @@ export default function VocabExplorerControls({
                                 setSettings({ ...settings, scope: 'all' })
                             }
                         >
-                            <Globe size={14} />{' '}
+                            <Globe size={14} />
                             <span className="hidden sm:inline">All</span>
                         </FilterButton>
                     </div>
+
+                    {/* NEW: Conditional Chevron - only shows when Explorer is active */}
+                    {isExplorer && (
+                        <button
+                            onClick={() => setIsCollapsed(!isCollapsed)}
+                            className={cn(
+                                'group flex items-center gap-2 px-3 py-2 rounded-xl transition-all animate-in fade-in zoom-in-95 duration-300',
+                                isCollapsed
+                                    ? 'hover:bg-ink/5 text-ink/40'
+                                    : 'bg-red-500/5 text-red-600',
+                            )}
+                        >
+                            <ChevronDown
+                                size={16}
+                                className={cn(
+                                    'transition-transform duration-300',
+                                    !isCollapsed && 'rotate-180',
+                                )}
+                            />
+                            <Typography
+                                variant="small"
+                                className="text-[10px] font-black uppercase tracking-widest"
+                            >
+                                {isCollapsed ? 'Configure' : 'Close'}
+                            </Typography>
+                        </button>
+                    )}
                 </div>
 
                 <div className="flex items-center gap-3">
-                    {/* Simplified Column Master Toggle */}
                     <button
-                        onClick={() => onToggleVisibility('showSimplified')} // Master toggle Presence
+                        onClick={() => onToggleVisibility('showSimplified')}
                         className={cn(
                             'flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-300',
-                            visibility.showSimplified // Use Presence key
+                            visibility.showSimplified
                                 ? 'bg-red-500 border-red-600 text-white shadow-md shadow-red-500/20'
                                 : 'bg-ink/[0.03] border-border-main/10 text-ink/40 hover:bg-ink/[0.06]',
                         )}
@@ -166,8 +175,9 @@ export default function VocabExplorerControls({
                 </div>
             </div>
 
-            {!isCollapsed && settings.scope === 'explorer' && (
-                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-6 border-t border-border-main/10 animate-in fade-in slide-in-from-top-4">
+            {/* Filter Drawer */}
+            {!isCollapsed && isExplorer && (
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-6 border-t border-border-main/10 animate-in fade-in slide-in-from-top-4 duration-300">
                     <FilterSelect
                         label="Book"
                         icon={BookOpen}
