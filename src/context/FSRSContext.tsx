@@ -4,103 +4,113 @@
 import React, {
     createContext,
     useContext,
-    useMemo,
-    useState,
     useEffect,
+    useState,
+    useMemo,
 } from 'react';
-import { useStorage } from './StorageContext';
-import { useUser } from './UserContext';
 import {
     fsrs,
-    Card,
     Rating,
+    RecordLog,
+    Card,
     generatorParameters,
     createEmptyCard,
 } from 'ts-fsrs';
+import { useStorage } from './StorageContext';
+import { useUser } from './UserContext';
+import { AnkiCard } from './VocabularyContext';
+
+// The data structure we persist for each card
+interface SRSData {
+    [guid: string]: Card;
+}
 
 interface FSRSContextType {
-    gradeCard: (guid: string, rating: 1 | 2 | 3 | 4) => Promise<void>;
-    getCardState: (guid: string) => Card;
+    srsMap: SRSData;
     isLoading: boolean;
+    gradeCard: (guid: string, rating: Rating) => Promise<void>;
+    getSessionQueue: (eligibleCards: AnkiCard[]) => {
+        due: AnkiCard[];
+        new: AnkiCard[];
+    };
 }
 
 const FSRSContext = createContext<FSRSContextType | undefined>(undefined);
 
 export const FSRSProvider = ({ children }: { children: React.ReactNode }) => {
-    const { saveData, loadData } = useStorage();
-    const { userId, isHydrated: userHydrated } = useUser();
+    const { loadData, saveData } = useStorage();
+    const { userId, isHydrated } = useUser();
 
-    // Local state to keep UI snappy
-    const [studyData, setStudyData] = useState<Record<string, any>>({});
+    const [srsMap, setSrsMap] = useState<SRSData>({});
     const [isLoading, setIsLoading] = useState(true);
 
-    // 1. Load data from Supabase when user is ready
+    // Standard FSRS parameters
+    const params = generatorParameters({ enable_fuzz: true });
+    const f = fsrs(params);
+
+    // Load SRS data from storage
     useEffect(() => {
-        const initFSRS = async () => {
+        const fetchSRS = async () => {
             setIsLoading(true);
-            const data = await loadData('fsrs_progress');
-            if (data) setStudyData(data);
+            const data = await loadData('srs_stats');
+            if (data) setSrsMap(data);
             setIsLoading(false);
         };
 
-        if (userHydrated && userId) {
-            initFSRS();
-        }
-    }, [userId, userHydrated, loadData]);
+        if (isHydrated && userId) fetchSRS();
+    }, [userId, isHydrated, loadData]);
 
-    const f = useMemo(
-        () => fsrs(generatorParameters({ enable_fuzz: true })),
-        [],
-    );
+    /**
+     * Grades a card and updates its future intervals
+     */
+    const gradeCard = async (guid: string, rating: Rating) => {
+        const now = new Date();
+        const currentCard = srsMap[guid] || createEmptyCard(now);
 
-    const getCardState = (guid: string): Card => {
-        const data = studyData[guid];
-        if (!data) return createEmptyCard(new Date());
+        // Calculate next states for all 4 possible ratings
+        const schedulingCards = f.repeat(currentCard, now);
 
-        return {
-            ...createEmptyCard(),
-            stability: data.stability || 0,
-            difficulty: data.difficulty || 0,
-            reps: data.reps || 0,
-            state: data.state || 0,
-            last_review: data.last_review
-                ? new Date(data.last_review)
-                : undefined,
-            elapsed_days: data.elapsed_days || 0,
-            scheduled_days: data.scheduled_days || 0,
-            due: new Date(data.due || Date.now()),
+        // FIX: Use type assertion to help TypeScript find the specific card
+        // Or access the Record directly if you're using the newer version of the lib
+        const updatedCard = (schedulingCards as any)[rating].card;
+
+        const nextMap = {
+            ...srsMap,
+            [guid]: updatedCard,
         };
+
+        setSrsMap(nextMap);
+        await saveData('srs_stats', nextMap);
     };
 
-    const gradeCard = async (guid: string, rating: 1 | 2 | 3 | 4) => {
-        const currentCard = getCardState(guid);
+    /**
+     * Takes the filtered list from VocabContext and splits it into
+     * Due (Review) and New (Learning) queues.
+     */
+    const getSessionQueue = (eligibleCards: AnkiCard[]) => {
         const now = new Date();
 
-        const schedulingCards = f.repeat(currentCard, now);
-        const chosenRating = rating as Exclude<Rating, Rating.Manual>;
-        const { card } = schedulingCards[chosenRating];
+        const due: AnkiCard[] = [];
+        const newCards: AnkiCard[] = [];
 
-        // 2. Update local state and sync to Supabase
-        const updatedProgress = {
-            ...studyData,
-            [guid]: {
-                stability: card.stability,
-                difficulty: card.difficulty,
-                reps: card.reps,
-                state: card.state,
-                last_review: card.last_review?.getTime(),
-                due: card.due.getTime(),
-                scheduled_days: card.scheduled_days,
-                elapsed_days: card.elapsed_days,
-            },
-        };
+        eligibleCards.forEach((card) => {
+            const stats = srsMap[card.guid];
 
-        setStudyData(updatedProgress);
-        await saveData('fsrs_progress', updatedProgress);
+            if (!stats) {
+                newCards.push(card);
+            } else if (new Date(stats.due) <= now) {
+                due.push(card);
+            }
+        });
+
+        // Sort Due cards by lapse or urgency if needed
+        return { due, new: newCards };
     };
 
     return (
-        <FSRSContext.Provider value={{ gradeCard, getCardState, isLoading }}>
+        <FSRSContext.Provider
+            value={{ srsMap, isLoading, gradeCard, getSessionQueue }}
+        >
             {children}
         </FSRSContext.Provider>
     );
