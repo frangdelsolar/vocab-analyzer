@@ -8,6 +8,7 @@ import { VocabProvider } from '@/context/VocabularyContext';
 import { UserProvider } from '@/context/UserContext';
 import { StorageProvider } from '@/context/StorageContext';
 import { ProgressProvider } from '@/context/ProgressContext';
+import { FSRSProvider } from '@/context/FSRSContext';
 
 // Configure the font
 const notoSmansTC = Noto_Sans_TC({
@@ -38,12 +39,14 @@ export default function RootLayout({
                         <StorageProvider>
                             <ProgressProvider>
                                 <VocabProvider>
-                                    <div className="flex min-h-screen">
-                                        <Sidebar />
-                                        <div className="flex-1 flex flex-col min-w-0 transition-all duration-300">
-                                            {children}
+                                    <FSRSProvider>
+                                        <div className="flex min-h-screen">
+                                            <Sidebar />
+                                            <div className="flex-1 flex flex-col min-w-0 transition-all duration-300">
+                                                {children}
+                                            </div>
                                         </div>
-                                    </div>
+                                    </FSRSProvider>
                                 </VocabProvider>
                             </ProgressProvider>
                         </StorageProvider>

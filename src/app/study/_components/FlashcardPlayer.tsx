@@ -25,26 +25,22 @@ export function FlashcardPlayer({ queue, onClose, settings }: PlayerProps) {
     const currentCard = queue[currentIndex];
 
     const handleGrade = useCallback(
-        async (rating: Rating) => {
+        (rating: Rating) => {
             if (isTransitioning || !isFlipped) return;
+
+            // 1. Lock UI and submit grade immediately
             setIsTransitioning(true);
+            gradeCard(currentCard.guid, rating);
 
-            try {
-                await gradeCard(currentCard.guid, rating);
-            } catch (err) {
-                console.error(err);
-            }
-
-            setIsFlipped(false);
-
+            // 2. Short delay for the "slide out" animation
             setTimeout(() => {
                 if (currentIndex >= queue.length - 1) {
                     onClose();
                 } else {
-                    setCurrentIndex((prev) => prev + 1);
+                    setIsFlipped(false);
                     setIsTransitioning(false);
                 }
-            }, 150);
+            }, 200);
         },
         [
             currentCard,
