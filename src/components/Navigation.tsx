@@ -11,6 +11,7 @@ import {
     ChevronRight,
     Library,
     Notebook,
+    BookOpen,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -19,8 +20,9 @@ import { ThemeToggle } from './ThemeToggle';
 const navItems = [
     { name: 'Home', icon: Home, href: '/' },
     { name: 'Library', icon: Library, href: '/library' },
-    { name: 'Vocabulary', icon: PenTool, href: '/vocabulary' },
+    { name: 'Vocabulary', icon: BookOpen, href: '/vocabulary' },
     { name: 'Study', icon: Notebook, href: '/study' },
+    { name: 'Writer', icon: PenTool, href: '/writer' },
 ];
 
 export default function Sidebar() {
