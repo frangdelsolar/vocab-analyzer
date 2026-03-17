@@ -14,7 +14,7 @@ export function MasteryStats({
     return (
         <div className="p-6 border-r border-border-main/50 flex items-center gap-6">
             <div className="relative shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 rotate-3">
+                <div className="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 ">
                     <Trophy size={24} />
                 </div>
             </div>

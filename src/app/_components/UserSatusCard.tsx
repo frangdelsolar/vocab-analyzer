@@ -10,7 +10,7 @@ import { useFSRS } from '@/context/FSRSContext';
 import { Card, CardContent, Button } from '@/components/ui';
 import { PlayCircle } from 'lucide-react';
 
-import { IdentitySettings } from './IdentitySettings';
+import { IdentitySettings } from './status/IdentitySettings';
 import { ProgressSelectors } from './status/ProgressSelectors';
 import { MasteryStats } from './status/MasteryStats';
 import { StudyHealthStats } from './status/StudyHealthStats';
@@ -72,7 +72,7 @@ export const UserStatusCard = () => {
                         total={srsStats.total}
                     />
 
-                    <div className="p-6 flex items-center justify-center bg-ink/[0.02]">
+                    <div className="p-6 flex items-center justify-center">
                         <Button
                             onClick={() => router.push(`/study`)}
                             className="w-full max-w-[240px] bg-red-500 hover:bg-red-600 text-white h-14 rounded-2xl flex items-center gap-3 shadow-lg shadow-red-500/20"

@@ -2,7 +2,7 @@
 'use client';
 
 import { BookOpen, Layers, ListFilter } from 'lucide-react';
-import { StatusSelect } from '../IdentitySettings'; // Reusing your existing selector UI
+import { StatusSelect } from './IdentitySettings'; // Reusing your existing selector UI
 
 interface ProgressSelectorsProps {
     progress: { book: number; lesson: number; section: number };

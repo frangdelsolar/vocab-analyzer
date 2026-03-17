@@ -22,8 +22,9 @@ export function StudyHealthStats({ due, newCards, total }: HealthProps) {
             </div>
 
             <div className="flex items-center gap-8">
+                {/* Due Now: Amber/Gold for urgency without the "error" vibe of red */}
                 <div className="flex flex-col">
-                    <div className="flex items-center gap-1.5 text-blue-500 mb-0.5">
+                    <div className="flex items-center gap-1.5 text-amber-400 mb-0.5">
                         <Clock size={12} />
                         <span className="text-xl font-black leading-none">
                             {due}
@@ -34,8 +35,9 @@ export function StudyHealthStats({ due, newCards, total }: HealthProps) {
                     </span>
                 </div>
 
+                {/* New Items: Cyan/Teal for a modern "discovery" feel */}
                 <div className="flex flex-col">
-                    <div className="flex items-center gap-1.5 text-green-600 mb-0.5">
+                    <div className="flex items-center gap-1.5 text-cyan-400 mb-0.5">
                         <Sparkles size={12} />
                         <span className="text-xl font-black leading-none">
                             {newCards}
@@ -46,9 +48,10 @@ export function StudyHealthStats({ due, newCards, total }: HealthProps) {
                     </span>
                 </div>
 
+                {/* Scheduled: Dimmed Silver/Slate to represent the background queue */}
                 <div className="flex flex-col">
-                    <div className="flex items-center gap-1.5 text-ink mb-0.5">
-                        <span className="text-xl font-black leading-none opacity-20">
+                    <div className="flex items-center gap-1.5 text-slate-400 mb-0.5">
+                        <span className="text-xl font-black leading-none opacity-60">
                             {total - (due + newCards)}
                         </span>
                     </div>
