@@ -3,6 +3,8 @@
 import { useState, useRef } from 'react';
 import HanziEngine from './HanziEngine';
 import HanziCanvas from './HanziCanvas';
+import { Stack, Row, Box } from '@/components/layout/Primitives';
+import { Typography, Button } from '@/components/ui';
 
 export default function HanziWriter() {
     const [strokes, setStrokes] = useState<number[][][]>([]);
@@ -12,34 +14,60 @@ export default function HanziWriter() {
     const handleReset = () => {
         setStrokes([]);
         setPredictions([]);
-        canvasRef.current?.clear(); // Tell the canvas to clear its pixels
+        canvasRef.current?.clear();
     };
 
     return (
-        <div className="flex flex-col items-center gap-6 p-10">
-            <h1 className="text-lg font-bold">Handwriting Recognition</h1>
+        /* Stack handles the vertical spacing between title, canvas, and results */
+        <Stack gap={8} className="items-center w-full">
+            <Stack gap={1} className="items-center">
+                <Typography variant="h4" className="font-bold">
+                    Handwriting Recognition
+                </Typography>
+                <Typography
+                    variant="small"
+                    className="opacity-40 uppercase tracking-widest text-[10px]"
+                >
+                    AI Engine Active
+                </Typography>
+            </Stack>
 
+            {/* Business Logic (Headless) */}
             <HanziEngine strokes={strokes} onPredictions={setPredictions} />
 
+            {/* Input Layer */}
             <HanziCanvas ref={canvasRef} onStrokeComplete={setStrokes} />
 
-            <div className="flex gap-2 min-h-[60px]">
-                {predictions.map((p) => (
-                    <button
-                        key={p}
-                        className="text-4xl p-2 bg-slate-100 rounded border hover:bg-white transition-all font-kaiti"
-                    >
-                        {p}
-                    </button>
-                ))}
-            </div>
+            {/* Results Layer - Row handles horizontal wrapping for mobile */}
+            <Stack gap={3} className="items-center w-full">
+                <Typography
+                    variant="small"
+                    className="opacity-20 font-black uppercase text-[9px] tracking-tighter"
+                >
+                    Top Predictions
+                </Typography>
+                <Row
+                    gap={2}
+                    className="justify-center flex-wrap min-h-[60px] w-full"
+                >
+                    {predictions.slice(0, 5).map((p, i) => (
+                        <Box
+                            key={i}
+                            className="w-14 h-14 text-3xl flex items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm font-kaiti animate-in fade-in zoom-in duration-300"
+                        >
+                            <Typography variant="simplified">{p}</Typography>
+                        </Box>
+                    ))}
+                </Row>
+            </Stack>
 
-            <button
+            {/* Action Layer */}
+            <Button
                 onClick={handleReset}
-                className="px-6 py-2 bg-black text-white rounded-full text-sm font-medium uppercase tracking-wider hover:bg-slate-800 transition-colors"
+                className="rounded-full px-8 h-12 uppercase text-xs font-bold tracking-widest shadow-sm"
             >
                 Clear Canvas
-            </button>
-        </div>
+            </Button>
+        </Stack>
     );
 }
