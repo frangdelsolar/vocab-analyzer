@@ -13,12 +13,14 @@ export default function WritingPage() {
     const { filteredList, isLoading } = useVocabulary();
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const characters = useMemo(
+    // Mapeamos la lista filtrada a un array de palabras (strings)
+    const vocabularyWords = useMemo(
         () => filteredList.map((item) => item.traditional),
         [filteredList],
     );
-    const currentChar = characters[currentIndex];
-    const progress = ((currentIndex + 1) / characters.length) * 100;
+
+    const currentWord = vocabularyWords[currentIndex];
+    const progress = ((currentIndex + 1) / vocabularyWords.length) * 100;
 
     if (isLoading)
         return (
@@ -27,12 +29,19 @@ export default function WritingPage() {
             </Shell>
         );
 
+    if (vocabularyWords.length === 0)
+        return (
+            <Shell>
+                <Box className="p-20 text-center">No vocabulary found.</Box>
+            </Shell>
+        );
+
     return (
         <Shell>
             <PageHeader
                 overline="Practice Mode"
                 title="Stroke Mastery"
-                description={`Character ${currentIndex + 1} of ${characters.length}`}
+                description={`Word ${currentIndex + 1} of ${vocabularyWords.length}`}
             />
 
             <Container className="mt-10 pb-20">
@@ -49,12 +58,15 @@ export default function WritingPage() {
                             variant="small"
                             className="text-center font-black italic text-cyan-500 text-xs"
                         >
-                            {currentIndex + 1} / {characters.length}
+                            {currentIndex + 1} / {vocabularyWords.length}
                         </Typography>
                     </Stack>
 
-                    {/* Logic & Drawing Area */}
-                    <HanziWriter key={currentChar} />
+                    {/* HanziWriter ahora recibe la palabra completa (targetPhrase).
+                        La 'key' asegura que si pasamos de una palabra a otra, 
+                        todo el estado interno de escritura se limpie.
+                    */}
+                    <HanziWriter key={currentWord} targetPhrase={currentWord} />
 
                     {/* Footer Controls */}
                     <Box className="pt-8 border-t border-ink/5">
@@ -68,24 +80,24 @@ export default function WritingPage() {
                                 className="rounded-2xl gap-2"
                             >
                                 <ChevronLeft size={18} />
-                                <span className="font-bold">Prev</span>
+                                <span className="font-bold">Prev Card</span>
                             </Button>
 
                             <Button
                                 variant={
-                                    currentIndex === characters.length - 1
+                                    currentIndex === vocabularyWords.length - 1
                                         ? 'ghost'
                                         : 'primary'
                                 }
                                 disabled={
-                                    currentIndex === characters.length - 1
+                                    currentIndex === vocabularyWords.length - 1
                                 }
                                 onClick={() =>
                                     setCurrentIndex((prev) => prev + 1)
                                 }
                                 className="rounded-2xl gap-2 px-10"
                             >
-                                <span className="font-bold">Next</span>
+                                <span className="font-bold">Next Card</span>
                                 <ChevronRight size={18} />
                             </Button>
                         </Row>
