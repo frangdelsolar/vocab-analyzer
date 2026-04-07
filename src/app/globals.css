@@ -8,6 +8,12 @@
 
     --font-kaiti: 'STKaiti', 'KaiTi', '楷體', 'STKaitiTC-Regular', serif;
 
+    --font-pinyin:
+        'Inter', 'Lexend', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial,
+        sans-serif;
+
+    --color-pinyin-accent: var(--color-cyan-500);
+
     --color-paper: var(--paper);
     --color-surface: var(--surface);
     --color-ink: var(--ink);

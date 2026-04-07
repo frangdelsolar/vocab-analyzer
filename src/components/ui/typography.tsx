@@ -26,12 +26,20 @@ export const Typography = ({ variant, children, className = '' }: Props) => {
         h4: `text-lg font-bold tracking-tight ${colorClasses}`,
         p: `leading-7 [&:not(:first-child)]:mt-4 ${colorClasses}`,
         small: `text-sm font-medium leading-none opacity-70 ${colorClasses}`,
+        // Hanzi (Traditional/Main) using Noto Sans TC stack via font-sans
         hanzi: `font-sans text-3xl leading-relaxed tracking-wide ${colorClasses}`,
-        // New Simplified variant using the Kaiti font defined in your @theme
+        // Simplified/Calligraphic using the Kaiti stack
         simplified: `font-kaiti text-3xl leading-relaxed tracking-wide ${colorClasses}`,
-        pinyin: `text-sm font-sans italic opacity-60 tracking-tight ${colorClasses}`,
+        /** * Pinyin Specific Styling:
+         * 1. font-pinyin: Uses the stack defined in your CSS (Inter/Lexend)
+         * 2. tracking-wider: Gives tone marks breathing room
+         * 3. leading-loose: Prevents accents from hitting the line above
+         * 4. lowercase: Standard for Pinyin unless it's a proper noun
+         */
+        pinyin: `font-pinyin text-sm lowercase opacity-60 tracking-wider leading-loose antialiased ${colorClasses}`,
     };
 
+    // Mapping variants to HTML elements
     const Component =
         variant === 'small' ||
         variant === 'hanzi' ||
