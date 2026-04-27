@@ -15,6 +15,7 @@ export default function HanziWriter({ targetPhrase }: Props) {
     const currentChar = charArray[charIndex];
 
     const handleCharSuccess = (score: number) => {
+        console.log('Score:', score, 'for', currentChar);
         if (score > 0.75 && charIndex < charArray.length - 1) {
             // Auto-advance al siguiente carácter tras un breve delay
             setTimeout(() => setCharIndex((prev) => prev + 1), 600);

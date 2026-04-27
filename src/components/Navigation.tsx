@@ -22,7 +22,7 @@ const navItems = [
     { name: 'Library', icon: Library, href: '/library' },
     { name: 'Vocabulary', icon: BookOpen, href: '/vocabulary' },
     { name: 'Study', icon: Notebook, href: '/study' },
-    { name: 'Writer', icon: PenTool, href: '/writer' },
+    // { name: 'Writer', icon: PenTool, href: '/writer' },
 ];
 
 export default function Sidebar() {

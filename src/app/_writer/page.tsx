@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 import { Shell } from '@/components/layout/Shell';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { useVocabulary } from '@/context/VocabularyContext';
-import HanziWriter from '@/app/writer/_components/HanziWriter';
+import HanziWriter from './_components/HanziWriter';
 import { Button, Typography } from '@/components/ui';
 import { Container, Stack, Row, Box } from '@/components/layout/Primitives';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -19,7 +19,8 @@ export default function WritingPage() {
         [filteredList],
     );
 
-    const currentWord = vocabularyWords[currentIndex];
+    // const currentWord = vocabularyWords[currentIndex];
+    const currentWord = '人';
     const progress = ((currentIndex + 1) / vocabularyWords.length) * 100;
 
     if (isLoading)
@@ -62,10 +63,6 @@ export default function WritingPage() {
                         </Typography>
                     </Stack>
 
-                    {/* HanziWriter ahora recibe la palabra completa (targetPhrase).
-                        La 'key' asegura que si pasamos de una palabra a otra, 
-                        todo el estado interno de escritura se limpie.
-                    */}
                     <HanziWriter key={currentWord} targetPhrase={currentWord} />
 
                     {/* Footer Controls */}

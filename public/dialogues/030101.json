@@ -5,12 +5,12 @@
     "title": "新學期",
     "video_url": "https://www.youtube.com/watch?v=mIogD6_IMdc&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=2",
     "vocabulary_video_url": "https://www.youtube.com/watch?v=TIc8ILBCiKQ&list=PLzhEEEIeppr9pl9LMgamDeX1W1yFgRWAk&index=3",
-    "participants": ["安德思", "羅珊蒂"],
+    "participants": ["安德思", "羅珊蒂", "何雅婷"],
     "content": [
         {
             "speaker": "安德思",
             "text": "羅珊蒂，下課啦！怎麼樣？你們班上有我們上個學期的同學嗎？",
-            "pinyin": "Luó Shāndì, xià kè la! Zěnmeyàng? Nǐmen bān shàng yǒu wǒmen shàng gè xuéqí de tóngxué ma?"
+            "pinyin": "Luó Shāndì, xiàkè la! Zěnmeyàng? Nǐmen bānshàng yǒu wǒmen shàng ge xuéqī de tóngxué ma?"
         },
         {
             "speaker": "羅珊蒂",
@@ -20,7 +20,7 @@
         {
             "speaker": "安德思",
             "text": "都是新生，我一個也不認識，而且只有我一個男的。",
-            "pinyin": "Dōu shì xīnshēng, wǒ yī gè yě bù rènshi, érqiě zhǐyǒu wǒ yī gè nán de."
+            "pinyin": "Dōu shì xīnshēng, wǒ yí ge yě bú rènshì, érqiě zhǐyǒu wǒ yí ge nán de."
         },
         {
             "speaker": "羅珊蒂",
@@ -30,17 +30,65 @@
         {
             "speaker": "安德思",
             "text": "老師很嚴。他說我們這學期除了每一課的口試、筆試以外，還要做兩次口頭報告。我覺得壓力好大。你們班呢？",
-            "pinyin": "Lǎoshī hěn yán. Tā shuō wǒmen zhè xuéqí chúle měi yī kè de kǒushì, bǐshì yǐwài, hái yào zuò liǎng cì kǒutóu bàogào. Wǒ juéde yālì hǎo dà. Nǐmen bān ne?"
+            "pinyin": "Lǎoshī hěn yán. Tā shuō wǒmen zhè xuéqī chúle měi yí kè de kǒushì, bǐshì yǐwài, hái yào zuò liǎng cì kǒutóu bàogào. Wǒ juéde yālì hǎo dà. Nǐmen bān ne?"
         },
         {
             "speaker": "羅珊蒂",
             "text": "老師的說明很清楚，同學也很熱情。我們今天就一起去吃中飯了。",
-            "pinyin": "Lǎoshī de shuōmíng hěn qīngchu, tóngxué yě hěn rèqíng. Wǒmen jīntiān jiù yīqǐ qù chī zhōngfàn le."
+            "pinyin": "Lǎoshī de shuōmíng hěn qīngchǔ, tóngxué yě hěn rèqíng. Wǒmen jīntiān jiù yìqǐ qù chī zhōngfàn le."
         },
         {
             "speaker": "安德思",
             "text": "聽起來不錯。還有位子嗎？有位子的話，我想去旁聽。",
-            "pinyin": "Tīng qǐlái bùcuò. Hái yǒu wèizi ma? Yǒu wèizi de huà, wǒ xiǎng qù pángtīng."
+            "pinyin": "Tīng qǐlái búcuò. Hái yǒu wèizi ma? Yǒu wèizi de huà, wǒ xiǎng qù pángtīng."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "你想換班啊？你不是打算在台灣上大學嗎？老師嚴才學得快，學得好啊。",
+            "pinyin": "Nǐ xiǎng huànbān a? Nǐ búshì dǎsuàn zài Táiwān shàng dàxué ma? Lǎoshī yán cái xué de kuài, xué de hǎo a."
+        },
+        {
+            "speaker": "安德思",
+            "text": "可是我是獎學金學生。要是成績不到 80 分，拿不到獎學金，就得回國了。",
+            "pinyin": "Kěshì wǒ shì jiǎngxuéjīn xuéshēng. Yàoshì chéngjī búdào bāshí fēn, ná búdào jiǎngxuéjīn, jiù děi huíguó le."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "我真羨慕你有獎學金。不像我休學來台灣，花的都是父母的錢，一定得用功念書才行。",
+            "pinyin": "Wǒ zhēn xiànmù nǐ yǒu jiǎngxuéjīn. Bú xiàng wǒ xiūxué lái Táiwān, huā de dōu shì fùmǔ de qián, yídìng děi yònggōng niànshū cái xíng."
+        },
+        {
+            "comment": "何雅婷走過來"
+        },
+        {
+            "speaker": "安德思",
+            "text": "何雅婷，聽說妳轉系了？",
+            "pinyin": "Hé Yǎtíng, tīngshuō nǐ zhuǎnxì le?"
+        },
+        {
+            "speaker": "何雅婷",
+            "text": "是啊，這個學期我轉到國際關係系去了。",
+            "pinyin": "Shì a, zhège xuéqī wǒ zhuǎndào guójì guānxì xì qù le."
+        },
+        {
+            "speaker": "安德思",
+            "text": "妳原來念的會計系不是很熱門嗎？怎麼不念了？",
+            "pinyin": "Nǐ yuánlái niàn de kuàijì xì búshì hěn rèmén ma? Zěnme bú niàn le?"
+        },
+        {
+            "speaker": "何雅婷",
+            "text": "我念不下去了。我每天熬夜念書，可是還是差一點被當。這樣下去，四年恐怕沒辦法畢業。",
+            "pinyin": "Wǒ niàn bú xiàqù le. Wǒ měitiān áoyè niànshū, kěshì háishì chà yì diǎn bèi dàng. Zhèyàng xiàqù, sì nián kǒngpà méi bànfǎ bìyè."
+        },
+        {
+            "speaker": "羅珊蒂",
+            "text": "念國際關係很適合妳。妳的英文那麼流利，口才又好，以後可以當外交人員。",
+            "pinyin": "Niàn guójì guānxì hěn shìhé nǐ. Nǐ de Yīngwén nàme liúlì, kǒucái yòu hǎo, yǐhòu kěyǐ dāng wàijiāo rényuán."
+        },
+        {
+            "speaker": "何雅婷",
+            "text": "謝謝妳這麼說。我真想多跟你們聊聊。可惜我得走了，我跟教授約好了討論選課的事，不能遲到。再見。",
+            "pinyin": "Xièxiè nǐ zhème shuō. Wǒ zhēn xiǎng duō gēn nǐmen liáoliáo. Kěxí wǒ děi zǒu le, wǒ gēn jiàoshòu yuē hǎo le tǎolùn xuǎnkè de shì, bùnéng chídào. Zàijiàn."
         }
     ]
 }

@@ -5,6 +5,7 @@ export interface DialogueContent {
     paragraph?: number; // Used in Readings
     text: string;
     pinyin?: string;
+    comment?: string;
 }
 
 export interface DialogueData {

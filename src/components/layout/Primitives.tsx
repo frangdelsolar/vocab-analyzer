@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 // Extend the standard Div attributes so we can pass 'style', 'onClick', etc.
 interface LayoutProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -8,10 +8,12 @@ interface LayoutProps extends React.HTMLAttributes<HTMLDivElement> {
     gap?: number;
 }
 
-export const Box = ({ children, className = '', ...props }: LayoutProps) => (
-    <div className={className} {...props}>
-        {children}
-    </div>
+export const Box = forwardRef<HTMLDivElement, LayoutProps>(
+    ({ children, className = '', ...props }, ref) => (
+        <div ref={ref} className={className} {...props}>
+            {children}
+        </div>
+    ),
 );
 
 export const Stack = ({

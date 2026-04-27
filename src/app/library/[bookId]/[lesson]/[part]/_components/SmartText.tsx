@@ -11,6 +11,7 @@ import { Typography } from '@/components/ui';
 export const SmartText = ({ text }: { text: string }) => {
     const { filteredMap, isLoading } = useVocabulary();
 
+    if (!text) return null;
     if (isLoading) return <>{text}</>;
 
     let rendered = [];
